@@ -1,0 +1,25 @@
+<body>
+  <main>
+    <p>WE ARE THE FABULOUS FOUR</p>
+    <p>Sometimes Happy</p>
+    <p>Sometimes CRANKY</p>
+    <p>Delia is currently Cranky</p>
+
+    <h1>Login or Home Page? I dunno wtf I'm doing</h1>
+    <!-- if user -->
+    <div *ngIf="auth.user$ | async as user; else login">
+      <!-- routeroutlet -->
+      <pre>
+        {{ user | json }}
+      </pre>
+      <hr />
+      <button class="button" (click)="auth.signOut()">Sign Out</button>
+    </div>
+    <!-- if no user -->
+    <ng-template #login>
+      <button class="button" (click)="auth.googleSignin()">
+        Login with Google
+      </button>
+    </ng-template>
+  </main>
+</body>
