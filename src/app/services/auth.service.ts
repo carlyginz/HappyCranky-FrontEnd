@@ -55,8 +55,3 @@ export class AuthService {
   }
 
 }
-
-// and  in googleSignin to: 
-// const provider = new firebase.auth.GoogleAuthProvider();
-// The googleSignin() and signOut() methods both now have errors. you can simply type  await this.afAuth.signInWithPopup(provider); without the .auth. 
-// This is handled differently in Angularfire now. Likewise for signOut() it can be shortened to await this.afAuth.signOut();
