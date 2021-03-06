@@ -1,6 +1,6 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -9,6 +9,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FeelingtodayComponent } from './feelingtoday/feelingtoday.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 const config = {
   apiKey: "AIzaSyB70_QuTshwii3W5Yb-YpBEahVSaCLG2Uo",
@@ -23,7 +24,8 @@ const config = {
 @NgModule({
   declarations: [
     AppComponent,
-    FeelingtodayComponent
+    FeelingtodayComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,

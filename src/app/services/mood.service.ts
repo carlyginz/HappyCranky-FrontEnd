@@ -1,19 +1,23 @@
+import { AuthService } from './auth.service';
 import { Entry } from './entry.model';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class MoodService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private auth: AuthService) { }
 
   // We will never get allllll the entries from every user?
   // getAllEntries(): Observable<Entry[]> {
   //   return this.http.get<Entry[]>('https://happy-cranky.herokuapp.com/entries')
   // }
+
   // getUserEntries(): Observable<Entry[]> {
   // }
 
@@ -27,11 +31,5 @@ export class MoodService {
     return this.http.post<Entry[]>('https://happy-cranky.herokuapp.com/entries', entryItem)
   }
 
-
-
-
-  //do all the http.get from Heroku in here
-
-  //reference app.component.ts for help
 
 }
