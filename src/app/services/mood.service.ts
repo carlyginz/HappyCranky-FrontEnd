@@ -14,6 +14,8 @@ export class MoodService {
   // getAllEntries(): Observable<Entry[]> {
   //   return this.http.get<Entry[]>('https://happy-cranky.herokuapp.com/entries')
   // }
+  // getUserEntries(): Observable<Entry[]> {
+  // }
 
   //Need the endpoint for deleting specific item
   // deleteEntry(entryId: number, userId: string): Observable<Entry[]> {
@@ -25,9 +27,7 @@ export class MoodService {
     return this.http.post<Entry[]>('https://happy-cranky.herokuapp.com/entries', entryItem)
   }
 
-  // getUserEntries(): Observable<Entry[]> {
 
-  // }
 
 
   //do all the http.get from Heroku in here

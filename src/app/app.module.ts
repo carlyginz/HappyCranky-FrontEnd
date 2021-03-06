@@ -8,6 +8,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { FeelingtodayComponent } from './feelingtoday/feelingtoday.component';
 
 const config = {
   apiKey: "AIzaSyB70_QuTshwii3W5Yb-YpBEahVSaCLG2Uo",
@@ -21,7 +22,8 @@ const config = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FeelingtodayComponent
   ],
   imports: [
     BrowserModule,
