@@ -8,9 +8,15 @@
       <div class="greeting">
         <div>Hi {{ user.displayName }}!</div>
       </div>
-      <div class="feeling">
-        <div>How are you feeling today?</div>
-      </div>
+
+      <ul>
+        <li>
+          <a routerLink="/feelingtoday" routerLinkActive="active">New Entry</a>
+        </li>
+      </ul>
+      <router-outlet></router-outlet>
+
+      <!-- <app-feelingtoday></app-feelingtoday> -->
       <!-- next few lines may be cut out later -->
       <pre>
         {{ user | json }}

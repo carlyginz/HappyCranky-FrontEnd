@@ -23,8 +23,7 @@ button:hover {
   transition: 0.5s;
 }
 
-.greeting,
-.feeling {
+.greeting {
   display: flex;
   justify-content: center;
 }

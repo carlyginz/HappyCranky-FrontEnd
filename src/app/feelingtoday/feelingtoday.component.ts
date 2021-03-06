@@ -9,13 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeelingtodayComponent implements OnInit {
 
-  constructor(private auth: AuthService, moodService: MoodService) { }
+  // constructor(private auth: AuthService, moodService: MoodService) { }
 
   ngOnInit(): void {
-    this.auth.user$.subscribe(user => {
-      console.log("wtf");
-      id: user.uid;
-    })
+    // console.log("OKAY")
+    // this.auth.user$.subscribe(user => {
+    //   console.log("wtf");
+    //   id: user.uid;
+    // })
 
   }
 
