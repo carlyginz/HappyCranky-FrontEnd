@@ -1,22 +1,12 @@
 body {
-  background: #800080; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #ffc0cb,
-    #800080
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #ffc0cb,
-    #800080
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-color: white;
   height: 100vh;
 }
 
 main {
   display: flex;
   flex-direction: column;
-  color: rgb(61, 53, 112);
+  color: black;
   font-size: x-large;
   font-weight: 900;
   align-items: center;
@@ -31,4 +21,10 @@ button {
 button:hover {
   background-color: rgb(243, 211, 243);
   transition: 0.5s;
+}
+
+.greeting,
+.feeling {
+  display: flex;
+  justify-content: center;
 }

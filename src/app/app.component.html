@@ -1,14 +1,18 @@
 <body>
   <main>
-    <p>WE ARE THE FABULOUS FOUR</p>
-    <p>Sometimes Happy</p>
-    <p>Sometimes CRANKY</p>
-    <p>Delia is currently Cranky</p>
-
-    <h1>Login or Home Page? I dunno wtf I'm doing</h1>
+    <h1>Happy App</h1>
     <!-- if user -->
     <div *ngIf="auth.user$ | async as user; else login">
       <!-- routeroutlet -->
+      <router-outlet></router-outlet>
+      <div class="greeting">
+        <div>Hi {{ user.displayName }}!</div>
+      </div>
+      <div class="feeling">
+        <div>How are you feeling today?</div>
+      </div>
+
+      <!-- next five lines may be cut out later -->
       <pre>
         {{ user | json }}
       </pre>
