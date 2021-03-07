@@ -1,23 +1,18 @@
 <body>
   <main>
     <h1>Happy App</h1>
-    <!-- if user -->
-    <div *ngIf="auth.user$ | async as user; else login">
-      <!-- WHERE DOES THE ROUTER OUTLET GO? -->
+    <!-- if user auth.user$ -->
+    <div *ngIf="checkLoginStatus() | async as user; else login">
       <div class="greeting">
-        <div>Hi {{ user.displayName }}!</div>
+        <!-- <div>Hi {{ user.displayName }}!</div> -->
       </div>
-      <div class="links">
-        <a routerLink="/feelingtoday" routerLinkActive="active">New Entry</a>
-      </div>
-      <router-outlet></router-outlet>
-
+      <!--  <app-feelingtoday> -->
       <!-- next few lines may be cut out later -->
-      <pre>
+      <!-- <pre>
           {{ user | json }}
         </pre
       >
-      <hr />
+      <hr /> -->
       <button class="button" (click)="auth.signOut()">Sign Out</button>
     </div>
     <!-- if no user -->

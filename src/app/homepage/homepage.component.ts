@@ -1,6 +1,7 @@
-import { RouterModule } from '@angular/router';
 import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
+import { userInfo } from 'node:os';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
@@ -9,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor(public auth: AuthService) { }
+  constructor(public auth: AuthService, public router: Router) { }
 
   id: string = "";
   ngOnInit(): void {
@@ -19,8 +20,14 @@ export class HomepageComponent implements OnInit {
       this.id = user.uid;
       console.log(this.id) //YES
     })
+  }
 
-
+  checkLoginStatus() {
+    if (this.id) {
+      this.router.navigate(["/feelingtoday"]);
+      return true;
+    }
+    return false;
   }
 
 }

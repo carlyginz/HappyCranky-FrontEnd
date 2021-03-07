@@ -10,9 +10,6 @@ import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { User } from './user.model';
 
-
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -38,6 +35,7 @@ export class AuthService {
   async googleSignin() {
     const provider = new firebase.auth.GoogleAuthProvider();
     const credential = await this.afAuth.signInWithPopup(provider);
+    this.router.navigate(["/feelingtoday"]);
     return this.updateUserData(credential.user);
   }
 

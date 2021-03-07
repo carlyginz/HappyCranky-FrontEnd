@@ -1,5 +1,3 @@
-import { RouterModule } from '@angular/router';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MoodService } from './../services/mood.service';
 import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
@@ -11,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeelingtodayComponent implements OnInit {
 
-  constructor(private auth: AuthService, moodService: MoodService) { }
+  constructor(public auth: AuthService, moodService: MoodService) { }
 
   ngOnInit(): void {
     // console.log("OKAY")
