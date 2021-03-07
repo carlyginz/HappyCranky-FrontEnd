@@ -1,3 +1,4 @@
+import { MoodService } from './../services/mood.service';
 import { User } from './../services/user.model';
 import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
@@ -10,16 +11,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor(public auth: AuthService) { }
+  constructor(public auth: AuthService, private moodService: MoodService) { }
   //, public router: Router
 
   id: string = "";
   ngOnInit(): void {
-    console.log("OKAY"); //yes
     this.auth.user$.subscribe(user => {
-      console.log("wtf"); //yes
       this.id = user.uid;
-      console.log(this.id) //YES
+    })
+    this.getUserEntries();
+  }
+
+  getUserEntries() {
+    this.moodService.getUserEntries().subscribe(result => {
+      console.log(result);
     })
   }
 

@@ -18,8 +18,11 @@ export class MoodService {
   //   return this.http.get<Entry[]>('https://happy-cranky.herokuapp.com/entries')
   // }
 
-  // getUserEntries(userId: string): Observable<Entry[]> {
-  // }
+  getUserEntries(userId?: string): Observable<Entry[]> {
+    return this.http.get<Entry[]>('https://happy-cranky.herokuapp.com/entries', {
+      params: { user_id: "user4" }
+    })
+  }
 
   //Need the endpoint for deleting specific item
   // deleteEntry(userId: string, entryId: number, userId: string): Observable<Entry[]> {
@@ -32,7 +35,7 @@ export class MoodService {
   // }
 
 
-  // getAllActivities(userId: string): Observable<> {
+  // getUserActivities(userId: string): Observable<> {
   //   return this.http.get<>('https://happy-cranky.herokuapp.com/activities')
   // }
 }
