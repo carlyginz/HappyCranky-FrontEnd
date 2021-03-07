@@ -2,18 +2,19 @@
   <main>
     <h1>Happy App</h1>
     <!-- if user auth.user$ -->
-    <div *ngIf="checkLoginStatus() | async as user; else login">
+    <!-- <div *ngIf="checkLoginStatus() | async as user; else login"> -->
+    <div *ngIf="auth.user$ | async as user; else login">
       <div class="greeting">
-        <!-- <div>Hi {{ user.displayName }}!</div> -->
+        <div>Hi {{ user.displayName }}!</div>
       </div>
-      <!--  <app-feelingtoday> -->
       <!-- next few lines may be cut out later -->
-      <!-- <pre>
-          {{ user | json }}
+      <pre>
+        {{ user | json }}
         </pre
       >
-      <hr /> -->
+      <hr />
       <button class="button" (click)="auth.signOut()">Sign Out</button>
+      <app-feelingtoday></app-feelingtoday>
     </div>
     <!-- if no user -->
     <ng-template #login>

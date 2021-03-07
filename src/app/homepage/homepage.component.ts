@@ -1,7 +1,7 @@
+import { User } from './../services/user.model';
 import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { userInfo } from 'node:os';
-import { Router } from '@angular/router';
+// import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
@@ -10,7 +10,8 @@ import { Router } from '@angular/router';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor(public auth: AuthService, public router: Router) { }
+  constructor(public auth: AuthService) { }
+  //, public router: Router
 
   id: string = "";
   ngOnInit(): void {
@@ -22,12 +23,12 @@ export class HomepageComponent implements OnInit {
     })
   }
 
-  checkLoginStatus() {
-    if (this.id) {
-      this.router.navigate(["/feelingtoday"]);
-      return true;
-    }
-    return false;
-  }
+  // checkLoginStatus() {
+  //   if (this.id) {
+  //     this.router.navigate(["/feelingtoday"]);
+  //     return true;
+  //   }
+  //   return false;
+  // }
 
 }
