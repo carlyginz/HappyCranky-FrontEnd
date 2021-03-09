@@ -16,7 +16,7 @@ export class PastentriesComponent implements OnInit {
 
 
   id: string = "";
-  userEntries = [];
+  userEntries: Entry[];
 
   ngOnInit(): void {
     let mood: any = "";
@@ -33,13 +33,15 @@ export class PastentriesComponent implements OnInit {
     })
   }
 
+  //how to pass info to this page?
   goToEntryPage() {
     this.router.navigate(['/entrypage']);
   }
 
+
   deleteEntry(index) {
     console.log(index);
-    // this.moodService.Needauserentriesarray.splice(index, 1);
+    // this.moodService.entries.splice(index, 1);
     //refresh page
   }
 
