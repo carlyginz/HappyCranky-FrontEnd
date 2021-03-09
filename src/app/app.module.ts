@@ -10,6 +10,9 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { EntryPageComponent } from './entrypage/entrypage.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { PastentriesComponent } from './pastentries/pastentries.component';
+import { StatsComponent } from './stats/stats.component';
 
 const config = {
   apiKey: "AIzaSyB70_QuTshwii3W5Yb-YpBEahVSaCLG2Uo",
@@ -25,7 +28,10 @@ const config = {
   declarations: [
     AppComponent,
     EntryPageComponent,
-    HomepageComponent
+    HomepageComponent,
+    DashboardComponent,
+    PastentriesComponent,
+    StatsComponent
   ],
   imports: [
     BrowserModule,
