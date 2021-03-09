@@ -1,11 +1,11 @@
 import { HomepageComponent } from './homepage/homepage.component';
-import { FeelingtodayComponent } from './feelingtoday/feelingtoday.component';
+import { EntryPageComponent } from './entrypage/entrypage.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: "/homepage", pathMatch: "full" },
-  { path: 'feelingtoday', component: FeelingtodayComponent },
+  { path: 'entrypage', component: EntryPageComponent },
   { path: 'homepage', component: HomepageComponent },
   { path: '**', component: HomepageComponent }
 ];

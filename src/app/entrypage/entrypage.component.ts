@@ -1,13 +1,13 @@
-import { MoodService } from './../services/mood.service';
-import { AuthService } from './../services/auth.service';
+import { MoodService } from '../services/mood.service';
+import { AuthService } from '../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-feelingtoday',
-  templateUrl: './feelingtoday.component.html',
-  styleUrls: ['./feelingtoday.component.css']
+  selector: 'app-entrypage',
+  templateUrl: './entrypage.component.html',
+  styleUrls: ['./entrypage.component.css']
 })
-export class FeelingtodayComponent implements OnInit {
+export class EntryPageComponent implements OnInit {
 
   constructor(public auth: AuthService, moodService: MoodService) { }
 

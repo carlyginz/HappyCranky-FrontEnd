@@ -30,6 +30,8 @@ export class HomepageComponent implements OnInit {
     const journalentry = "";
     const userID = this.id;
     this.moodService.getUserEntries(mood, entrydate, entrytime, journalentry, userID).subscribe(result => {
+      console.log("WHAT");
+      console.log(this.id);
       console.log(result);
     })
   }

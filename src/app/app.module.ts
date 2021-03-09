@@ -8,7 +8,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { FeelingtodayComponent } from './feelingtoday/feelingtoday.component';
+import { EntryPageComponent } from './entrypage/entrypage.component';
 import { HomepageComponent } from './homepage/homepage.component';
 
 const config = {
@@ -24,7 +24,7 @@ const config = {
 @NgModule({
   declarations: [
     AppComponent,
-    FeelingtodayComponent,
+    EntryPageComponent,
     HomepageComponent
   ],
   imports: [
