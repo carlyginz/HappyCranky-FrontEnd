@@ -16,7 +16,7 @@ export class PastentriesComponent implements OnInit {
 
 
   id: string = "";
-  public userEntries: Entry[] = [];
+  public userEntries = [];
 
   ngOnInit(): void {
     this.displayEntries();
@@ -43,7 +43,7 @@ export class PastentriesComponent implements OnInit {
   }
 
 
-  deleteEntry(item, index) {
+  deleteEntry(item) {
     this.moodService.deleteEntry(item.id).subscribe((entries: Entry[]) => {
       this.userEntries = entries;
       this.displayEntries();
