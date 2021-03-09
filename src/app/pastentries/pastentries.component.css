@@ -1,0 +1,47 @@
+body {
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+}
+
+.plus {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  border: none;
+  background-color: white;
+}
+
+.fa-plus {
+  color: white;
+  background-color: rgb(69, 71, 71);
+  border-radius: 100px;
+  padding: 15px;
+}
+
+.fa-plus:hover {
+  background-color: lightslategray;
+}
+
+.entryList {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: baseline;
+  padding-bottom: 10px;
+  font-size: 25px;
+}
+
+.fa-edit {
+  color: black;
+  background-color: white;
+}
+
+.fa-edit:hover,
+.fa-trash-alt:hover {
+  color: lightslategray;
+}

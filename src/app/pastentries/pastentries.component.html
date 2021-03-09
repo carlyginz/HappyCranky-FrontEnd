@@ -1,1 +1,30 @@
 <p>pastentries works!</p>
+<body>
+  <h1>Happy App</h1>
+  <div class="plus">
+    <button (click)="goToEntryPage()">
+      <i class="fas fa-plus fa-3x"></i>
+    </button>
+  </div>
+  <br />
+  <br />
+  <hr />
+  <br />
+  <div class="entryList" *ngFor="let item of userEntries; let i = index">
+    <!-- How do I pass info to the edit entry page? for now it's goToEntryPage -->
+    <button (click)="goToEntryPage()"><i class="far fa-edit fa-2x"></i></button>
+    <div class="dateAndTime">
+      {{ item.entrydate }}
+      {{ item.entrytime }}
+    </div>
+    <!-- *ngIf item.mood === 4 || item.mood === 5 display happy
+    *ngIf item.mood === 3 || display meh
+    *ngIf item.mood === 1 || item.mood === 2 display sad -->
+    <div class="moody">
+      {{ item.mood }}
+    </div>
+    <button class="delete" (click)="deleteEntry(i)">
+      <i class="far fa-trash-alt fa-2x"></i>
+    </button>
+  </div>
+</body>
