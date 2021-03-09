@@ -16,9 +16,13 @@ export class PastentriesComponent implements OnInit {
 
 
   id: string = "";
-  userEntries = [];
+  public userEntries: Entry[] = [];
 
   ngOnInit(): void {
+    this.displayEntries();
+  }
+
+  displayEntries() {
     let mood: any = "";
     let entrydate: string = "";
     let entrytime: string = "";
@@ -39,10 +43,11 @@ export class PastentriesComponent implements OnInit {
   }
 
 
-  deleteEntry(index) {
-    console.log(index);
-    // this.moodService.entries.splice(index, 1);
-    //refresh page
+  deleteEntry(item, index) {
+    this.moodService.deleteEntry(item.id).subscribe((entries: Entry[]) => {
+      this.userEntries = entries;
+      this.displayEntries();
+    })
   }
 
 }
