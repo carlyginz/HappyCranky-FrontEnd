@@ -1,5 +1,5 @@
 import { MoodService } from './../services/mood.service';
-import { User } from './../services/user.model';
+import { User } from '../models/user.model';
 import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 // import { Router } from '@angular/router';
@@ -18,12 +18,18 @@ export class HomepageComponent implements OnInit {
   ngOnInit(): void {
     this.auth.user$.subscribe(user => {
       this.id = user.uid;
+      // console.log(this.id); YES
+      this.getUserEntries();
     })
-    this.getUserEntries();
   }
 
   getUserEntries() {
-    this.moodService.getUserEntries().subscribe(result => {
+    const mood = "";
+    const entrydate = "";
+    const entrytime = "";
+    const journalentry = "";
+    const userID = this.id;
+    this.moodService.getUserEntries(mood, entrydate, entrytime, journalentry, userID).subscribe(result => {
       console.log(result);
     })
   }

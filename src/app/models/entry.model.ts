@@ -1,5 +1,5 @@
 export interface Entry {
-    mood: number;
+    moodVar: number;
     entryDate: string;
     entryTime: string;
     journalEntry: string;
