@@ -16,7 +16,7 @@ export class PastentriesComponent implements OnInit {
 
 
   id: string = "";
-  userEntries: Entry[];
+  userEntries = [];
 
   ngOnInit(): void {
     let mood: any = "";

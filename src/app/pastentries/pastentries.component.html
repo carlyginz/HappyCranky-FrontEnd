@@ -1,4 +1,3 @@
-<p>pastentries works!</p>
 <body>
   <h1>Happy App</h1>
   <div class="plus">
@@ -17,11 +16,22 @@
       {{ item.entrydate }}
       {{ item.entrytime }}
     </div>
-    <!-- *ngIf item.mood === 4 || item.mood === 5 display happy
-    *ngIf item.mood === 3 || display meh
-    *ngIf item.mood === 1 || item.mood === 2 display sad -->
-    <div class="moody">
-      {{ item.mood }}
+    <div class="faces">
+      <div *ngIf="item.mood === 1">
+        <i class="far fa-sad-tear"></i>
+      </div>
+      <div *ngIf="item.mood === 2">
+        <i class="far fa-frown"></i>
+      </div>
+      <div *ngIf="item.mood === 3">
+        <i class="far fa-meh"></i>
+      </div>
+      <div *ngIf="item.mood === 4">
+        <i class="far fa-smile"></i>
+      </div>
+      <div *ngIf="item.mood === 5">
+        <i class="far fa-laugh-beam"></i>
+      </div>
     </div>
     <button class="delete" (click)="deleteEntry(i)">
       <i class="far fa-trash-alt fa-2x"></i>
