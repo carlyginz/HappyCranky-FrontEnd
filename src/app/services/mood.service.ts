@@ -26,6 +26,15 @@ export class MoodService {
     return this.http.delete<Entry[]>(this.apiURL + `/${itemId}`);
   }
 
+  getAllEntryActivitiesPerEntryId(entryId: string): Observable<any> {
+    return this.http.get<any[]>(`https://happy-cranky.herokuapp.com/entryactivities`, {
+      params: { entry_id: entryId }
+    })
+  }
+
+  deleteEntryFromEA(eaId: number): Observable<Entry[]> {
+    return this.http.delete<Entry[]>(`https://happy-cranky.herokuapp.com/entryactivities/${eaId}`);
+  }
 
   //Need the endpoint for adding 
   // addEntry(userId: string, entryItem: Entry): Observable<Entry[]> {

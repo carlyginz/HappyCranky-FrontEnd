@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Entry } from '../models/entry.model';
 
-
 @Component({
   selector: 'app-pastentries',
   templateUrl: './pastentries.component.html',
@@ -47,6 +46,15 @@ export class PastentriesComponent implements OnInit {
     this.moodService.deleteEntry(item.id).subscribe((entries: Entry[]) => {
       this.userEntries = entries;
       this.displayEntries();
+    })
+    // if the ea table entry_id is equal to entries item.id, then get the ea table id and delete from ea table
+    this.moodService.getAllEntryActivitiesPerEntryId(item.id).subscribe(newList => {
+      newList.forEach(element => {
+        let newId = element.id;
+        this.moodService.deleteEntryFromEA(newId).subscribe(() => {
+          console.log(`I'm deleting EA Table id = ${newId}`);
+        })
+      });
     })
   }
 
