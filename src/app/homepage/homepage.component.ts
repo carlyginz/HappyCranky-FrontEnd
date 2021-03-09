@@ -36,6 +36,12 @@ export class HomepageComponent implements OnInit {
     })
   }
 
+  // sampleMethod(){
+  //   this.auth.user$.subscribe(user => {
+  //     this.id = user.uid;
+  //     this.moodService.domorestuffher(ksdjfkdajfkdjljdfk).subscribe(result => {more shit})
+  // }
+
   // checkLoginStatus() {
   //   if (this.id) {
   //     this.router.navigate(["/feelingtoday"]);
