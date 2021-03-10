@@ -1,7 +1,7 @@
 export interface Entry {
-    moodVar: number;
-    entryDate: string;
-    entryTime: string;
-    journalEntry: string;
-    userId: string;
+    mood: number;
+    entrydate: string;
+    entrytime: string;
+    journalentry?: string;
+    user_id: string;
 }
