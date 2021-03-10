@@ -13,3 +13,12 @@ export class DashboardComponent implements OnInit {
   }
 
 }
+
+// id: string = "";
+//   ngOnInit(): void {
+//     this.auth.user$.subscribe(user => {
+//       this.id = user.uid;
+//       // console.log(this.id); YES
+//       this.getUserEntries();
+//     })
+//   }
