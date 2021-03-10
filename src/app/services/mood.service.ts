@@ -32,8 +32,7 @@ export class MoodService {
 
  
 getUserStats(moodVar?: string, userId?: string):  Observable<Entry[]> {
-  console.log ()
-
+  
   return this.http.get<Entry[]> (this.apiURL, {
     params: {  mood: moodVar, user_id: userId }
   });

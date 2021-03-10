@@ -14,7 +14,7 @@ import { Entry } from '../models/entry.model';
 export class StatsComponent implements OnInit {
   
   entries: Entry[] = [];
-  UserId: string = "";
+  userId: string = "";
   mood = 0;
 
  
@@ -37,7 +37,7 @@ getEntryPage() {
 }
 
 displayStats() {
-  this.moodService.getUserEntries(this.mood.toString(), this.UserId).subscribe(result => {
+  this.moodService.getUserEntries(this.mood.toString(), this.userId).subscribe(result => {
     console.log(result);
   })
 }
