@@ -1,1 +1,40 @@
-<p>dashboard works!</p>
+<div class="dash-container">
+  <div class="header">
+    <h1>DASHBOARD</h1>
+  </div>
+
+  <div class="centerPage">
+    <a class="entryPage" routerLink="/entrypage"><i class="fas fa-plus fa-3x"></i></a>
+    
+    <!-- <button id="plusButton" (click)="goToEntryPage()">
+      <i class="fas fa-plus fa-3x"></i>
+    </button> -->
+    <p></p>
+    <h2>Average Daily Mood</h2>
+    <p></p>
+    <div class="avgDailyMood"></div>
+  </div>
+  <p></p>
+
+  <div class="footer">
+    <div>Home</div>
+    <a class="pastEntries" routerLink="/pastentries">Past Entries</a>
+    <a class="stats" routerLink="/stats">Stats</a>
+  </div>
+
+  <!-- <body>
+  <main>
+    <ng-template #login>
+      <button class="button" (click)="auth.googleSignin()">
+        Login with Google
+      </button>
+    </ng-template>
+
+    <div class="links">
+      <a routerLink="/entrypage">Add Entry</a>
+      <a routerLink="/stats">Stats</a>------
+      <a routerLink="/pastentries">Past Entries</a>------
+    </div>
+  </main>
+</body> -->
+</div>
