@@ -25,16 +25,10 @@ export class StatsComponent implements OnInit {
     
 
   ngOnInit(): void {
-    // this.moodService.getUserStats().subscribe((entries: Entry[]) => {
-    //   this.entries = entries;
-    // });
-    this.moodService.getActivities().subscribe(result => {
-      console.log(result);
-      result.forEach((activity: Activity) => {
-        this.MoodService.activityArray.push(activity);
-      });
-      console.log(this.MoodService.activityArray);
-    })
+    this.moodService.getUserStats().subscribe((entries: Entry[]) => {
+      this.entries = entries;
+    });
+    
   }
 
 
@@ -43,9 +37,9 @@ getEntryPage() {
   this.router.navigate(['/entrypage']);
 }
 
-displayStats() {
-  this.moodService.getUserEntries(this.mood.toString(), this.userId).subscribe(result => {
-    console.log(result);
-  })
-}
+// displayStats() {
+//   this.moodService.getUserEntries(this.mood.toString(), this.userId).subscribe(result => {
+//     console.log(result);
+//   })
+// }
 }
