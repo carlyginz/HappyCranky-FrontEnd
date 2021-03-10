@@ -1,9 +1,9 @@
 import { AuthService } from './auth.service';
 import { Entry } from '../models/entry.model';
-import { Observable } from 'rxjs';
+import { Observable, of,  } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-
 import { Injectable } from '@angular/core';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,8 @@ import { Injectable } from '@angular/core';
 export class MoodService {
 
   constructor(private http: HttpClient, private auth: AuthService) { }
+
+ 
 
   apiURL: string = `https://happy-cranky.herokuapp.com/entries`;
 
@@ -27,6 +29,39 @@ export class MoodService {
       params: { mood: moodVar, entrydate: entryDate, entrytime: entryTime, journalentry: journalEntry, user_id: userId }
     })
   }
+
+ 
+getUserStats(moodVar?: string, userId?: string):  Observable<Entry[]> {
+  console.log ()
+
+  return this.http.get<Entry[]> (this.apiURL, {
+    params: {  mood: moodVar, user_id: userId }
+  });
+}
+
+
+}
+
+
+
+// getStats(queryParams: any): Observable<any> {
+//   let parameters: any = {
+//     api_Url: this.apiURL,
+//   };
+//   if (queryParams.moodVar) {
+//     parameters.moodVar = queryParams.moodVar;
+//   }
+//   if (queryParams.userID) {
+//     parameters.userID = queryParams.userID;
+//   }
+ 
+//   return this.http.get (this.apiURL, {
+//         params: parameters,
+//       });
+//       console.log (parameters)
+// }
+
+
 
   // entryDate: string, entryTime: string, journalEntry: string, 
   // mood: mood, entrydate: entryDate, entrytime: entryTime, journalentry: journalEntry,
@@ -45,4 +80,4 @@ export class MoodService {
   // getUserActivities(userId: string): Observable<> {
   //   return this.http.get<>('https://happy-cranky.herokuapp.com/activities')
   // }
-}
+
