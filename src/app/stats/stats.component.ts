@@ -35,5 +35,9 @@ getEntryPage() {
   this.router.navigate(['/entrypage']);
 }
 
-
+displayStats() {
+  this.moodService.getUserEntries(this.mood.toString(), this.UserId).subscribe(result => {
+    console.log(result);
+  })
+}
 }
