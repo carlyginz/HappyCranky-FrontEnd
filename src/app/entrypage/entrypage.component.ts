@@ -3,6 +3,7 @@ import { AuthService } from '../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Entry } from '../models/entry.model';
 import { Activity } from '../models/activity';
+import { EntryActivity } from '../models/entryactivity';
 
 @Component({
   selector: 'app-entrypage',
@@ -13,35 +14,35 @@ export class EntryPageComponent implements OnInit {
 
   constructor(public auth: AuthService, private MoodService: MoodService) { }
 
+  mood: number = 0;
+  entrydate: string = "";
+  entrytime: string = "";
+  journalentry: string = "";
   UserId: string = "";
-  mood = 0;
-  journalentry = "";
-  entrydate = "";
-  entrytime = "";
+  newEntryId: number = 0;
 
   get activityArray(): Activity[] {
     return this.MoodService.activityArray;
   }
 
-  entryActivities: number = 0;
+  activityArrayForEntry;
+  activityList = [];
 
   ngOnInit(): void {
 
-    this.auth.user$.subscribe(user => {
-      this.UserId = user.uid;
-      this.displayClickedEntry();
-    });
+    this.getCurrentDate();
+    this.getCurrentTime();
 
     this.MoodService.getActivities().subscribe(result => {
-      console.log(result);
       result.forEach((activity: Activity) => {
         this.MoodService.activityArray.push(activity);
       });
-      console.log(this.MoodService.activityArray);
     })
 
-    this.getCurrentDate();
-    this.getCurrentTime();
+    this.auth.user$.subscribe(user => {
+      this.UserId = user.uid;
+    });
+
   }
 
   getCurrentDate() {
@@ -52,20 +53,22 @@ export class EntryPageComponent implements OnInit {
   
     this.entrydate = currentDate.toString();
     this.entrydate = mm + '/' + dd + '/' + yyyy;
+  }
 
-    console.log(this.entrydate);
+  getCurrentTime() {
+    let currentTime = new Date().toLocaleTimeString();
+    this.entrytime = currentTime.toString();
+  }
+
+  toggleActivityList(id, event) {
+    const checked = event.target.checked;
+    
+    if (checked) {
+      this.activityList.push({ activity_id: id });
+      } else {
+      const index = this.activityList.findIndex(list => list.activity_id == id);
+      this.activityList.splice(index, 1);
     }
-
-    getCurrentTime() {
-      let currentTime = new Date().toLocaleTimeString();
-      this.entrytime = currentTime.toString();
-      console.log(this.entrytime);
-    }
-
-  displayClickedEntry() {
-    this.MoodService.getUserEntries(this.mood.toString(), this.entrydate, this.entrytime, this.journalentry, this.UserId).subscribe(result => {
-      console.log(result);
-    })
   }
 
   addNewEntry() {
@@ -77,7 +80,23 @@ export class EntryPageComponent implements OnInit {
         journalentry: this.journalentry,
         user_id: this.UserId
       }
-      this.MoodService.addNewEntry(newEntry).subscribe();
+
+      this.MoodService.addNewEntry(newEntry).subscribe(result => {
+        this.MoodService.getEntriesOnlyByUserId(this.UserId).subscribe(result => {
+          let newEntryIndex = result.length - 1;
+          this.newEntryId = result[newEntryIndex].id;
+
+          this.activityList.forEach(activity => {
+            let newEntryActivity: EntryActivity = {
+              entry_id: this.newEntryId,
+              activity_id: activity.activity_id
+            }
+            this.MoodService.addEntryActivities(newEntryActivity).subscribe(result => {
+              console.log(result);
+            });    
+          });
+        })
+      });      
     });
   }
 }

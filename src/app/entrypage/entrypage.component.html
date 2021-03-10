@@ -11,12 +11,12 @@
     </select>
     <h4>What did you do today?</h4>
 
-    <!-- <fieldset id="activity" name="activity" ngDefaultControl [(ngModel)]="entryActivities">
+    <fieldset id="activity" name="activity" ngDefaultControl [(ngModel)]="activityArrayForEntry">
         <label for="{{ activity.id }}" (ngValue)="activity" *ngFor="let activity of activityArray; let i = index">
-        <input id="{{ activity.id }}" name="{{ activity.id }}" type="checkbox" [ngValue]="activity.id" />
+        <input (change)="toggleActivityList(activity.id, $event)" id="{{ activity.id }}" name="{{ activity.id }}" type="checkbox" [ngValue]="activity.id" />
             {{ activity.name }}
         </label>
-    </fieldset>  -->
+    </fieldset> 
     <textarea id="journal" name="journal" [(ngModel)]="journalentry">
 
     </textarea>

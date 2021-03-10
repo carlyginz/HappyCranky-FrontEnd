@@ -13,21 +13,31 @@ import { Entry } from '../models/entry.model';
 
 export class MoodService {
 
-  activityArray: Activity[] = []
+  activityArray: Activity[] = [];
 
   constructor(private http: HttpClient, private auth: AuthService) { }
 
   apiURL: string = `https://happy-cranky.herokuapp.com/entries`;
 
   //get entries by any parameter
-  getUserEntries(moodVar?: string, entryDate?: string, entryTime?: string, journalEntry?: string, userId?: string): Observable<Entry[]> {
+  getUserEntries(moodVar: string, entryDate: string, entryTime: string, journalEntry: string, userId?: string): Observable<Entry[]> {
     return this.http.get<Entry[]>(this.apiURL, {
       params: { mood: moodVar, entrydate: entryDate, entrytime: entryTime, journalentry: journalEntry, user_id: userId }
     })
   }
 
+  getEntriesOnlyByUserId(userId?: string): Observable<any[]> {
+    return this.http.get<any[]>(this.apiURL, {
+      params: { user_id: userId }
+    })
+  }
+
   deleteEntry(itemId: number): Observable<Entry[]> {
     return this.http.delete<Entry[]>(this.apiURL + `/${itemId}`);
+  }
+
+  addNewEntry(newEntry: Entry): Observable<Entry[]> {
+    return this.http.post<Entry[]>(this.apiURL, newEntry);
   }
 
   getAllEntryActivitiesPerEntryId(entryId: string): Observable<any> {
@@ -38,9 +48,6 @@ export class MoodService {
 
   deleteEntryFromEA(eaId: number): Observable<Entry[]> {
     return this.http.delete<Entry[]>(`https://happy-cranky.herokuapp.com/entryactivities/${eaId}`);
-  }
-    addNewEntry(newEntry: Entry): Observable<Entry[]> {
-    return this.http.post<Entry[]>(this.apiURL, newEntry);
   }
 
   addEntryActivities(entryActivity: EntryActivity): Observable<EntryActivity[]> {
