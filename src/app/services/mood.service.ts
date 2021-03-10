@@ -1,15 +1,19 @@
 import { AuthService } from './auth.service';
-import { Entry } from '../models/entry.model';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-
 import { Injectable } from '@angular/core';
+
+import { EntryActivity } from '../models/entryactivity';
+import { Activity } from '../models/activity';
+import { Entry } from '../models/entry.model';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class MoodService {
+
+  activityArray: Activity[] = []
 
   constructor(private http: HttpClient, private auth: AuthService) { }
 
@@ -26,14 +30,15 @@ export class MoodService {
     return this.http.delete<Entry[]>(this.apiURL + `/${itemId}`);
   }
 
+  addNewEntry(newEntry: Entry): Observable<Entry[]> {
+    return this.http.post<Entry[]>(this.apiURL, newEntry);
+  }
 
-  //Need the endpoint for adding 
-  // addEntry(userId: string, entryItem: Entry): Observable<Entry[]> {
-  //   return this.http.post<Entry[]>('https://happy-cranky.herokuapp.com/entries', entryItem)
-  // }
+  addEntryActivities(entryActivity: EntryActivity): Observable<EntryActivity[]> {
+    return this.http.post<EntryActivity[]>('https://happy-cranky.herokuapp.com/entryactivities', entryActivity)
+  }
 
-  //Need the endpoint for activities
-  // getUserActivities(userId: string): Observable<> {
-  //   return this.http.get<>('https://happy-cranky.herokuapp.com/activities')
-  // }
+  getActivities(): Observable<Activity[]> {
+    return this.http.get<Activity[]>('https://happy-cranky.herokuapp.com/activities')
+  }
 }
