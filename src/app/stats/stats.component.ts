@@ -14,7 +14,8 @@ import { Entry } from '../models/entry.model';
 export class StatsComponent implements OnInit {
   
   entries: Entry[] = [];
- 
+  UserId: string = "";
+  mood = 0;
 
  
 
