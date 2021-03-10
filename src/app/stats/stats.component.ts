@@ -13,9 +13,13 @@ import { Entry } from '../models/entry.model';
 
 export class StatsComponent implements OnInit {
   
-  entries: Entry[] = [];
+  userEntries: Entry[] = [];
   userId: string = "";
   mood = 0;
+  selctedUser = [];
+  userDetails = [];
+  
+
 
  
 
@@ -25,10 +29,16 @@ export class StatsComponent implements OnInit {
     
 
   ngOnInit(): void {
-    this.moodService.getUserStats().subscribe((entries: Entry[]) => {
-      this.entries = entries;
+    this.moodService.getUserStats().subscribe((userEntries: Entry[]) => {
+      this.userEntries = userEntries;
     });
     
+  }
+
+  getSelectedItem(item){
+    console.log('selected items : ',item)
+    this.selctedUser = this.userDetails.filter((user)=>user.displayName.includes(item))
+
   }
 
 

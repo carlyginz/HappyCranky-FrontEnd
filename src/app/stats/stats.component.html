@@ -1,11 +1,11 @@
-<div class="stat-container">
+<div class="stat-container"></div>
     <h1>Happy-Cranky Stats </h1>
 
-  <div *ngFor="let entry of entries">
+  <div *ngFor="let entry of userEntries">
     {{entry.userId}}, {{entry.moodVar}}
   </div>
 
-    <label for="stat">Stats </label>
+    <label for="stat">Entry Averages/Filters       </label>
   
     <input type="text" list="userStatList" />
     <datalist id="userStatList" >
