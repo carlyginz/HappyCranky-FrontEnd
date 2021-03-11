@@ -1,1 +1,26 @@
-<p>stats works!</p>
+<div class="stat-container"></div>
+    <h1>Happy-Cranky Stats </h1>
+
+  <div *ngFor="let entry of userEntries">
+    {{entry.userId}}, {{entry.moodVar}}
+  </div>
+
+    <label for="stat">Entry Averages/Filters       </label>
+  
+    <input type="text" list="userStatList" />
+    <datalist id="userStatList" >
+      <option value="Average Moods" ></option>
+      <option value="Filter by Activity"></option>
+      <option value="Most Popular Activities"></option>
+      <option value="On Your Happy Days, You Did This "></option>
+      <option value="On Your Cranky Days, You Did This "></option>
+    </datalist>
+
+    <button (click)="getEntryPage()">Search Stats</button>
+    
+  
+    <!-- <app-entrypage></app-entrypage> -->
+  
+  
+  
+  
