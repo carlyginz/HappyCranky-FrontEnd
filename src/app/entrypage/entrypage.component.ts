@@ -13,13 +13,14 @@ import { EntryActivity } from '../models/entryactivity';
 export class EntryPageComponent implements OnInit {
 
   constructor(public auth: AuthService, private MoodService: MoodService) { }
-
+  
   mood: number = 0;
   entrydate: string = "";
   entrytime: string = "";
   journalentry: string = "";
   UserId: string = "";
   newEntryId: number = 0;
+  // exsistingEntryId: number = this.item.id;
 
   get activityArray(): Activity[] {
     return this.MoodService.activityArray;
@@ -38,17 +39,13 @@ export class EntryPageComponent implements OnInit {
         this.MoodService.activityArray.push(activity);
       });
     })
-
-    this.auth.user$.subscribe(user => {
-      this.UserId = user.uid;
-    });
-
+    console.log();
   }
 
   getCurrentDate() {
     let currentDate = new Date();
     let dd = String(currentDate.getDate()).padStart(2, '0');
-    let mm = String(currentDate.getMonth() + 1).padStart(2, '0'); //January is 0!
+    let mm = String(currentDate.getMonth() + 1).padStart(2, '0');
     let yyyy = currentDate.getFullYear();
   
     this.entrydate = currentDate.toString();
@@ -82,7 +79,12 @@ export class EntryPageComponent implements OnInit {
       }
 
       this.MoodService.addNewEntry(newEntry).subscribe(result => {
-        this.MoodService.getEntriesOnlyByUserId(this.UserId).subscribe(result => {
+        let emptyMood = "";
+        let emptyEntryDate = "";
+        let emptyEntrytime = "";
+        let emptyJournalentry = "";
+    
+        this.MoodService.getUserEntries(emptyMood, emptyEntryDate, emptyEntrytime, emptyJournalentry, this.UserId).subscribe(result => {
           let newEntryIndex = result.length - 1;
           this.newEntryId = result[newEntryIndex].id;
 
@@ -98,6 +100,10 @@ export class EntryPageComponent implements OnInit {
         })
       });      
     });
+  }
+
+  updateEntry() {
+
   }
 }
 

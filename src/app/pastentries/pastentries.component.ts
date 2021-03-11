@@ -1,7 +1,7 @@
 import { MoodService } from './../services/mood.service';
 import { AuthService } from './../services/auth.service';
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Entry } from '../models/entry.model';
 
 @Component({

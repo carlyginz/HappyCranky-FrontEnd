@@ -1,4 +1,5 @@
 export interface Entry {
+    id?: number;
     mood: number;
     entrydate: string;
     entrytime: string;
