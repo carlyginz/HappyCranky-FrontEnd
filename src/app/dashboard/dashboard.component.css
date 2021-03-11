@@ -29,11 +29,13 @@ button {
 
 .avgDailyMood {
   display: flex;
-  display: inline-flex;
+  /* display: inline-flex; */
   justify-content: center;
-  background-color: rgb(69, 71, 71);
+  align-items: center;
+  /* background-color: rgb(69, 71, 71);
+  color: white;
   height: 300px;
-  width: 500px;
+  width: 500px; */
 }
 
 /* .entryList {
@@ -56,13 +58,13 @@ button {
 }
 
 .footer {
-    background-color: rgb(69, 71, 71);
-    color: white;
-    height: 75px;
-    display: flex;
-    justify-content: space-around;
-    padding: 15px;
-    margin-top: 10px;
-    /* flex-shrink: 0; */
-    font-size: 20px;
+  background-color: rgb(69, 71, 71);
+  color: white;
+  height: 75px;
+  display: flex;
+  justify-content: space-around;
+  padding: 15px;
+  margin-top: 10px;
+  /* flex-shrink: 0; */
+  font-size: 20px;
 }

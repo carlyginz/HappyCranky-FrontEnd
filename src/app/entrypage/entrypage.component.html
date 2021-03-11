@@ -4,24 +4,36 @@
 <div>How are you feeling today?</div>
 
 <form>
-    <select id="mood" name="mood" [(ngModel)]="mood">
-        <option [ngValue]="1">sad</option>
-        <option [ngValue]="2">meh</option>
-        <option [ngValue]="3">happy</option>
-    </select>
-    <h4>What did you do today?</h4>
+  <select id="mood" name="mood" [(ngModel)]="mood">
+    <option [ngValue]="1">sad</option>
+    <option [ngValue]="2">meh</option>
+    <option [ngValue]="3">happy</option>
+  </select>
+  <h4>What did you do today?</h4>
 
-    <fieldset id="activity" name="activity" ngDefaultControl [(ngModel)]="activityArrayForEntry">
-        <label for="{{ activity.id }}" (ngValue)="activity" *ngFor="let activity of activityArray; let i = index">
-        <input (change)="toggleActivityList(activity.id, $event)" id="{{ activity.id }}" name="{{ activity.id }}" type="checkbox" [ngValue]="activity.id" />
-            {{ activity.name }}
-        </label>
-    </fieldset> 
-    <textarea id="journal" name="journal" [(ngModel)]="journalentry">
-
-    </textarea>
-    <button (click)="addNewEntry()">Submit</button>
+  <fieldset
+    id="activity"
+    name="activity"
+    ngDefaultControl
+    [(ngModel)]="activityArrayForEntry"
+  >
+    <label
+      for="{{ activity.id }}"
+      (ngValue)="(activity)"
+      *ngFor="let activity of activityArray; let i = index"
+    >
+      <input
+        (change)="toggleActivityList(activity.id, $event)"
+        id="{{ activity.id }}"
+        name="{{ activity.id }}"
+        type="checkbox"
+        [ngValue]="activity.id"
+      />
+      {{ activity.name }}
+    </label>
+  </fieldset>
+  <textarea id="journal" name="journal" [(ngModel)]="journalentry"> </textarea>
+  <button (click)="addNewEntry()">Submit</button>
 </form>
-
 
 <div *ngIf=""></div>

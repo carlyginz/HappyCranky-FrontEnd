@@ -4,27 +4,28 @@
   </div>
 
   <div class="centerPage">
-    <a class="entryPage" routerLink="/entrypage"
-      ><i class="fas fa-plus fa-3x"></i
-    ></a>
-
-    <!-- <button id="plusButton" (click)="goToEntryPage()">
-      <i class="fas fa-plus fa-3x"></i>
-    </button> -->
+    <div class="plus">
+      <a class="entryPage" routerLink="/entrypage"
+        ><i class="fas fa-plus fa-3x"></i
+      ></a>
+    </div>
     <p></p>
+    <hr />
     <h2>Average Daily Mood</h2>
     <p></p>
-    <div class="avgDailyMood"></div>
-
-    <div *ngIf="average >= 4.5"><i class="far fa-laugh-beam"></i></div>
-    <div *ngIf="average > 3.5 && average < 4.5">
-      <i class="far fa-smile"></i>
+    <div class="avgDailyMood">
+      <div *ngIf="average >= 4.5"><i class="far fa-laugh-beam fa-10x"></i></div>
+      <div *ngIf="average > 3.5 && average < 4.5">
+        <i class="far fa-smile fa-10x"></i>
+      </div>
+      <div *ngIf="average > 2.5 && average < 3.5">
+        <i class="far fa-meh fa-10x"></i>
+      </div>
+      <div *ngIf="average > 1.5 && average < 2.5">
+        <i class="far fa-frown fa-10x"></i>
+      </div>
+      <div *ngIf="average < 1.5"><i class="far fa-sad-tear fa-10x"></i></div>
     </div>
-    <div *ngIf="average > 2.5 && average < 3.5"><i class="far fa-meh"></i></div>
-    <div *ngIf="average > 1.5 && average < 2.5">
-      <i class="far fa-frown"></i>
-    </div>
-    <div *ngIf="average < 1.5"><i class="far fa-sad-tear"></i></div>
   </div>
   <p></p>
 
