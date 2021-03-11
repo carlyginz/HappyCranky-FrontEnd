@@ -1,7 +1,7 @@
 import { MoodService } from './../services/mood.service';
 import { AuthService } from './../services/auth.service';
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Entry } from '../models/entry.model';
 
 @Component({
@@ -12,7 +12,6 @@ import { Entry } from '../models/entry.model';
 export class PastentriesComponent implements OnInit {
 
   constructor(public auth: AuthService, private moodService: MoodService, public router: Router) { }
-
 
   id: string = "";
   public userEntries = [];
@@ -40,7 +39,6 @@ export class PastentriesComponent implements OnInit {
   goToEntryPage() {
     this.router.navigate(['/entrypage']);
   }
-
 
   deleteEntry(item) {
     this.moodService.deleteEntry(item.id).subscribe((entries: Entry[]) => {

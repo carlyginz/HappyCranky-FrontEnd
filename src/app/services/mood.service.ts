@@ -26,12 +26,6 @@ export class MoodService {
     })
   }
 
-  getEntriesOnlyByUserId(userId?: string): Observable<any[]> {
-    return this.http.get<any[]>(this.apiURL, {
-      params: { user_id: userId }
-    })
-  }
-
   deleteEntry(itemId: number): Observable<Entry[]> {
     return this.http.delete<Entry[]>(this.apiURL + `/${itemId}`);
   }
