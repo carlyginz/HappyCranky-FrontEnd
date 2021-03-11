@@ -1,0 +1,22 @@
+footer {
+    background-color: rgb(69, 71, 71);
+    color: white;
+    height: 75px;
+    /* width: auto; */
+    display: flex;
+    justify-content: space-around;
+    /* justify-content: space-between; */
+    padding: 15px;
+    margin-top: 10px;
+    /* flex-shrink: 0; */
+    font-size: 20px;
+    align-items: flex-end;
+}
+
+i {
+    color: white;
+}
+
+@media only screen and (min-width: 768px) {
+
+}
