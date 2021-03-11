@@ -13,7 +13,6 @@ export class PastentriesComponent implements OnInit {
 
   constructor(public auth: AuthService, private moodService: MoodService, public router: Router) { }
 
-
   id: string = "";
   public userEntries = [];
 
@@ -40,7 +39,6 @@ export class PastentriesComponent implements OnInit {
   goToEntryPage() {
     this.router.navigate(['/entrypage']);
   }
-
 
   deleteEntry(item) {
     this.moodService.deleteEntry(item.id).subscribe((entries: Entry[]) => {

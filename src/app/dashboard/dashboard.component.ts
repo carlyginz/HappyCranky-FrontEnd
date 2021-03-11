@@ -12,23 +12,12 @@ import { Router } from '@angular/router';
 export class DashboardComponent implements OnInit {
   public userEntries = [];
   id: string = "";
+  total: number = 0;
+  average: number = 0;
 
-  // constructor(public auth: AuthService, private moodService: MoodService) { } 
   constructor(public auth: AuthService, private moodService: MoodService, public router: Router) { }
 
-//passing in the user id
-
   ngOnInit(): void {
-    // this.auth.user$.subscribe(user => {
-    //   this.id = user.uid;
-      // console.log(this.id); YES
-      // this.getUserEntries();
-    // })
-    this.displayEntries();
-  }
-
-  //Delia's code
-  displayEntries() {
     let mood: any = "";
     let entrydate: string = "";
     let entrytime: string = "";
@@ -39,12 +28,18 @@ export class DashboardComponent implements OnInit {
       this.moodService.getUserEntries(mood, entrydate, entrytime, journalentry, userID).subscribe(result => {
         this.userEntries = result;
         console.log(this.userEntries);
+        this.userEntries.forEach(element => {
+          this.total += element.mood;
+        });
+        this.average = (this.total) / (this.userEntries.length);
+        console.log(this.average);
       })
     })
   }
-
-
-  
 }
+
+
+
+
 
 
