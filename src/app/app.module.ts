@@ -46,6 +46,7 @@ const config = {
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
