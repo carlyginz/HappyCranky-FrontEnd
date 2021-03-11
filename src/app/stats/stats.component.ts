@@ -1,10 +1,11 @@
+import { EidAname } from './../models/eid-aname';
+import { Activity } from './../models/activity';
 import { Component, OnInit } from '@angular/core';
 import { MoodService } from '../services/mood.service';
 import { Router, ActivatedRoute } from "@angular/router";
 import { Entry } from '../models/entry.model';
 import { AuthService } from './../services/auth.service';
-
-
+import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-stats',
@@ -13,30 +14,24 @@ import { AuthService } from './../services/auth.service';
 })
 
 export class StatsComponent implements OnInit {
-  
+
   userEntries: Entry[] = [];
   userId: string = "";
   mood = 0;
   selctedUser = [];
   userDetails = [];
-  
-
-
- 
+  happyDays = [];
+  sadDays = [];
+  happyActivitiesIds = [];
+  sadActivitiesIds = [];
+  ActivitiesNamesAndCategories: EidAname[] = [];
 
   constructor(private moodService: MoodService, private router: Router, private route: ActivatedRoute, private auth: AuthService) { }
 
-  
-    
-
   ngOnInit(): void {
-  //   this.moodService.getUserStats().subscribe((userEntries: Entry[]) => {
-  //     this.userEntries = userEntries;
-  //   });
     this.displayEntries();
-    
-  // }
   }
+
   displayEntries() {
     let mood: any = "";
     let entrydate: string = "";
@@ -52,23 +47,74 @@ export class StatsComponent implements OnInit {
     })
   }
 
+  happyDaysDidThis() {
+    let i = 0;
+    let j = 0;
+    let activityId = "";
+    let stringId: string = '';
+    this.happyDays = [];
+    this.happyActivitiesIds = [];
+    this.userEntries.forEach(element => {
+      if (element.mood === 5 || element.mood === 4) {
+        this.happyDays.push(element.id);
+      }
+    });
+    let newEId;
+    let newAId;
+    let newObject: EidAname;
+    this.happyDays.forEach(element => {
+      this.moodService.getAllEntryActivitiesPerEntryId(element).subscribe(result => {
+        if (result.length > 0) {
+          console.log(result);
+          for (i = 0; i < result.length; i++) {
+            newEId = result[i].entry_id;
+            newAId = result[i].activity_id;
+            this.moodService.getActivityNameAndCategory(newAId).subscribe(newResult => {
+              newObject = { aName: newResult.name, aCategory: newResult.category };
+              this.ActivitiesNamesAndCategories.push(newObject);
+              console.log(newObject);
+              console.log(this.ActivitiesNamesAndCategories);
+            })
+          }
+        }
+      });
+    });
+  }
 
+  sadDaysDidThis() {
+    this.sadDays = [];
+    this.userEntries.forEach(element => {
+      if (element.mood === 2 || element.mood === 1) {
+        this.sadDays.push(element.id);
+      }
+      console.log("Sad" + this.sadDays);
 
-  getSelectedItem(item){
-    console.log('selected items : ',item)
-    this.selctedUser = this.userDetails.filter((user)=>user.displayName.includes(item))
-
+    });
   }
 
 
-   
-getEntryPage() {
-  this.router.navigate(['/entrypage']);
+  getSelectedItem(item) {
+    console.log('selected items : ', item)
+    this.selctedUser = this.userDetails.filter((user) => user.displayName.includes(item))
+  }
+
+  getEntryPage() {
+    this.router.navigate(['/entrypage']);
+  }
 }
 
 // displayStats() {
-//   this.moodService.getUserEntries(this.mood.toString(), this.userId).subscribe(result => {
-//     console.log(result);
-//   })
-// }
-}
+  //   this.moodService.getUserEntries(this.mood.toString(), this.userId).subscribe(result => {
+    //     console.log(result);
+    //   })
+    // }
+
+
+
+
+
+
+
+  // });
+
+

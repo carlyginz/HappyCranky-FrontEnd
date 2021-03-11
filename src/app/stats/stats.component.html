@@ -1,26 +1,32 @@
 <div class="stat-container"></div>
-    <h1>Happy-Cranky Stats </h1>
+<h1>Happy-Cranky Stats</h1>
 
-  <div *ngFor="let entry of userEntries">
-    {{entry.userId}}, {{entry.moodVar}}
-  </div>
+<!-- <div *ngFor="let entry of userEntries">
+  {{ entry.user_id }}, {{ entry.mood }}
+</div> -->
 
-    <label for="stat">Entry Averages/Filters       </label>
-  
-    <input type="text" list="userStatList" />
-    <datalist id="userStatList" >
-      <option value="Average Moods" ></option>
-      <option value="Filter by Activity"></option>
-      <option value="Most Popular Activities"></option>
-      <option value="On Your Happy Days, You Did This "></option>
-      <option value="On Your Cranky Days, You Did This "></option>
-    </datalist>
+<label for="stat">Entry Averages/Filters </label>
 
-    <button (click)="getEntryPage()">Search Stats</button>
-    
-  
-    <!-- <app-entrypage></app-entrypage> -->
-  
-  
-  
-  
+<input type="text" list="userStatList" />
+<datalist id="userStatList">
+  <option value="Average Moods"></option>
+  <option value="Filter by Activity"></option>
+  <option value="Most Popular Activities"></option>
+  <option value="On Your Happy Days, You Did This "></option>
+  <option value="On Your Cranky Days, You Did This "></option>
+</datalist>
+
+<button (click)="getEntryPage()">Search Stats</button>
+<p></p>
+<button (click)="happyDaysDidThis()">Your Happy Day Activities</button>
+<hr />
+<div class="happyDays" *ngFor="let each of ActivitiesNamesAndCategories">
+  Category: {{ each.aCategory }}
+  <p></p>
+  Activity: {{ each.aName }}
+  <hr />
+</div>
+<button (click)="sadDaysDidThis()">On Your Sad Days</button>
+<div class="sadDays"></div>
+
+<!-- <app-entrypage></app-entrypage> -->
