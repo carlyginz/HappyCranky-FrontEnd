@@ -24,7 +24,8 @@ export class StatsComponent implements OnInit {
   sadDays = [];
   happyActivitiesIds = [];
   sadActivitiesIds = [];
-  ActivitiesNamesAndCategories: EidAname[] = [];
+  HappyActivitiesNamesandCategories: EidAname[] = [];
+  SadActivitiesNamesandCategories: EidAname[] = [];
 
   constructor(private moodService: MoodService, private router: Router, private route: ActivatedRoute, private auth: AuthService) { }
 
@@ -42,16 +43,13 @@ export class StatsComponent implements OnInit {
       let userID: string = this.userId;
       this.moodService.getUserEntries(mood, entrydate, entrytime, journalentry, userID).subscribe(result => {
         this.userEntries = result;
-        console.log(this.userEntries);
+        // console.log(this.userEntries);
       })
     })
   }
 
   happyDaysDidThis() {
     let i = 0;
-    let j = 0;
-    let activityId = "";
-    let stringId: string = '';
     this.happyDays = [];
     this.happyActivitiesIds = [];
     this.userEntries.forEach(element => {
@@ -59,21 +57,21 @@ export class StatsComponent implements OnInit {
         this.happyDays.push(element.id);
       }
     });
-    let newEId;
-    let newAId;
-    let newObject: EidAname;
+    let newHEId;
+    let newHAId;
+    let newHObject: EidAname;
     this.happyDays.forEach(element => {
       this.moodService.getAllEntryActivitiesPerEntryId(element).subscribe(result => {
         if (result.length > 0) {
-          console.log(result);
+          // console.log(result);
           for (i = 0; i < result.length; i++) {
-            newEId = result[i].entry_id;
-            newAId = result[i].activity_id;
-            this.moodService.getActivityNameAndCategory(newAId).subscribe(newResult => {
-              newObject = { aName: newResult.name, aCategory: newResult.category };
-              this.ActivitiesNamesAndCategories.push(newObject);
-              console.log(newObject);
-              console.log(this.ActivitiesNamesAndCategories);
+            newHEId = result[i].entry_id;
+            newHAId = result[i].activity_id;
+            this.moodService.getActivityNameAndCategory(newHAId).subscribe(newResult => {
+              newHObject = { aName: newResult.name, aCategory: newResult.category };
+              this.HappyActivitiesNamesandCategories.push(newHObject);
+              // console.log(newObject);
+              // console.log(this.HappyActivitiesNamesandCategories);
             })
           }
         }
@@ -82,13 +80,30 @@ export class StatsComponent implements OnInit {
   }
 
   sadDaysDidThis() {
+    let i = 0;
     this.sadDays = [];
+    this.sadActivitiesIds = [];
     this.userEntries.forEach(element => {
-      if (element.mood === 2 || element.mood === 1) {
+      if (element.mood === 1 || element.mood === 2) {
         this.sadDays.push(element.id);
       }
-      console.log("Sad" + this.sadDays);
-
+    });
+    let newSEId;
+    let newSAId;
+    let newSObject: EidAname;
+    this.sadDays.forEach(element => {
+      this.moodService.getAllEntryActivitiesPerEntryId(element).subscribe(result => {
+        if (result.length > 0) {
+          for (i = 0; i < result.length; i++) {
+            newSEId = result[i].entry_id;
+            newSAId = result[i].activity_id;
+            this.moodService.getActivityNameAndCategory(newSAId).subscribe(newResult => {
+              newSObject = { aName: newResult.name, aCategory: newResult.category };
+              this.SadActivitiesNamesandCategories.push(newSObject);
+            })
+          }
+        }
+      });
     });
   }
 

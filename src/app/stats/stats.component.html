@@ -19,14 +19,19 @@
 <button (click)="getEntryPage()">Search Stats</button>
 <p></p>
 <button (click)="happyDaysDidThis()">Your Happy Day Activities</button>
+<button (click)="sadDaysDidThis()">On Your Sad Days</button>
 <hr />
-<div class="happyDays" *ngFor="let each of ActivitiesNamesAndCategories">
+<div class="happyDays" *ngFor="let each of HappyActivitiesNamesandCategories">
   Category: {{ each.aCategory }}
   <p></p>
   Activity: {{ each.aName }}
   <hr />
 </div>
-<button (click)="sadDaysDidThis()">On Your Sad Days</button>
-<div class="sadDays"></div>
+<div class="sadDays" *ngFor="let each of SadActivitiesNamesandCategories">
+  Category: {{ each.aCategory }}
+  <p></p>
+  Activity: {{ each.aName }}
+  <hr />
+</div>
 
 <!-- <app-entrypage></app-entrypage> -->
