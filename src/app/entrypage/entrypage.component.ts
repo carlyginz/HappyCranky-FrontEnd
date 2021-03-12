@@ -35,9 +35,11 @@ export class EntryPageComponent implements OnInit {
     this.getCurrentTime();
 
     this.MoodService.getActivities().subscribe(result => {
-      result.forEach((activity: Activity) => {
-        this.MoodService.activityArray.push(activity);
-      });
+      if (this.MoodService.activityArray.length === 0) {
+        result.forEach((activity: Activity) => {
+          this.MoodService.activityArray.push(activity);
+        });
+     }
     })
     console.log();
   }
