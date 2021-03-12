@@ -15,14 +15,15 @@ import { Entry } from '../models/entry.model';
 export class MoodService {
 
   activityArray: Activity[] = [];
+  clickedEntry: any = {};
 
   constructor(private http: HttpClient, private auth: AuthService) { }
 
   apiURL: string = `https://happy-cranky.herokuapp.com/entries`;
 
   //get entries by any parameter
-  getUserEntries(moodVar: string, entryDate: string, entryTime: string, journalEntry: string, userId?: string): Observable<Entry[]> {
-    return this.http.get<Entry[]>(this.apiURL, {
+  getUserEntries(moodVar: string, entryDate: string, entryTime: string, journalEntry: string, userId?: string): Observable<any[]> {
+    return this.http.get<any[]>(this.apiURL, {
       params: { mood: moodVar, entrydate: entryDate, entrytime: entryTime, journalentry: journalEntry, user_id: userId }
     })
   }
@@ -34,7 +35,6 @@ export class MoodService {
   }
 
   getUserStats(moodVar?: string, userId?: string): Observable<Entry[]> {
-
     return this.http.get<Entry[]>(this.apiURL, {
       params: { mood: moodVar, user_id: userId }
     });

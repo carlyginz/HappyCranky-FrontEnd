@@ -33,8 +33,8 @@
     </label>
   </fieldset>
   <textarea id="journal" name="journal" [(ngModel)]="journalentry"> </textarea>
-  <button (click)="updateEntry()">Update Entry</button>
-  <button (click)="addNewEntry()">Submit</button>
+  <button *ngIf="entryToEdit.id" (click)="updateEntry()">Update Entry</button>
+  <button *ngIf="entryToEdit.id === undefined"  (click)="addNewEntry()">Submit</button>
 </form>
 
 <div *ngIf=""></div>

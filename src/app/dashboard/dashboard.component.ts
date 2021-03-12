@@ -36,6 +36,11 @@ export class DashboardComponent implements OnInit {
       })
     })
   }
+
+  goToEntryPage() {
+    this.router.navigate(['/entrypage']);
+    this.moodService.clickedEntry = {};
+  }
 }
 
 
