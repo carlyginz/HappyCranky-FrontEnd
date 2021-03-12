@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MoodService } from './../services/mood.service';
+import { AuthService } from './../services/auth.service';
+// import { User } from '../models/user.model';
+// import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-footer',
@@ -7,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  constructor(public auth: AuthService, private moodService: MoodService) { }
 
   ngOnInit(): void {
   }

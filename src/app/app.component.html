@@ -1,7 +1,18 @@
 <router-outlet></router-outlet>
 
-<footer>
+<!-- <footer>
   <a class="dashboardHome" routerLink="/dashboard"><i class="fas fa-home"></i></a>
   <a class="pastEntries" routerLink="/pastentries">Past Entries</a>
   <a class="stats" routerLink="/stats">Stats</a>
-</footer>
+  <button class="button" (click)="auth.signOut()">Sign Out</button>
+</footer> -->
+
+<app-footer>
+    <footer>
+      <a class="dashboardHome" routerLink="/dashboard"><i class="fas fa-home"></i></a>
+      <a class="pastEntries" routerLink="/pastentries">Past Entries</a>
+      <a class="stats" routerLink="/stats">Stats</a>
+      <button class="button" (click)="auth.signOut()">Sign Out</button>
+    </footer>
+    
+  </app-footer>
