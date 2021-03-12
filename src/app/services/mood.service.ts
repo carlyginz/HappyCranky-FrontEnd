@@ -18,8 +18,6 @@ export class MoodService {
 
   constructor(private http: HttpClient, private auth: AuthService) { }
 
-
-
   apiURL: string = `https://happy-cranky.herokuapp.com/entries`;
 
   //get entries by any parameter
@@ -41,33 +39,6 @@ export class MoodService {
       params: { mood: moodVar, user_id: userId }
     });
   }
-
-
-
-
-
-
-  // getStats(queryParams: any): Observable<any> {
-  //   let parameters: any = {
-  //     api_Url: this.apiURL,
-  //   };
-  //   if (queryParams.moodVar) {
-  //     parameters.moodVar = queryParams.moodVar;
-  //   }
-  //   if (queryParams.userID) {
-  //     parameters.userID = queryParams.userID;
-  //   }
-
-  //   return this.http.get (this.apiURL, {
-  //         params: parameters,
-  //       });
-  //       console.log (parameters)
-  // }
-
-
-
-  // entryDate: string, entryTime: string, journalEntry: string, 
-  // mood: mood, entrydate: entryDate, entrytime: entryTime, journalentry: journalEntry,
 
   deleteEntry(itemId: number): Observable<Entry[]> {
     return this.http.delete<Entry[]>(this.apiURL + `/${itemId}`);
@@ -99,7 +70,3 @@ export class MoodService {
     return this.http.get<any[]>(`https://happy-cranky.herokuapp.com/activities/${id}`);
   }
 }
-  // getUserActivities(userId: string): Observable<> {
-  //   return this.http.get<>('https://happy-cranky.herokuapp.com/activities')
-  // }
-

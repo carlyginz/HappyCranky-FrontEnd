@@ -70,6 +70,9 @@ export class EntryPageComponent implements OnInit {
 
   addNewEntry() {
     this.auth.user$.subscribe(user => {
+
+      this.UserId = user.uid;
+
       let newEntry: Entry = {
         mood: this.mood,
         entrydate: this.entrydate,
@@ -77,6 +80,8 @@ export class EntryPageComponent implements OnInit {
         journalentry: this.journalentry,
         user_id: this.UserId
       }
+
+      console.log(newEntry.user_id);
 
       this.MoodService.addNewEntry(newEntry).subscribe(result => {
         let emptyMood = "";
@@ -93,6 +98,7 @@ export class EntryPageComponent implements OnInit {
               entry_id: this.newEntryId,
               activity_id: activity.activity_id
             }
+            // console.log(newEntryActivity.entry_id);
             this.MoodService.addEntryActivities(newEntryActivity).subscribe(result => {
               console.log(result);
             });    
