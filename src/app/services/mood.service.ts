@@ -1,3 +1,4 @@
+import { EidAname } from './../models/eid-aname';
 import { AuthService } from './auth.service';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -94,8 +95,8 @@ export class MoodService {
     return this.http.get<Activity[]>('https://happy-cranky.herokuapp.com/activities')
   }
 
-  getActivityNameAndCategory(id): Observable<Activity[]> {
-    return this.http.get<Activity[]>(`https://happy-cranky.herokuapp.com/activities/${id}`);
+  getActivityNameAndCategory(id): Observable<any[]> {
+    return this.http.get<any[]>(`https://happy-cranky.herokuapp.com/activities/${id}`);
   }
 }
   // getUserActivities(userId: string): Observable<> {

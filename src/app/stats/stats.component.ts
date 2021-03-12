@@ -63,14 +63,14 @@ export class StatsComponent implements OnInit {
     this.happyDays.forEach(element => {
       this.moodService.getAllEntryActivitiesPerEntryId(element).subscribe(result => {
         if (result.length > 0) {
-          // console.log(result);
+          console.log(result);
           for (i = 0; i < result.length; i++) {
             newHEId = result[i].entry_id;
             newHAId = result[i].activity_id;
-            this.moodService.getActivityNameAndCategory(newHAId).subscribe(newResult => {
+            this.moodService.getActivityNameAndCategory(newHAId).subscribe((newResult: any) => {
               newHObject = { aName: newResult.name, aCategory: newResult.category };
               this.HappyActivitiesNamesandCategories.push(newHObject);
-              // console.log(newObject);
+              console.log(newHObject);
               // console.log(this.HappyActivitiesNamesandCategories);
             })
           }
@@ -97,7 +97,7 @@ export class StatsComponent implements OnInit {
           for (i = 0; i < result.length; i++) {
             newSEId = result[i].entry_id;
             newSAId = result[i].activity_id;
-            this.moodService.getActivityNameAndCategory(newSAId).subscribe(newResult => {
+            this.moodService.getActivityNameAndCategory(newSAId).subscribe((newResult: any) => {
               newSObject = { aName: newResult.name, aCategory: newResult.category };
               this.SadActivitiesNamesandCategories.push(newSObject);
             })
