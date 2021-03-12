@@ -27,6 +27,10 @@ export class StatsComponent implements OnInit {
   HappyActivitiesNamesandCategories: EidAname[] = [];
   SadActivitiesNamesandCategories: EidAname[] = [];
 
+  get clickedEntry(): any {
+    return this.moodService.clickedEntry;
+  }
+
   constructor(private moodService: MoodService, private router: Router, private route: ActivatedRoute, private auth: AuthService) { }
 
   ngOnInit(): void {
@@ -116,6 +120,7 @@ export class StatsComponent implements OnInit {
 
   getEntryPage() {
     this.router.navigate(['/entrypage']);
+    this.moodService.clickedEntry = {};
   }
 
 

@@ -9,31 +9,30 @@
   <br />
   <hr />
   <br />
-  <div class="entryList" *ngFor="let item of userEntries">
-    <!-- How do I pass info to the edit entry page? for now it's goToEntryPage -->
-    <button (click)="goToEntryPage()"><i class="far fa-edit fa-2x"></i></button>
+  <div class="entryList" *ngFor="let entry of userEntries">
+    <button (click)="editEntry(entry)"><i class="far fa-edit fa-2x"></i></button>
     <div class="dateAndTime">
-      {{ item.entrydate }}
-      {{ item.entrytime }}
+      {{ entry.entrydate }}
+      {{ entry.entrytime }}
     </div>
     <div class="faces">
-      <div *ngIf="item.mood === 1">
+      <div *ngIf="entry.mood === 1">
         <i class="far fa-sad-tear"></i>
       </div>
-      <div *ngIf="item.mood === 2">
+      <div *ngIf="entry.mood === 2">
         <i class="far fa-frown"></i>
       </div>
-      <div *ngIf="item.mood === 3">
+      <div *ngIf="entry.mood === 3">
         <i class="far fa-meh"></i>
       </div>
-      <div *ngIf="item.mood === 4">
+      <div *ngIf="entry.mood === 4">
         <i class="far fa-smile"></i>
       </div>
-      <div *ngIf="item.mood === 5">
+      <div *ngIf="entry.mood === 5">
         <i class="far fa-laugh-beam"></i>
       </div>
     </div>
-    <button class="delete" (click)="deleteEntry(item)">
+    <button class="delete" (click)="deleteEntry(entry)">
       <i class="far fa-trash-alt fa-2x"></i>
     </button>
   </div>
