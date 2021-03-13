@@ -14,17 +14,21 @@
     <h2>Average Daily Mood</h2>
     <p></p>
     <div class="avgDailyMood">
-      <div *ngIf="average >= 4.5"><i class="far fa-laugh-beam fa-10x"></i></div>
+      <div *ngIf="average >= 4.5">
+        <i style="color: #d8214b" class="far fa-laugh-beam fa-10x"></i>
+      </div>
       <div *ngIf="average > 3.5 && average < 4.5">
-        <i class="far fa-smile fa-10x"></i>
+        <i style="color: #f39481" class="far fa-smile fa-10x"></i>
       </div>
       <div *ngIf="average > 2.5 && average < 3.5">
-        <i class="far fa-meh fa-10x"></i>
+        <i style="color: #86b8d3" class="far fa-meh fa-10x"></i>
       </div>
       <div *ngIf="average > 1.5 && average < 2.5">
-        <i class="far fa-frown fa-10x"></i>
+        <i style="color: #33a0b9" class="far fa-frown fa-10x"></i>
       </div>
-      <div *ngIf="average < 1.5"><i class="far fa-sad-tear fa-10x"></i></div>
+      <div *ngIf="average < 1.5">
+        <i style="color: #336bb9" class="far fa-sad-tear fa-10x"></i>
+      </div>
     </div>
   </div>
   <p></p>
