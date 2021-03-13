@@ -14,7 +14,7 @@ export class EntryPageComponent implements OnInit {
 
   constructor(public auth: AuthService, private moodService: MoodService) { }
   
-  mood: number = 0;
+  mood: number = 3;
   entrydate: string = "";
   entrytime: string = "";
   journalentry: string = "";
@@ -29,28 +29,32 @@ export class EntryPageComponent implements OnInit {
   get clickedEntry(): any {
     return this.moodService.clickedEntry;
   }
-
-  activityArrayForEntry;
   activityList = [];
 
   ngOnInit(): void {
 
-    this.entryToEdit = this.moodService.clickedEntry;
     this.getCurrentDate();
     this.getCurrentTime();
-    console.log(this.moodService.clickedEntry);
 
-    if (this.entryToEdit) {
+    this.entryToEdit = this.moodService.clickedEntry;
+
+    if (this.entryToEdit.id !== undefined) {
       this.mood = this.entryToEdit.mood;
       this.entrydate = this.entryToEdit.entrydate;
       this.entrytime = this.entryToEdit.entrytime;
       this.journalentry = this.entryToEdit.journalentry;
       this.UserId = this.entryToEdit.UserId;
-    }
 
-    console.log(this.mood);
-    console.log(this.entrydate);
-    console.log(this.entrytime);
+      this.moodService.getAllEntryActivitiesPerEntryId(this.entryToEdit.id).subscribe(result => {
+        console.log(result);
+        result.forEach(element => {
+          this.activityList.push(element.activity_id);
+        });
+        console.log(this.activityList);
+      });
+
+    }
+    console.log(this.entryToEdit.id);
 
     this.moodService.getActivities().subscribe(result => {
       if (this.moodService.activityArray.length === 0) {
@@ -80,11 +84,12 @@ export class EntryPageComponent implements OnInit {
     const checked = event.target.checked;
     
     if (checked) {
-      this.activityList.push({ activity_id: id });
+      this.activityList.push(id);
       } else {
-      const index = this.activityList.findIndex(list => list.activity_id == id);
+      const index = this.activityList.findIndex(list => list == id);
       this.activityList.splice(index, 1);
     }
+    console.log(this.activityList);
   }
 
   addNewEntry() {
@@ -100,7 +105,7 @@ export class EntryPageComponent implements OnInit {
         user_id: this.UserId
       }
 
-      console.log(newEntry.user_id);
+      console.log(newEntry);
 
       this.moodService.addNewEntry(newEntry).subscribe(result => {
         let emptyMood = "";
@@ -112,11 +117,15 @@ export class EntryPageComponent implements OnInit {
           let newEntryIndex = result.length - 1;
           this.newEntryId = result[newEntryIndex].id;
 
+          console.log(newEntryIndex);
+          console.log(this.newEntryId);
+
           this.activityList.forEach(activity => {
             let newEntryActivity: EntryActivity = {
               entry_id: this.newEntryId,
-              activity_id: activity.activity_id
+              activity_id: activity
             }
+            console.log(newEntryActivity);
             this.moodService.addEntryActivities(newEntryActivity).subscribe(result => {
               console.log(result);
             });    
@@ -127,7 +136,26 @@ export class EntryPageComponent implements OnInit {
   }
 
   updateEntry() {
+    this.auth.user$.subscribe(user => {
+      this.UserId = user.uid;
 
+      let entryObject: Entry = {
+        mood: this.mood,
+        entrydate: this.entrydate,
+        entrytime: this.entrytime,
+        journalentry: this.journalentry,
+        user_id: this.UserId
+      }
+      console.log(entryObject);
+
+      this.moodService.updateEntry(this.entryToEdit.id, entryObject).subscribe(result => {
+        
+        console.log(result);
+
+        console.log(this.entryToEdit.id);
+
+      })
+    })
   }
 }
 

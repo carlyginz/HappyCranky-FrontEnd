@@ -29,42 +29,6 @@ button {
 
 .avgDailyMood {
   display: flex;
-  /* display: inline-flex; */
   justify-content: center;
   align-items: center;
-  /* background-color: rgb(69, 71, 71);
-  color: white;
-  height: 300px;
-  width: 500px; */
-}
-
-/* .entryList {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: baseline;
-  padding-bottom: 10px;
-  font-size: 25px;
-} */
-
-.fa-edit {
-  color: black;
-  background-color: white;
-}
-
-.fa-edit:hover,
-.fa-trash-alt:hover {
-  color: lightslategray;
-}
-
-.footer {
-  background-color: rgb(69, 71, 71);
-  color: white;
-  height: 75px;
-  display: flex;
-  justify-content: space-around;
-  padding: 15px;
-  margin-top: 10px;
-  /* flex-shrink: 0; */
-  font-size: 20px;
 }

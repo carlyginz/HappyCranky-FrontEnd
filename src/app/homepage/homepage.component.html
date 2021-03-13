@@ -2,21 +2,18 @@
   <main>
     <h1>Happy App</h1>
     <!-- if user auth.user$ -->
-    <!-- <div *ngIf="checkLoginStatus() | async as user; else login"> -->
-    <div *ngIf="auth.user$ | async as user; else login">
-      <div class="greeting">
-        <div>Hi {{ user.displayName }}!</div>
-      </div>
-      <!-- next few lines may be cut out later -->
-      <pre>
+    <div *ngIf="checkLoginStatus() | async as user; else login">
+      <!-- <div *ngIf="auth.user$ | async as user; else login"> -->
+      <!-- <div class="greeting"> -->
+      <!-- <div>Hi {{ user.displayName }}!</div> -->
+    </div>
+    <!-- next few lines may be cut out later -->
+    <!-- <pre>
         {{ user | json }}
         </pre
       >
-      <hr />
-      <!-- Put button in footer -->
-      <!-- <button class="button" (click)="auth.signOut()">Sign Out</button> -->
-      <!-- <app-feelingtoday></app-feelingtoday> -->
-    </div>
+      <hr /> -->
+    <!-- </div> -->
     <!-- if no user -->
     <ng-template #login>
       <button class="button" (click)="auth.googleSignin()">
@@ -24,11 +21,13 @@
       </button>
     </ng-template>
 
-    <div class="links">
+    <!-- <app-footer></app-footer> -->
+    <!-- <div class="links">
       <a routerLink="/dashboard">Dashboard</a>------
       <a routerLink="/stats">Stats</a>------
       <a routerLink="/pastentries">PastEntries</a>------
       <a routerLink="/entrypage">Entries</a>
-    </div>
+      <button class="button" (click)="auth.signOut()">Sign Out</button>
+    </div> -->
   </main>
 </body>
