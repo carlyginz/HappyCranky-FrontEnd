@@ -1,22 +1,26 @@
 <div class="stat-container"></div>
 <h1>Happy-Cranky Stats</h1>
 
-<!-- <div *ngFor="let entry of userEntries">
-  {{ entry.user_id }}, {{ entry.mood }}
-</div> -->
+<label>Filter by Activity:</label>
+<select
+  [(ngModel)]="ActivitySelected"
+  (ngModelChange)="onActivitySelected($event)">
 
-<label for="stat">Entry Averages/Filters </label>
+  <option *ngFor="let activity of AllActivities" [value]="activity.id">
+           {{ activity.name }}
+  </option>
+</select>
 
-<input type="text" list="userStatList" />
-<datalist id="userStatList">
-  <option value="Average Moods"></option>
-  <option value="Filter by Activity"></option>
-  <option value="Most Popular Activities"></option>
-  <option value="On Your Happy Days, You Did This "></option>
-  <option value="On Your Cranky Days, You Did This "></option>
-</datalist>
+<ul>
+  <tr *ngFor="let entry of userEntries">
+    <ol>Entry Date: {{ entry.entrydate }}</ol>
+    <ol>Entry Time: {{ entry.entrytime }}</ol>
+    <ol>Mood: {{ entry.mood }}</ol>
+    
+  </tr>
+</ul>
 
-<button (click)="getEntryPage()">Search Stats</button>
+<button (click)="getHomePage()">Home Page</button>
 <p></p>
 <button (click)="happyDaysDidThis()">Your Happy Day Activities</button>
 <button (click)="sadDaysDidThis()">On Your Sad Days</button>
@@ -34,4 +38,4 @@
   <hr />
 </div>
 
-<!-- <app-entrypage></app-entrypage> -->
+

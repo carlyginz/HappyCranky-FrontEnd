@@ -1,7 +1,7 @@
 import { EidAname } from './../models/eid-aname';
 import { AuthService } from './auth.service';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { EntryActivity } from '../models/entryactivity';
@@ -9,34 +9,44 @@ import { Activity } from '../models/activity';
 import { Entry } from '../models/entry.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class MoodService {
-
   activityArray: Activity[] = [];
   clickedEntry: any = {};
 
-  constructor(private http: HttpClient, private auth: AuthService) { }
+  constructor(private http: HttpClient, private auth: AuthService) {}
 
   apiURL: string = `https://happy-cranky.herokuapp.com/entries`;
 
   //get entries by any parameter
-  getUserEntries(moodVar: string, entryDate: string, entryTime: string, journalEntry: string, userId?: string): Observable<any[]> {
+  getUserEntries(
+    moodVar: string,
+    entryDate: string,
+    entryTime: string,
+    journalEntry: string,
+    userId?: string
+  ): Observable<any[]> {
     return this.http.get<any[]>(this.apiURL, {
-      params: { mood: moodVar, entrydate: entryDate, entrytime: entryTime, journalentry: journalEntry, user_id: userId }
-    })
+      params: {
+        mood: moodVar,
+        entrydate: entryDate,
+        entrytime: entryTime,
+        journalentry: journalEntry,
+        user_id: userId,
+      },
+    });
   }
 
   getEntriesOnlyByUserId(userId?: string): Observable<any[]> {
     return this.http.get<any[]>(this.apiURL, {
-      params: { user_id: userId }
-    })
+      params: { user_id: userId },
+    });
   }
 
   getUserStats(moodVar?: string, userId?: string): Observable<Entry[]> {
     return this.http.get<Entry[]>(this.apiURL, {
-      params: { mood: moodVar, user_id: userId }
+      params: { mood: moodVar, user_id: userId },
     });
   }
 
@@ -49,24 +59,49 @@ export class MoodService {
   }
 
   getAllEntryActivitiesPerEntryId(entryId: string): Observable<any> {
-    return this.http.get<any[]>(`https://happy-cranky.herokuapp.com/entryactivities`, {
-      params: { entry_id: entryId }
-    })
+    return this.http.get<any[]>(
+      `https://happy-cranky.herokuapp.com/entryactivities`,
+      {
+        params: { entry_id: entryId },
+      }
+    );
   }
 
   deleteEntryFromEA(eaId: number): Observable<Entry[]> {
-    return this.http.delete<Entry[]>(`https://happy-cranky.herokuapp.com/entryactivities/${eaId}`);
+    return this.http.delete<Entry[]>(
+      `https://happy-cranky.herokuapp.com/entryactivities/${eaId}`
+    );
   }
 
-  addEntryActivities(entryActivity: EntryActivity): Observable<EntryActivity[]> {
-    return this.http.post<EntryActivity[]>('https://happy-cranky.herokuapp.com/entryactivities', entryActivity)
+  addEntryActivities(
+    entryActivity: EntryActivity
+  ): Observable<EntryActivity[]> {
+    return this.http.post<EntryActivity[]>(
+      'https://happy-cranky.herokuapp.com/entryactivities',
+      entryActivity
+    );
   }
 
   getActivities(): Observable<Activity[]> {
-    return this.http.get<Activity[]>('https://happy-cranky.herokuapp.com/activities')
+    return this.http.get<Activity[]>(
+      'https://happy-cranky.herokuapp.com/activities'
+    );
   }
 
   getActivityNameAndCategory(id): Observable<any[]> {
-    return this.http.get<any[]>(`https://happy-cranky.herokuapp.com/activities/${id}`);
+    return this.http.get<any[]>(
+      `https://happy-cranky.herokuapp.com/activities/${id}`
+    );
+  }
+
+  getAllActivities(): Observable<any> {
+    return this.http.get('https://happy-cranky.herokuapp.com/activities');
+  }
+
+  getAllEntries(selectedUserId: string): Observable<any> {
+    let params1 = new HttpParams().set('UserId', selectedUserId);
+    return this.http.get('https://happy-cranky.herokuapp.com/entries', {
+      params: params1,
+    });
   }
 }
