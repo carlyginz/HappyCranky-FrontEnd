@@ -14,6 +14,10 @@ export class HomepageComponent implements OnInit {
   constructor(public auth: AuthService, private moodService: MoodService) { }
   //, public router: Router
 
+  get clickedEntry(): any {
+    return this.moodService.clickedEntry;
+  }
+
   id: string = "";
   ngOnInit(): void {
     this.auth.user$.subscribe(user => {

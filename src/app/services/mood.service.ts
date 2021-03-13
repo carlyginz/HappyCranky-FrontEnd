@@ -48,6 +48,12 @@ export class MoodService {
     return this.http.post<Entry[]>(this.apiURL, newEntry);
   }
 
+  updateEntry(entryID: number, entryObject: Entry): Observable<Entry[]> {        
+    
+    return this.http.put<Entry[]>(this.apiURL + `/${entryID}`, 
+    JSON.stringify(entryObject));
+  }
+
   getAllEntryActivitiesPerEntryId(entryId: string): Observable<any> {
     return this.http.get<any[]>(`https://happy-cranky.herokuapp.com/entryactivities`, {
       params: { entry_id: entryId }
