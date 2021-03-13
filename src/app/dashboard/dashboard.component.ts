@@ -28,6 +28,7 @@ export class DashboardComponent implements OnInit {
       this.moodService.getUserEntries(mood, entrydate, entrytime, journalentry, userID).subscribe(result => {
         this.userEntries = result;
         console.log(this.userEntries);
+        this.total = 0;
         this.userEntries.forEach(element => {
           this.total += element.mood;
         });
