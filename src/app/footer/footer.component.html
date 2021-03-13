@@ -1,1 +1,17 @@
-<p>footer works!</p>
+<div class="links">
+  <div class="dash">
+    <a routerLink="/dashboard">Dashboard</a>
+  </div>
+  <div class="entries">
+    <a routerLink="/entrypage">Entries</a>
+  </div>
+  <div class="past">
+    <a routerLink="/pastentries">PastEntries</a>
+  </div>
+  <div class="stats">
+    <a routerLink="/stats">Stats</a>
+  </div>
+  <div class="signout">
+    <button (click)="auth.signOut()">Sign Out</button>
+  </div>
+</div>

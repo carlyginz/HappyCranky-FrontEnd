@@ -1,3 +1,4 @@
+import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  constructor(public auth: AuthService) { }
 
+  id: any;
   ngOnInit(): void {
+    this.auth.user$.subscribe(user => {
+      this.id = user.uid;
+    })
   }
-
 }
