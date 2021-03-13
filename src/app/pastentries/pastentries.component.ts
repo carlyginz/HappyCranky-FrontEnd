@@ -45,8 +45,8 @@ export class PastentriesComponent implements OnInit {
     this.moodService.clickedEntry = {};
   }
 
-  editEntry(data: any) {
-    this.moodService.clickedEntry = data;
+  editEntry(entry: any) {
+    this.moodService.clickedEntry = entry;
     this.router.navigate(['/entrypage']);
     // console.log(this.moodService.clickedEntry);
     // this.moodService.getUserEntries(data).subscribe(entry => {
@@ -79,6 +79,7 @@ export class PastentriesComponent implements OnInit {
     this.moodService.getAllEntryActivitiesPerEntryId(entry.id).subscribe(newList => {
       newList.forEach(element => {
         let newId = element.id;
+          console.log(newId);
         this.moodService.deleteEntryFromEA(newId).subscribe(() => {
           console.log(`I'm deleting EA Table id = ${newId}`);
         })
