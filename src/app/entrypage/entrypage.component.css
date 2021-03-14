@@ -1,28 +1,35 @@
-input[type=radio] {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
+input[type="radio"] {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+h1,
+h2 {
+  display: flex;
+  justify-content: center;
 }
 
 #moods label {
-    font-size: 50px;
-    padding: 5px;
+  font-size: 50px;
+  padding: 5px;
 }
 
 #moods label:hover {
-    cursor: pointer;
-}
-input[type=radio]:required ~ label {
-    color: darkgreen;
+  cursor: pointer;
 }
 
-input[type=radio]:checked+label  {
-    color: blue!important;
+input[type="radio"]:required ~ label {
+  color: darkgreen;
+}
+
+input[type="radio"]:checked + label {
+  color: blue !important;
 }
 /* input[type=radio].with-font:focus ~ label:before,
 input[type=radio].with-font:focus ~ label
@@ -39,3 +46,32 @@ input[type=radio].with-font:focus ~ label
     color: #535353;
     width: 1.5em;
 } */
+
+.moods {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px 10px;
+  width: 50%;
+}
+
+.moods-container {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+    display: flex;
+    border-radius: 12px;
+    font-size: 20px;
+    height: 50px;
+    margin-top: 10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    color: white;
+    background: linear-gradient(
+        to right,
+        #89253e,
+        #3a6186);
+}

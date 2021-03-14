@@ -3,14 +3,16 @@
 <h2>How are you feeling today?</h2>
 
 <form>
-
-  <fieldset id="moods" name="moods">
-    <input name="mood" id="sad" class="sad" type="radio" [(ngModel)]="mood" [value]="1" required><label for="sad"><i class="far fa-sad-tear"></i></label>
-    <input name="mood" id="frown" class="frown" type="radio" [(ngModel)]="mood" [value]="2"><label for="frown"><i class="far fa-frown"></i></label>
-    <input name="mood" id="meh" class="meh" type="radio" [(ngModel)]="mood" [value]="3"><label for="meh"><i class="far fa-meh"></i></label>
-    <input name="mood" id="smile" class="smile" type="radio" [(ngModel)]="mood" [value]="4"><label for="smile"><i class="far fa-smile"></i></label>
-    <input name="mood" id="laugh" class="laugh" type="radio" [(ngModel)]="mood" [value]="5"><label for="laugh"><i class="far fa-laugh-beam"></i></label>
+<div class="moods-container">
+  <fieldset id="moods" name="moods" class="moods">
+    <input name="mood" id="sad" class="sad" type="radio" [(ngModel)]="mood" [value]="1" required><label for="sad"><i style="color: #336bb9" class="far fa-sad-tear"></i></label>
+    <input name="mood" id="frown" class="frown" type="radio" [(ngModel)]="mood" [value]="2"><label for="frown"><i style="color: #33a0b9" class="far fa-frown"></i></label>
+    <input name="mood" id="meh" class="meh" type="radio" [(ngModel)]="mood" [value]="3"><label for="meh"><i style="color: #86b8d3" class="far fa-meh"></i></label>
+    <input name="mood" id="smile" class="smile" type="radio" [(ngModel)]="mood" [value]="4"><label for="smile"><i style="color: #f39481" class="far fa-smile"></i></label>
+    <input name="mood" id="laugh" class="laugh" type="radio" [(ngModel)]="mood" [value]="5"><label for="laugh"><i style="color: #d8214b"  class="far fa-laugh-beam"></i></label>
   </fieldset>
+</div>
+
 
   <!-- <select id="mood" name="mood" [(ngModel)]="mood">
     <input type="radio" [(ngModel)]="mood" value="1"><i class="far fa-sad-tear"></i>
@@ -20,14 +22,16 @@
     <option [ngValue]="5"><i class="far fa-laugh-beam"></i></option>
   </select> -->
 
-
-  <h2>What did you do today?</h2>
+<h2>What did you do today?</h2>
+<div class="activities">
   <fieldset id="activity" name="activity">
     <label for="{{ activity.id }}" *ngFor="let activity of activityArray; let i = index">
       <input (change)="toggleActivityList(activity.id, $event)" id="{{ activity.id }}" name="{{ activity.id }}" type="checkbox" value="{{activity.id}}" />
       {{ activity.name }}
     </label>
   </fieldset>
+</div>
+
   <!-- <fieldset id="activity" name="activity">
     <div *ngFor="let checked of activityList; let i = index">
     <label for="{{ activity.id }}" *ngFor="let activity of activityArray; let i = index">
@@ -38,5 +42,5 @@
   </fieldset> -->
   <textarea id="journal" name="journal" [(ngModel)]="journalentry"> </textarea>
   <button *ngIf="entryToEdit.id" (click)="updateEntry()">Update Entry</button>
-  <button *ngIf="entryToEdit.id === undefined"  (click)="addNewEntry()">Submit</button>
+  <button *ngIf="entryToEdit.id === undefined"  (click)="addNewEntry()">Submit Entry</button>
 </form>
