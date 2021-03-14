@@ -14,6 +14,8 @@ export class DashboardComponent implements OnInit {
   id: string = "";
   total: number = 0;
   average: number = 0;
+  displayName: string = '';
+  displayAverage: number = 0;
 
   constructor(public auth: AuthService, private moodService: MoodService, public router: Router) { }
 
@@ -23,6 +25,7 @@ export class DashboardComponent implements OnInit {
     let entrytime: string = "";
     let journalentry: string = "";
     this.auth.user$.subscribe(user => {
+      this.displayName = user.displayName;
       this.id = user.uid;
       let userID: string = this.id;
       this.moodService.getUserEntries(mood, entrydate, entrytime, journalentry, userID).subscribe(result => {
@@ -34,6 +37,7 @@ export class DashboardComponent implements OnInit {
         });
         this.average = (this.total) / (this.userEntries.length);
         console.log(this.average);
+        this.displayAverage = Math.round(this.average * 10) / 10;
       })
     })
   }

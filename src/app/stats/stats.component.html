@@ -4,10 +4,10 @@
 <label>Filter by Activity:</label>
 <select
   [(ngModel)]="ActivitySelected"
-  (ngModelChange)="onActivitySelected($event)">
-
+  (ngModelChange)="onActivitySelected($event)"
+>
   <option *ngFor="let activity of AllActivities" [value]="activity.id">
-           {{ activity.name }}
+    {{ activity.name }}
   </option>
 </select>
 
@@ -23,22 +23,22 @@
   </div>
 
 
-
 <p></p>
-<button (click)="happyDaysDidThis()">Your Happy Day Activities</button>
-<button (click)="sadDaysDidThis()">On Your Sad Days</button>
+<div class="happysadbuttons">
+  <button class="happybutton" (click)="happyDaysDidThis()">
+    Happy Day Activities
+  </button>
+  <button class="sadbutton" (click)="sadDaysDidThis()">
+    Sad Day Activities
+  </button>
+</div>
 <hr />
-<div class="happyDays" *ngFor="let each of HappyActivitiesNamesandCategories">
-  Category: {{ each.aCategory }}
-  <p></p>
-  Activity: {{ each.aName }}
-  <hr />
-</div>
-<div class="sadDays" *ngFor="let each of SadActivitiesNamesandCategories">
-  Category: {{ each.aCategory }}
-  <p></p>
-  Activity: {{ each.aName }}
-  <hr />
-</div>
 
-
+<div class="list">
+  <div class="happyDays" *ngFor="let each of HappyActivitiesNamesandCategories">
+    <div>Category: {{ each.aCategory }} - Activity: {{ each.aName }}</div>
+  </div>
+  <div class="sadDays" *ngFor="let each of SadActivitiesNamesandCategories">
+    <div>Category: {{ each.aCategory }} - Activity: {{ each.aName }}</div>
+  </div>
+</div>
