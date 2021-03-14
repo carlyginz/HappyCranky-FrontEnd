@@ -1,17 +1,20 @@
 <div class="dash-container">
   <div class="header">
     <h1>DASHBOARD</h1>
-  </div>
-
-  <div class="centerPage">
     <div class="plus">
       <button (click)="goToEntryPage()">
         <i class="fas fa-plus fa-3x"></i>
       </button>
     </div>
+
     <p></p>
     <hr />
-    <h2>Average Daily Mood</h2>
+    <h2>Hi {{ displayName }}!</h2>
+    <h4>
+      Your average daily mood has been
+      {{ displayAverage }} / 5
+    </h4>
+    <!-- <h2>Average Daily Mood</h2> -->
     <p></p>
     <div class="avgDailyMood">
       <div *ngIf="average >= 4.5">

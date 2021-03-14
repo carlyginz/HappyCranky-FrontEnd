@@ -19,7 +19,7 @@ button {
 }
 
 button:hover {
-  background-color: rgb(243, 211, 243);
+  background-color: rgb(255, 236, 236);
   transition: 0.5s;
 }
 
