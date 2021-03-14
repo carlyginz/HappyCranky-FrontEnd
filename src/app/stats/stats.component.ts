@@ -15,6 +15,7 @@ import { EntryActivity } from '../models/entryactivity';
 })
 export class StatsComponent implements OnInit {
   userEntries: Entry[] = [];
+  userEntriesD: Entry[] = [];
   userId: string = '';
   mood = 0;
   selctedUser = [];
@@ -37,10 +38,10 @@ export class StatsComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private auth: AuthService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
-    this.displayEntries;
+    this.displayEntries();
 
     this.moodService.getAllActivities().subscribe((data) => {
       this.AllActivities = data;
@@ -64,8 +65,8 @@ export class StatsComponent implements OnInit {
       this.moodService
         .getUserEntries(mood, entrydate, entrytime, journalentry, userID)
         .subscribe((result) => {
-          this.userEntries = result;
-          // console.log(this.userEntries);
+          this.userEntriesD = result;
+          // console.log(this.userEntriesD);
         });
     });
   }
@@ -74,7 +75,7 @@ export class StatsComponent implements OnInit {
     let i = 0;
     this.happyDays = [];
     this.happyActivitiesIds = [];
-    this.userEntries.forEach((element) => {
+    this.userEntriesD.forEach((element) => {
       if (element.mood === 5 || element.mood === 4) {
         this.happyDays.push(element.id);
       }
@@ -112,7 +113,7 @@ export class StatsComponent implements OnInit {
     let i = 0;
     this.sadDays = [];
     this.sadActivitiesIds = [];
-    this.userEntries.forEach((element) => {
+    this.userEntriesD.forEach((element) => {
       if (element.mood === 1 || element.mood === 2) {
         this.sadDays.push(element.id);
       }
