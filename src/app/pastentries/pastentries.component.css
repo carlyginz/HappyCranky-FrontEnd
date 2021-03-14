@@ -62,9 +62,6 @@ button {
 
 /* computer */
 @media only screen and (min-width: 992px) {
-  h1 {
-    background-color: orange;
-  }
   .fa-plus {
     font-size: larger;
   }
