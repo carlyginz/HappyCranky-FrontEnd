@@ -8,13 +8,14 @@ main {
 }
 
 button {
+  background-color: white;
   font-weight: 800;
   padding: 10px;
   border-radius: 5px;
 }
 
 button:hover {
-  background-color: rgb(255, 236, 236);
+  background-color: rgb(236, 230, 255);
   transition: 0.5s;
 }
 
