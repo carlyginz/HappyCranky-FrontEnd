@@ -1,7 +1,7 @@
 .links {
   position: fixed;
-  bottom: 1px;
-  left: 1px;
+  bottom: 0px;
+  left: 0px;
   display: flex;
   justify-content: space-around;
   align-items: center;

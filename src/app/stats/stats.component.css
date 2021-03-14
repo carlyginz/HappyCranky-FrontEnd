@@ -1,0 +1,83 @@
+h1 {
+  display: flex;
+  justify-content: center;
+}
+
+.happysadbuttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.happybutton,
+.sadbutton {
+  font-size: large;
+  padding: 10px;
+  border: 1px gray;
+  border-radius: 10px;
+}
+
+.happybutton {
+  background-color: #fdebef;
+}
+
+.sadbutton {
+  background-color: #ecf3ff;
+}
+
+.happybutton:focus,
+.sadbutton:focus {
+  outline: none;
+}
+
+.happybutton:hover {
+  background-color: #ffdce5;
+  transition: 0.5s;
+}
+
+.sadbutton:hover {
+  background-color: #d4e6ff;
+  transition: 0.5s;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.happyDays,
+.sadDays {
+  padding: 10px;
+  margin-bottom: 0px;
+  border-bottom: 1px solid gray;
+  display: flex;
+  justify-content: center;
+}
+
+.happyDays {
+  background: #d9a7c7; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #d9a7c7,
+    #fffcdc
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #d9a7c7,
+    #fffcdc
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.sadDays {
+  background: #a1c1eb; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to left,
+    #a1c1eb,
+    #dfdbb4
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to left,
+    #a1c1eb,
+    #dfdbb4
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
