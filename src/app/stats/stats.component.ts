@@ -160,9 +160,4 @@ export class StatsComponent implements OnInit {
     this.moodService.clickedEntry = {};
   }
 
-  displayStats() {
-      this.moodService.getUserEntries(this.mood.toString(), this.userId).subscribe(result => {
-          console.log(result);
-        })
-      }
 }
