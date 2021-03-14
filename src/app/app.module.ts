@@ -15,6 +15,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PastentriesComponent } from './pastentries/pastentries.component';
 import { StatsComponent } from './stats/stats.component';
 import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 const config = {
   apiKey: "AIzaSyB70_QuTshwii3W5Yb-YpBEahVSaCLG2Uo",
@@ -34,7 +35,8 @@ const config = {
     DashboardComponent,
     PastentriesComponent,
     StatsComponent,
-    FooterComponent
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

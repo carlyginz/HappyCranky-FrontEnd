@@ -1,40 +1,41 @@
-<div class="header">
-  <h1>DASHBOARD</h1>
-  <div class="addEntryButton">
-    <button (click)="goToEntryPage()">
-      <i class="fas fa-plus fa-4x"></i>
-    </button>
-  </div>
-</div>
-
-<div class="centerPage">
-  <hr />
-  <h2>Your Average Daily Mood Is...</h2>
-  <p></p>
-  <div class="avgDailyMood">
-    <div class="smiley" *ngIf="average >= 4.5">
-      <i style="color: #d8214b" class="far fa-laugh-beam fa-10x"></i>
-      <p>exceptional!</p>
-    </div>
-    <div class="smiley" *ngIf="average > 3.5 && average < 4.5">
-      <i style="color: #f39481" class="far fa-smile fa-10x"></i>
-      <p>pretty good!</p>
-    </div>
-    <div class="smiley" *ngIf="average > 2.5 && average < 3.5">
-      <i style="color: #86b8d3" class="far fa-meh fa-10x"></i>
-      <p>meh</p>
-    </div>
-    <div class="smiley" *ngIf="average > 1.5 && average < 2.5">
-      <i style="color: #33a0b9" class="far fa-frown fa-10x"></i>
-      <p>not good</p>
-    </div>
-    <div class="smiley" *ngIf="average >= 1 && average < 1.5">
-      <i style="color: #336bb9" class="far fa-sad-tear fa-10x"></i>
-      <p>awful</p>
+<div class="dash-container">
+  <div class="header">
+    <h1>DASHBOARD</h1>
+    <div class="addEntryButton">
+      <button (click)="goToEntryPage()">
+        <i class="fas fa-plus fa-4x"></i>
+      </button>
     </div>
   </div>
-</div>
 
+  <div class="centerPage">
+    <hr />
+    <h2>Your Average Daily Mood Is...</h2>
+    <p></p>
+    <div class="avgDailyMood">
+      <div class="smiley" *ngIf="average >= 4.5">
+        <i style="color: #d8214b" class="far fa-laugh-beam fa-10x"></i>
+        <p>exceptional!</p>
+      </div>
+      <div class="smiley" *ngIf="average > 3.5 && average < 4.5">
+        <i style="color: #f39481" class="far fa-smile fa-10x"></i>
+        <p>pretty good!</p>
+      </div>
+      <div class="smiley" *ngIf="average > 2.5 && average < 3.5">
+        <i style="color: #86b8d3" class="far fa-meh fa-10x"></i>
+        <p>meh</p>
+      </div>
+      <div class="smiley" *ngIf="average > 1.5 && average < 2.5">
+        <i style="color: #33a0b9" class="far fa-frown fa-10x"></i>
+        <p>not good</p>
+      </div>
+      <div class="smiley" *ngIf="average >= 1 && average < 1.5">
+        <i style="color: #336bb9" class="far fa-sad-tear fa-10x"></i>
+        <p>awful</p>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- the smiley disappearing issue has something to do with the crying face. 
   when my mood average changed, a new smiley showed up and stayed there. 
   But the crying face showed up first and then disappeared.

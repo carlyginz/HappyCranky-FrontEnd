@@ -1,18 +1,19 @@
-header {
+/* header {
   display: flex;
-}
+  align-items: center;
+} */
 
 h1 {
   display: flex;
   justify-content: center;
-  padding-top: 20px;
+  padding-top: 30px;
   font-size: 50px;
 }
 
 h2 {
   display: flex;
   justify-content: center;
-  padding-top: 25px;
+  padding-top: 20px;
 }
 
 button {
@@ -24,7 +25,8 @@ button {
 .addEntryButton {
   display: flex;
   justify-content: center;
-  padding: 18px;
+  padding-bottom: 15px;
+  margin: 30px;
 }
 
 .fa-plus {
@@ -32,7 +34,6 @@ button {
   /* background-color: rgb(69, 71, 71); */
   border-radius: 50px;
   padding: 25px;
-  margin: 10px;
   background: #3a6186; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
