@@ -11,14 +11,17 @@
   </option>
 </select>
 
-<ul>
-  <tr *ngFor="let entry of userEntries">
-    <ol>Entry Date: {{ entry.entrydate }}</ol>
-    <ol>Entry Time: {{ entry.entrytime }}</ol>
-    <ol>Mood: {{ entry.mood }}</ol>
-    
-  </tr>
-</ul>
+<p></p>  
+  <div class="filter" *ngFor="let entry of userEntries">
+    Entry Date: {{ entry.entrydate }}
+    <p></p>  
+    Entry Time: {{ entry.entrytime }}
+    <p></p>  
+    Mood: {{ entry.mood }}
+    <hr />
+    <p></p>  
+  </div>
+
 
 
 <p></p>
