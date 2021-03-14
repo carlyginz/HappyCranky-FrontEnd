@@ -15,6 +15,9 @@ export class MoodService {
   activityArray: Activity[] = [];
   clickedEntry: any = {};
 
+  headers = new Headers();
+  
+
   constructor(private http: HttpClient, private auth: AuthService) {}
 
   apiURL: string = `https://happy-cranky.herokuapp.com/entries`;
@@ -58,8 +61,7 @@ export class MoodService {
     return this.http.post<Entry[]>(this.apiURL, newEntry);
   }
 
-  updateEntry(entryID: number, entryObject: Entry): Observable<Entry[]> {        
-    
+  updateEntry(entryID: number, entryObject: Entry): Observable<Entry[]> {       
     return this.http.put<Entry[]>(this.apiURL + `/${entryID}`, 
     JSON.stringify(entryObject));
   }
