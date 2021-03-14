@@ -1,4 +1,4 @@
-.links {
+.links-container {
   position: fixed;
   bottom: 1px;
   left: 1px;
@@ -39,5 +39,9 @@ button {
 
 a:hover,
 button:hover {
-  color: rgba(250, 237, 252, 0.897);
+  color: rgba(241, 237, 252, 0.781);
+}
+
+i {
+  font-size: 40px;
 }
