@@ -50,19 +50,20 @@ export class EntryPageComponent implements OnInit {
         result.forEach(element => {
           this.activityList.push(element.activity_id);
         });
-        console.log(this.activityList);
       });
-
     }
-    console.log(this.entryToEdit.id);
 
-    this.moodService.getActivities().subscribe(result => {
+    this.moodService.getAllActivities().subscribe(result => {
       if (this.moodService.activityArray.length === 0) {
         result.forEach((activity: Activity) => {
           this.moodService.activityArray.push(activity);
         });
      }
     })
+  }
+
+  displayHobbies() {
+    // return this.activityArray ? this.activityArray.categoy === "Hobbies" : undefined;
   }
 
   getCurrentDate() {
@@ -84,7 +85,7 @@ export class EntryPageComponent implements OnInit {
     const checked = event.target.checked;
     
     if (checked) {
-      this.activityList.push(id);
+      this.activityList.push({id});
       } else {
       const index = this.activityList.findIndex(list => list == id);
       this.activityList.splice(index, 1);

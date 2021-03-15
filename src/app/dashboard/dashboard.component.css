@@ -9,7 +9,9 @@ h1 {
   font-size: 50px;
 }
 
-h2 {
+h2,
+h4 {
+  padding: 10px;
   display: flex;
   justify-content: center;
   padding-top: 25px;
@@ -43,26 +45,20 @@ button {
     #89253e,
     #3a6186
   );
+  /* Delia's code */
+  /* background-color: rgb(90, 93, 93);
+  border-radius: 100px;
+  padding: 15px; */
 }
 
 .fa-plus:hover {
   color: rgba(241, 237, 252, 0.781);
 }
 
-/* .centerPage {
-  display: flex;
-} */
-
 .avgDailyMood {
   display: flex;
   justify-content: center;
 }
-
-/* .smiley {
-  display: flex;
-  margin-top: 15px;
-  justify-content: center;
-} */
 
 p {
   display: flex;

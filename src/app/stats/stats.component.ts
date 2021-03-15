@@ -72,6 +72,7 @@ export class StatsComponent implements OnInit {
   }
 
   happyDaysDidThis() {
+    this.SadActivitiesNamesandCategories = [];
     let i = 0;
     this.happyDays = [];
     this.happyActivitiesIds = [];
@@ -89,6 +90,7 @@ export class StatsComponent implements OnInit {
         .subscribe((result) => {
           if (result.length > 0) {
             console.log(result);
+            this.HappyActivitiesNamesandCategories = [];
             for (i = 0; i < result.length; i++) {
               newHEId = result[i].entry_id;
               newHAId = result[i].activity_id;
@@ -110,6 +112,7 @@ export class StatsComponent implements OnInit {
   }
 
   sadDaysDidThis() {
+    this.HappyActivitiesNamesandCategories = [];
     let i = 0;
     this.sadDays = [];
     this.sadActivitiesIds = [];
@@ -126,6 +129,7 @@ export class StatsComponent implements OnInit {
         .getAllEntryActivitiesPerEntryId(element)
         .subscribe((result) => {
           if (result.length > 0) {
+            this.SadActivitiesNamesandCategories = [];
             for (i = 0; i < result.length; i++) {
               newSEId = result[i].entry_id;
               newSAId = result[i].activity_id;

@@ -14,6 +14,7 @@ button {
 }
 
 .fa-plus {
+  font-size: medium;
   color: white;
   background-color: rgb(69, 71, 71);
   border-radius: 100px;
@@ -30,15 +31,47 @@ button {
   justify-content: space-around;
   align-items: baseline;
   padding-bottom: 10px;
-  font-size: 25px;
+  font-size: 15px;
 }
 
-.fa-edit {
-  color: black;
-  background-color: white;
+.fa-edit,
+.fa-trash-alt {
+  font-size: 15px;
 }
 
 .fa-edit:hover,
 .fa-trash-alt:hover {
-  color: lightslategray;
+  color: rgb(161, 177, 192);
+}
+
+/* tablet */
+@media only screen and (min-width: 768px) {
+  .fa-plus {
+    font-size: large;
+  }
+
+  .entryList {
+    font-size: 25px;
+  }
+
+  .fa-edit,
+  .fa-trash-alt {
+    font-size: 25px;
+  }
+}
+
+/* computer */
+@media only screen and (min-width: 992px) {
+  .fa-plus {
+    font-size: larger;
+  }
+
+  .entryList {
+    font-size: 30px;
+  }
+
+  .fa-edit,
+  .fa-trash-alt {
+    font-size: 30px;
+  }
 }
