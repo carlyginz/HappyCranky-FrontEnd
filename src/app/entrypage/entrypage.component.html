@@ -1,37 +1,41 @@
 <!-- <button class="button" (click)="auth.signOut()">Sign Out</button> -->
 
-<h2>How are you feeling today?</h2>
+<div class="heading">How are you feeling today?</div>
 
 <form>
-<div class="moods-container">
-  <fieldset id="moods" name="moods" class="moods">
-    <input name="mood" id="sad" class="sad" type="radio" [(ngModel)]="mood" [value]="1" required><label for="sad"><i style="color: #336bb9" class="far fa-sad-tear"></i></label>
-    <input name="mood" id="frown" class="frown" type="radio" [(ngModel)]="mood" [value]="2"><label for="frown"><i style="color: #33a0b9" class="far fa-frown"></i></label>
-    <input name="mood" id="meh" class="meh" type="radio" [(ngModel)]="mood" [value]="3"><label for="meh"><i style="color: #86b8d3" class="far fa-meh"></i></label>
-    <input name="mood" id="smile" class="smile" type="radio" [(ngModel)]="mood" [value]="4"><label for="smile"><i style="color: #f39481" class="far fa-smile"></i></label>
-    <input name="mood" id="laugh" class="laugh" type="radio" [(ngModel)]="mood" [value]="5"><label for="laugh"><i style="color: #d8214b"  class="far fa-laugh-beam"></i></label>
-  </fieldset>
-</div>
+  <div class="moods-container">
+    <fieldset id="moods" name="moods" class="moods">
+      <input name="mood" id="sad" class="sad" type="radio" [(ngModel)]="mood" [value]="1" required><label for="sad"><i style="color: #336bb9" class="far fa-sad-tear"></i></label>
+      <input name="mood" id="frown" class="frown" type="radio" [(ngModel)]="mood" [value]="2"><label for="frown"><i style="color: #33a0b9" class="far fa-frown"></i></label>
+      <input name="mood" id="meh" class="meh" type="radio" [(ngModel)]="mood" [value]="3"><label for="meh"><i style="color: #86b8d3" class="far fa-meh"></i></label>
+      <input name="mood" id="smile" class="smile" type="radio" [(ngModel)]="mood" [value]="4"><label for="smile"><i style="color: #f39481" class="far fa-smile"></i></label>
+      <input name="mood" id="laugh" class="laugh" type="radio" [(ngModel)]="mood" [value]="5"><label for="laugh"><i style="color: #d8214b"  class="far fa-laugh-beam"></i></label>
+    </fieldset>
+  </div>
 
-
-  <h2>What did you do today?</h2>
+  <div class="activityQuestion">What did you do?</div>
 
   <fieldset class="activity">
-    <div *ngFor="let activity of activityArray; let i=index">
+    <div *ngFor="let activity of activityArray; let i = index">
       <label for="{{ activity.id }}">
-        <input 
-        [checked]="activityList.includes(activity.id)"
-        (change)="toggleActivityList(activity.id, $event)" 
-        id="{{ activity.id }}" 
-        name="{{ activity.id }}" 
-        type="checkbox" 
-        value="{{activity.id}}"/>
+        <input
+          [checked]="activityList.includes(activity.id)"
+          (change)="toggleActivityList(activity.id, $event)"
+          id="{{ activity.id }}"
+          name="{{ activity.id }}"
+          type="checkbox"
+          value="{{ activity.id }}"
+        />
         {{ activity.name }}
       </label>
     </div>
   </fieldset>
-  
+
+  <div class="writeAboutIt">Wanna write about it?</div>
+
   <textarea id="journal" name="journal" [(ngModel)]="journalentry"> </textarea>
   <button *ngIf="entryToEdit.id" (click)="updateEntry()">Update Entry</button>
-  <button *ngIf="entryToEdit.id === undefined"  (click)="addNewEntry()">Submit Entry</button>
+  <button *ngIf="entryToEdit.id === undefined" (click)="addNewEntry()">
+    Submit Entry
+  </button>
 </form>
