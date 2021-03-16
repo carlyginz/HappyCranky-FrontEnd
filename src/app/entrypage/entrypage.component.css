@@ -6,6 +6,11 @@
   font-size: 30px;
 }
 
+form {
+  padding-top: 5px;
+  padding-bottom: 90px;
+}
+
 input[type="radio"] {
   border: 0;
   clip: rect(0 0 0 0);
@@ -33,13 +38,16 @@ input[type="radio"] {
   font-size: 25px;
 }
 
-form {
-  padding-top: 5px;
-  padding-bottom: 90px;
-}
+/* activity div code makes a center column...idk why */
+/* .activity div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 5px;
+} */
 
-/* code below wraps activities */
-.activity {
+/* activity code below - wraps activities */
+#activity {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -48,12 +56,7 @@ form {
     align-content: flex-start;
 }
 
-/* .activity div {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin: 5px;
-} */
+/* ^when you comment both out it puts it in one column */
 
 
 input[type=radio] {
@@ -65,6 +68,20 @@ input[type=radio] {
     padding: 0;
     position: absolute;
     width: 1px;
+}
+
+.moods {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px 10px;
+  width: 50%;
+  border: none;
+}
+
+.moods-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
 }
 
 #moods label {
@@ -83,12 +100,12 @@ input[type="radio"]:required ~ label {
 input[type="radio"]:checked + label {
   color: blue !important;
 }
-/* input[type="radio"].with-font:focus ~ label:before,
+input[type="radio"].with-font:focus ~ label:before,
 input[type="radio"].with-font:focus ~ label {
   color: green;
 }
 
-input[type="radio"].sad ~ label:before {
+/* input[type="radio"].sad ~ label:before {
   font-family: FontAwesome;
   font-weight: 700;
   display: inline-block;
@@ -98,17 +115,8 @@ input[type="radio"].sad ~ label:before {
   width: 1.5em;
 } */
 
-.moods {
-  display: flex;
-  justify-content: space-evenly;
-  padding: 10px 10px;
-  width: 50%;
-}
-
-.moods-container {
-  display: flex;
-  justify-content: center;
-  padding-top: 20px;
+input[type="radio"]:checked + label {
+  color: blue !important;
 }
 
 #journal {
@@ -122,7 +130,7 @@ input[type="radio"].sad ~ label:before {
   /* position: relative; */
   /* justify-content: center; */
   text-align: flex-start;
-  background-color: #bfc0c2;
+  background-color: #a4afc7;
 }
 
 button {
@@ -146,6 +154,6 @@ button {
      #3a6186);
 }
 
-input[type="radio"]:checked + label {
-  color: blue !important;
+button:hover {
+  color: #a4afc7;
 }
