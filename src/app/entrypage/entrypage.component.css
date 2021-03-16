@@ -122,7 +122,7 @@ input[type="radio"].sad ~ label:before {
   /* position: relative; */
   /* justify-content: center; */
   text-align: flex-start;
-  background-color: #9ecdfa;
+  background-color: #bfc0c2;
 }
 
 button {
