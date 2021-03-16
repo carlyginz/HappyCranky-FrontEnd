@@ -16,11 +16,11 @@ import { EntryActivity } from '../models/entryactivity';
 export class StatsComponent implements OnInit {
   userEntries: Entry[] = [];
   userEntriesD: Entry[] = [];
-  userEntryAct: EntryActivity [] = [];
+  // userEntryAct: EntryActivity [] = [];
   userAct: Activity [] = [];
   userId: string = '';
   entryId: string = '';
-  id: number;
+  // id: number;
   mood = 0;
   selctedUser = [];
   userDetails = [];
@@ -32,7 +32,7 @@ export class StatsComponent implements OnInit {
   SadActivitiesNamesandCategories: EidAname[] = [];
   AllActivities: Activity[];
   ActivitySelected: Number;
-  EntryActivitySelected: EntryActivity[];
+  // EntryActivitySelected: EntryActivity[];
  
 
   get clickedEntry(): any {
@@ -66,11 +66,11 @@ export class StatsComponent implements OnInit {
     });
   }
     
-  onEntryActivitySelected(entryId: any): void {
-      this.moodService.getAllEntryActivitiesPerEntryId(this.entryId).subscribe((data) => {
-        this.userEntryAct= data;
-      });
-  }
+  // onEntryActivitySelected(entryId: any): void {
+  //     this.moodService.getAllEntryActivitiesPerEntryId(this.entryId).subscribe((data) => {
+  //       this.userEntryAct= data;
+  //     });
+  // }
 
 //   ActivityNameAndCategory(id: any): void {
 //     this.moodService.getActivityNameAndCategory(this.id).subscribe((data) => {
@@ -193,10 +193,9 @@ export class StatsComponent implements OnInit {
     this.moodService.clickedEntry = {};
   }
 
+}
+
+  // getAllUserActivities:(userId: string) => {
+  //   return this.Activity.filter(activity => activity.name === name);
   
 
-  getAllUserActivities:(userId: string) => {
-    return this.Activity.filter(activity => activity.name === name);
-  }
-
-}
