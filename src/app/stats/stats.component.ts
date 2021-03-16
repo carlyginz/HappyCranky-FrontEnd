@@ -16,7 +16,11 @@ import { EntryActivity } from '../models/entryactivity';
 export class StatsComponent implements OnInit {
   userEntries: Entry[] = [];
   userEntriesD: Entry[] = [];
+  userEntryAct: EntryActivity [] = [];
+  userAct: Activity [] = [];
   userId: string = '';
+  entryId: string = '';
+  id: number;
   mood = 0;
   selctedUser = [];
   userDetails = [];
@@ -28,10 +32,15 @@ export class StatsComponent implements OnInit {
   SadActivitiesNamesandCategories: EidAname[] = [];
   AllActivities: Activity[];
   ActivitySelected: Number;
+  EntryActivitySelected: EntryActivity[];
+ 
 
   get clickedEntry(): any {
     return this.moodService.clickedEntry;
   }
+
+  
+  
 
   constructor(
     private moodService: MoodService,
@@ -39,6 +48,9 @@ export class StatsComponent implements OnInit {
     private route: ActivatedRoute,
     private auth: AuthService
   ) { }
+
+  
+
 
   ngOnInit(): void {
     this.displayEntries();
@@ -48,11 +60,27 @@ export class StatsComponent implements OnInit {
     });
   }
 
-  onActivitySelected(selectedUserId: any): void {
-    this.moodService.getAllEntries(selectedUserId).subscribe((data) => {
+  onActivitySelected(userId: any): void {
+    this.moodService.getEntriesOnlyByUserId(this.userId).subscribe((data) => {
       this.userEntries = data;
     });
   }
+    
+  onEntryActivitySelected(entryId: any): void {
+      this.moodService.getAllEntryActivitiesPerEntryId(this.entryId).subscribe((data) => {
+        this.userEntryAct= data;
+      });
+  }
+
+//   ActivityNameAndCategory(id: any): void {
+//     this.moodService.getActivityNameAndCategory(this.id).subscribe((data) => {
+//       this.userAct = data;
+//     });
+// }
+
+
+
+  
 
   displayEntries() {
     let mood: any = '';
@@ -163,6 +191,12 @@ export class StatsComponent implements OnInit {
   getHomePage() {
     this.router.navigate(['/homepage']);
     this.moodService.clickedEntry = {};
+  }
+
+  
+
+  getAllUserActivities:(userId: string) => {
+    return this.Activity.filter(activity => activity.name === name);
   }
 
 }

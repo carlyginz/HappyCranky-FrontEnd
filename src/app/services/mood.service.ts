@@ -104,10 +104,6 @@ export class MoodService {
     return this.http.get('https://happy-cranky.herokuapp.com/activities');
   }
 
-  getAllEntries(selectedUserId: string): Observable<any> {
-    let params1 = new HttpParams().set('UserId', selectedUserId);
-    return this.http.get('https://happy-cranky.herokuapp.com/entries', {
-      params: params1,
-    });
-  }
+  
+
 }

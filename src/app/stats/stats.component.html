@@ -8,19 +8,17 @@
 >
   <option *ngFor="let activity of AllActivities" [value]="activity.id">
     {{ activity.name }}
-  </option>
+
+    </option>
+
+    <!-- <div *ngFor="let entry of EntryActivitySelected" >
+      {{ entry.entry_id }}, {{ entry.activity_id }}
+    </div> -->
+
+    
 </select>
 
-<p></p>  
-  <div class="filter" *ngFor="let entry of userEntries">
-    Entry Date: {{ entry.entrydate }}
-    <p></p>  
-    Entry Time: {{ entry.entrytime }}
-    <p></p>  
-    Mood: {{ entry.mood }}
-    <hr />
-    <p></p>  
-  </div>
+
 
 
 <p></p>
@@ -40,5 +38,16 @@
   </div>
   <div class="sadDays" *ngFor="let each of SadActivitiesNamesandCategories">
     <div>Category: {{ each.aCategory }} - Activity: {{ each.aName }}</div>
+  </div>
+
+  <p></p>  
+  <div class="filter" *ngFor="let entry of userEntries">
+    Entry Date: {{ entry.entrydate }}
+    <p></p>  
+    Entry Time: {{ entry.entrytime }}
+    <p></p>  
+    Mood: {{ entry.mood }}
+    <hr />
+    <p></p>  
   </div>
 </div>
