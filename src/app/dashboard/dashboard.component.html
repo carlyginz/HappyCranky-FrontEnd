@@ -1,48 +1,38 @@
 <div class="dash-container">
-  <div class="header">
-    <h1>DASHBOARD</h1>
-    <div class="addEntryButton">
+  <div class="top">
+    <div class="heading">Add New Entry</div>
+    <div class="addEntry">
       <button (click)="goToEntryPage()">
-        <i class="fas fa-plus fa-4x"></i>
+        <i class="fas fa-plus fa-2x"></i>
       </button>
     </div>
   </div>
 
-  <p></p>
-  <hr />
-  <h2>Hi {{ displayName }}!</h2>
-  <h4>
-    Your average daily mood has been
-    {{ displayAverage }} / 5
-  </h4>
-  <!-- <h2>Average Daily Mood</h2> -->
-  <p></p>
   <div class="avgDailyMood">
-    <div *ngIf="average >= 4.5">
+    <div class="greeting">Hi {{ displayName }}!</div>
+    <div class="displayAverage">
+      Your average daily mood has been
+      {{ displayAverage }} / 5
+    </div>
+    <div class="smiley" *ngIf="average >= 4.5">
       <i style="color: #d8214b" class="far fa-laugh-beam fa-10x"></i>
-      <p>exceptional!</p>
+      <div class="phrase">exceptional!</div>
     </div>
-    <div *ngIf="average > 3.5 && average < 4.5">
+    <div class="smiley" *ngIf="average > 3.5 && average < 4.5">
       <i style="color: #f39481" class="far fa-smile fa-10x"></i>
-      <p>pretty good!</p>
+      <div class="phrase">pretty good!</div>
     </div>
-    <div *ngIf="average > 2.5 && average < 3.5">
+    <div class="smiley" *ngIf="average > 2.5 && average < 3.5">
       <i style="color: #86b8d3" class="far fa-meh fa-10x"></i>
-      <p>meh</p>
+      <div class="phrase">meh</div>
     </div>
-    <div *ngIf="average > 1.5 && average < 2.5">
+    <div class="smiley" *ngIf="average > 1.5 && average < 2.5">
       <i style="color: #33a0b9" class="far fa-frown fa-10x"></i>
-      <p>not good</p>
+      <div class="phrase">not good</div>
     </div>
-    <div *ngIf="average >= 1 && average < 1.5">
+    <div class="smiley" *ngIf="average >= 1 && average < 1.5">
       <i style="color: #336bb9" class="far fa-sad-tear fa-10x"></i>
-      <p>awful</p>
+      <div class="phrase">awful</div>
     </div>
   </div>
 </div>
-<!-- the smiley disappearing issue has something to do with the crying face. 
-  when my mood average changed, a new smiley showed up and stayed there. 
-  But the crying face showed up first and then disappeared.
-  I adjusted the average for that one to be >= 1 because I think what was happening
-  is before it calculated my mood, it was pulling 0, which would be < 1. 
-  It didn't show up after I made that change. -Carly -->

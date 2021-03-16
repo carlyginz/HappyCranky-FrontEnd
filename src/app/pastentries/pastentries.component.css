@@ -1,8 +1,16 @@
-h1 {
+.heading {
   display: flex;
   justify-content: center;
-  padding-top: 30px;
-  font-size: 50px;
+  padding-top: 65px;
+  padding-bottom: 10px;
+  font-size: 35px;
+}
+
+.addEntry {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+  margin: 10px;
 }
 
 button {
@@ -11,13 +19,9 @@ button {
   cursor: pointer;
 }
 
-/* .fa-plus {
-  font-size: medium;
-  color: white;
-  background-color: rgb(69, 71, 71);
-  border-radius: 100px;
-  padding: 15px;
-}  */
+button:hover {
+  color: rgb(161, 177, 192);
+}
 
 .fa-plus {
   color: white;
@@ -36,8 +40,9 @@ button {
   );
 }
 
-.fa-plus:hover {
-  color: lightslategray;
+.fa-edit,
+.fa-trash-alt {
+  font-size: 15px;
 }
 
 .entryList {
@@ -46,18 +51,9 @@ button {
   justify-content: space-around;
   align-items: baseline;
   padding-bottom: 10px;
-  font-size: 15px;
+  font-size: 18px;
 }
 
-.fa-edit,
-.fa-trash-alt {
-  font-size: 15px;
-}
-
-.fa-edit:hover,
-.fa-trash-alt:hover {
-  color: rgb(161, 177, 192);
-}
 
 /* tablet */
 @media only screen and (min-width: 768px) {
@@ -91,11 +87,6 @@ button {
   }
 }
 
-.addEntryButton {
-  display: flex;
-  justify-content: center;
-  padding-bottom: 15px;
-  margin: 30px;
-}
+
 
 
