@@ -1,19 +1,20 @@
 <div class="dash-container">
   <div class="top">
-    <div class="heading">Add New Entry</div>
-    <div class="addEntry">
+    <div class="greeting">Hi {{ displayName }}!</div>
+    <!-- <div class="goToEntry">
       <button (click)="goToEntryPage()">
         <i class="fas fa-plus fa-2x"></i>
       </button>
     </div>
+    <div class="addNewEntry">Add New Entry</div> -->
   </div>
 
-  <div class="avgDailyMood">
-    <div class="greeting">Hi {{ displayName }}!</div>
-    <div class="displayAverage">
-      Your average daily mood has been
-      {{ displayAverage }} / 5
-    </div>
+  <!-- <div class="greeting">Hi {{ displayName }}!</div> -->
+  <div class="displayAverage">
+    Your average daily mood has been
+    {{ displayAverage }} / 5
+  </div>
+  <div class="avgMoodDiv">
     <div class="smiley" *ngIf="average >= 4.5">
       <i style="color: #d8214b" class="far fa-laugh-beam fa-10x"></i>
       <div class="phrase">exceptional!</div>
@@ -35,4 +36,11 @@
       <div class="phrase">awful</div>
     </div>
   </div>
+
+  <div class="goToEntry">
+    <button (click)="goToEntryPage()">
+      <i class="fas fa-plus fa-2x"></i>
+    </button>
+  </div>
+  <div class="addNewEntry">Add New Entry</div>
 </div>
