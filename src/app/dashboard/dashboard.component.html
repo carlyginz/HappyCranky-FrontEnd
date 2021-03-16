@@ -8,31 +8,35 @@
     </div>
   </div>
 
-  <div class="centerPage">
-    <hr />
-    <h2>Your Average Daily Mood Is...</h2>
-    <p></p>
-    <div class="avgDailyMood">
-      <div class="smiley" *ngIf="average >= 4.5">
-        <i style="color: #d8214b" class="far fa-laugh-beam fa-10x"></i>
-        <p>exceptional!</p>
-      </div>
-      <div class="smiley" *ngIf="average > 3.5 && average < 4.5">
-        <i style="color: #f39481" class="far fa-smile fa-10x"></i>
-        <p>pretty good!</p>
-      </div>
-      <div class="smiley" *ngIf="average > 2.5 && average < 3.5">
-        <i style="color: #86b8d3" class="far fa-meh fa-10x"></i>
-        <p>meh</p>
-      </div>
-      <div class="smiley" *ngIf="average > 1.5 && average < 2.5">
-        <i style="color: #33a0b9" class="far fa-frown fa-10x"></i>
-        <p>not good</p>
-      </div>
-      <div class="smiley" *ngIf="average >= 1 && average < 1.5">
-        <i style="color: #336bb9" class="far fa-sad-tear fa-10x"></i>
-        <p>awful</p>
-      </div>
+  <p></p>
+  <hr />
+  <h2>Hi {{ displayName }}!</h2>
+  <h4>
+    Your average daily mood has been
+    {{ displayAverage }} / 5
+  </h4>
+  <!-- <h2>Average Daily Mood</h2> -->
+  <p></p>
+  <div class="avgDailyMood">
+    <div *ngIf="average >= 4.5">
+      <i style="color: #d8214b" class="far fa-laugh-beam fa-10x"></i>
+      <p>exceptional!</p>
+    </div>
+    <div *ngIf="average > 3.5 && average < 4.5">
+      <i style="color: #f39481" class="far fa-smile fa-10x"></i>
+      <p>pretty good!</p>
+    </div>
+    <div *ngIf="average > 2.5 && average < 3.5">
+      <i style="color: #86b8d3" class="far fa-meh fa-10x"></i>
+      <p>meh</p>
+    </div>
+    <div *ngIf="average > 1.5 && average < 2.5">
+      <i style="color: #33a0b9" class="far fa-frown fa-10x"></i>
+      <p>not good</p>
+    </div>
+    <div *ngIf="average >= 1 && average < 1.5">
+      <i style="color: #336bb9" class="far fa-sad-tear fa-10x"></i>
+      <p>awful</p>
     </div>
   </div>
 </div>

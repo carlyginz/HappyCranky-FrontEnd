@@ -2,35 +2,36 @@
   <h1>PAST ENTRIES</h1>
   <div class="addEntryButton">
     <button (click)="goToEntryPage()">
-      <i class="fas fa-plus fa-3x"></i>
+      <i class="fas fa-plus fa-2x"></i>
     </button>
   </div>
-  <br />
   <br />
   <hr />
   <br />
   <div class="entryList" *ngFor="let entry of userEntries">
-    <button (click)="editEntry(entry)"><i class="far fa-edit fa-2x"></i></button>
+    <button (click)="editEntry(entry)">
+      <i class="far fa-edit fa-2x"></i>
+    </button>
+    <div class="faces">
+      <div *ngIf="entry.mood === 1">
+        <i style="color: #336bb9" class="far fa-sad-tear"></i>
+      </div>
+      <div *ngIf="entry.mood === 2">
+        <i style="color: #33a0b9" class="far fa-frown"></i>
+      </div>
+      <div *ngIf="entry.mood === 3">
+        <i style="color: #86b8d3" class="far fa-meh"></i>
+      </div>
+      <div *ngIf="entry.mood === 4">
+        <i style="color: #f39481" class="far fa-smile"></i>
+      </div>
+      <div *ngIf="entry.mood === 5">
+        <i style="color: #d8214b" class="far fa-laugh-beam"></i>
+      </div>
+    </div>
     <div class="dateAndTime">
       {{ entry.entrydate }}
       {{ entry.entrytime }}
-    </div>
-    <div class="faces">
-      <div *ngIf="entry.mood === 1">
-        <i class="far fa-sad-tear"></i>
-      </div>
-      <div *ngIf="entry.mood === 2">
-        <i class="far fa-frown"></i>
-      </div>
-      <div *ngIf="entry.mood === 3">
-        <i class="far fa-meh"></i>
-      </div>
-      <div *ngIf="entry.mood === 4">
-        <i class="far fa-smile"></i>
-      </div>
-      <div *ngIf="entry.mood === 5">
-        <i class="far fa-laugh-beam"></i>
-      </div>
     </div>
     <button class="delete" (click)="deleteEntry(entry)">
       <i class="far fa-trash-alt fa-2x"></i>

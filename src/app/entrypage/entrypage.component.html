@@ -14,32 +14,23 @@
 </div>
 
 
-  <!-- <select id="mood" name="mood" [(ngModel)]="mood">
-    <input type="radio" [(ngModel)]="mood" value="1"><i class="far fa-sad-tear"></i>
-    <option [ngValue]="2"><i class="far fa-frown"></i></option>
-    <option [ngValue]="3"><i class="far fa-meh"></i></option>
-    <option [ngValue]="4"><i class="far fa-smile"></i></option>
-    <option [ngValue]="5"><i class="far fa-laugh-beam"></i></option>
-  </select> -->
+  <h2>What did you do today?</h2>
 
-<h2>What did you do today?</h2>
-<div class="activities">
-  <fieldset id="activity" name="activity">
-    <label for="{{ activity.id }}" *ngFor="let activity of activityArray; let i = index">
-      <input (change)="toggleActivityList(activity.id, $event)" id="{{ activity.id }}" name="{{ activity.id }}" type="checkbox" value="{{activity.id}}" />
-      {{ activity.name }}
-    </label>
+  <fieldset class="activity">
+    <div *ngFor="let activity of activityArray; let i=index">
+      <label for="{{ activity.id }}">
+        <input 
+        [checked]="activityList.includes(activity.id)"
+        (change)="toggleActivityList(activity.id, $event)" 
+        id="{{ activity.id }}" 
+        name="{{ activity.id }}" 
+        type="checkbox" 
+        value="{{activity.id}}"/>
+        {{ activity.name }}
+      </label>
+    </div>
   </fieldset>
-</div>
-
-  <!-- <fieldset id="activity" name="activity">
-    <div *ngFor="let checked of activityList; let i = index">
-    <label for="{{ activity.id }}" *ngFor="let activity of activityArray; let i = index">
-      <input (change)="toggleActivityList(activity.id, $event)" id="{{ activity.id }}" name="{{ activity.id }}" type="checkbox" [attr.checked]="activity.activityList.indexOf(checked) > -1  ? true : null" value="{{activity.id}}"/>
-      {{ activity.name }}
-    </label>
-  </div>
-  </fieldset> -->
+  
   <textarea id="journal" name="journal" [(ngModel)]="journalentry"> </textarea>
   <button *ngIf="entryToEdit.id" (click)="updateEntry()">Update Entry</button>
   <button *ngIf="entryToEdit.id === undefined"  (click)="addNewEntry()">Submit Entry</button>
