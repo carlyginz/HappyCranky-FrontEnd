@@ -1,44 +1,46 @@
 <div class="dash-container">
-  <div class="header">
-    <h2>DASHBOARD</h2>
-    <div class="plus">
+  <div class="top">
+    <div class="greeting">Hi {{ displayName }}!</div>
+    <!-- <div class="goToEntry">
       <button (click)="goToEntryPage()">
-        <i class="fas fa-plus fa-3x"></i>
+        <i class="fas fa-plus fa-2x"></i>
       </button>
     </div>
+    <div class="addNewEntry">Add New Entry</div> -->
+  </div>
 
-    <p></p>
-    <hr />
-    <h2>Hi {{ displayName }}!</h2>
-    <h4>
-      Your average daily mood has been
-      {{ displayAverage }} / 5
-    </h4>
-    <!-- <h2>Average Daily Mood</h2> -->
-    <p></p>
-    <div class="avgDailyMood">
-      <div *ngIf="average >= 4.5">
-        <i style="color: #d8214b" class="far fa-laugh-beam fa-10x"></i>
-      </div>
-      <div *ngIf="average > 3.5 && average < 4.5">
-        <i style="color: #f39481" class="far fa-smile fa-10x"></i>
-      </div>
-      <div *ngIf="average > 2.5 && average < 3.5">
-        <i style="color: #86b8d3" class="far fa-meh fa-10x"></i>
-      </div>
-      <div *ngIf="average > 1.5 && average < 2.5">
-        <i style="color: #33a0b9" class="far fa-frown fa-10x"></i>
-      </div>
-      <div *ngIf="average < 1.5">
-        <i style="color: #336bb9" class="far fa-sad-tear fa-10x"></i>
-      </div>
+  <!-- <div class="greeting">Hi {{ displayName }}!</div> -->
+  <div class="displayAverage">
+    Your average daily mood has been
+    {{ displayAverage }} / 5
+  </div>
+  <div class="avgMoodDiv">
+    <div class="smiley" *ngIf="average >= 4.5">
+      <i style="color: #d8214b" class="far fa-laugh-beam fa-10x"></i>
+      <div class="phrase">exceptional!</div>
+    </div>
+    <div class="smiley" *ngIf="average > 3.5 && average < 4.5">
+      <i style="color: #f39481" class="far fa-smile fa-10x"></i>
+      <div class="phrase">pretty good!</div>
+    </div>
+    <div class="smiley" *ngIf="average > 2.5 && average < 3.5">
+      <i style="color: #86b8d3" class="far fa-meh fa-10x"></i>
+      <div class="phrase">meh</div>
+    </div>
+    <div class="smiley" *ngIf="average > 1.5 && average < 2.5">
+      <i style="color: #33a0b9" class="far fa-frown fa-10x"></i>
+      <div class="phrase">not good</div>
+    </div>
+    <div class="smiley" *ngIf="average >= 1 && average < 1.5">
+      <i style="color: #336bb9" class="far fa-sad-tear fa-10x"></i>
+      <div class="phrase">awful</div>
     </div>
   </div>
-  <p></p>
 
-  <!-- <div class="footer">
-    <div>Home</div>
-    <a class="pastEntries" routerLink="/pastentries">Past Entries</a>
-    <a class="stats" routerLink="/stats">Stats</a>
-  </div> -->
+  <div class="goToEntry">
+    <button (click)="goToEntryPage()">
+      <i class="fas fa-plus fa-2x"></i>
+    </button>
+  </div>
+  <div class="addNewEntry">Add New Entry</div>
 </div>

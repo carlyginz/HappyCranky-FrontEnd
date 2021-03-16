@@ -1,28 +1,48 @@
-h1 {
+.heading {
   display: flex;
   justify-content: center;
+  padding-top: 65px;
+  padding-bottom: 10px;
+  font-size: 35px;
 }
 
-.plus {
+.goToEntry {
   display: flex;
   justify-content: center;
+  padding-bottom: 30px;
+  margin: 10px;
 }
 
 button {
   border: none;
-  background-color: white;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+button:hover {
+  color: rgb(161, 177, 192);
 }
 
 .fa-plus {
-  font-size: medium;
   color: white;
-  background-color: rgb(69, 71, 71);
   border-radius: 100px;
   padding: 15px;
+  background: #3a6186; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #89253e,
+    #3a6186
+  ); 
+  background: linear-gradient(
+    to right,
+    #89253e,
+    #3a6186
+  );
 }
 
-.fa-plus:hover {
-  background-color: lightslategray;
+.fa-edit,
+.fa-trash-alt {
+  font-size: 15px;
 }
 
 .entryList {
@@ -31,18 +51,9 @@ button {
   justify-content: space-around;
   align-items: baseline;
   padding-bottom: 10px;
-  font-size: 15px;
+  font-size: 18px;
 }
 
-.fa-edit,
-.fa-trash-alt {
-  font-size: 15px;
-}
-
-.fa-edit:hover,
-.fa-trash-alt:hover {
-  color: rgb(161, 177, 192);
-}
 
 /* tablet */
 @media only screen and (min-width: 768px) {
@@ -75,3 +86,7 @@ button {
     font-size: 30px;
   }
 }
+
+
+
+
