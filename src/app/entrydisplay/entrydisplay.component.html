@@ -19,26 +19,21 @@
   </div>
 </div>
 
-<form>
+<div *ngIf="activityNameAndCategory.length === 0" class="activityQuestion">
+  You had no activities listed
+</div>
+<div *ngIf="activityNameAndCategory.length > 0">
   <div class="activityQuestion">You did these activities</div>
+  <div class="didThis" *ngFor="let item of activityNameAndCategory">
+    {{ item.name }}
+  </div>
+</div>
 
-  <fieldset class="activity">
-    <div *ngFor="let activity of activityArray; let i = index">
-      <label for="{{ activity.id }}">
-        <input
-          [checked]="activityList.includes(activity.id)"
-          (change)="toggleActivityList(activity.id, $event)"
-          id="{{ activity.id }}"
-          name="{{ activity.id }}"
-          type="checkbox"
-          value="{{ activity.id }}"
-        />
-        {{ activity.name }}
-      </label>
-    </div>
-  </fieldset>
+<div class="writeAboutIt" *ngIf="journalentry === ''">
+  Nothing In Your Journal
+</div>
 
+<div *ngIf="journalentry !== ''">
   <div class="writeAboutIt">Your Journal Entry</div>
-
   <textarea id="journal" name="journal" [(ngModel)]="journalentry"> </textarea>
-</form>
+</div>

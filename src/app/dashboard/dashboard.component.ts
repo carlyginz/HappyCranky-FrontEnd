@@ -12,10 +12,10 @@ import { Router } from '@angular/router';
 export class DashboardComponent implements OnInit {
   public userEntries = [];
   id: string = "";
-  total: number = 0;
-  average: number = 0;
+  total: number;
+  average: number;
   displayName: string = '';
-  displayAverage: number = 0;
+  displayAverage: number;
 
   constructor(public auth: AuthService, private moodService: MoodService, public router: Router) { }
 
@@ -40,6 +40,7 @@ export class DashboardComponent implements OnInit {
         this.displayAverage = Math.round(this.average * 10) / 10;
       })
     })
+
   }
 
   goToEntryPage() {

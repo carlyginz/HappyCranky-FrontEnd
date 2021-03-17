@@ -21,7 +21,6 @@ export class EntrydisplayComponent implements OnInit {
   UserId: string = "";
   newEntryId: number = 0;
   entryToEdit: any = {}
-  // exsistingEntryId: number = this.item.id;
   displayAll: any;
 
   get activityArray(): Activity[] {
@@ -31,6 +30,7 @@ export class EntrydisplayComponent implements OnInit {
     return this.moodService.clickedEntry;
   }
   activityList = [];
+  activityNameAndCategory: any;
 
   ngOnInit(): void {
 
@@ -48,10 +48,25 @@ export class EntrydisplayComponent implements OnInit {
 
       this.moodService.getAllEntryActivitiesPerEntryId(this.entryToEdit.id).subscribe(result => {
         console.log(result);
-        result.forEach(element => {
-          this.activityList.push(element.activity_id);
+        if (result) {
+          result.forEach(element => {
+            this.activityList.push(element.activity_id);
+          });
+        }
+        console.log(this.activityList);
+        this.activityNameAndCategory = [];
+        this.activityList.forEach(element => {
+          this.moodService.getActivityNameAndCategory(element).subscribe(result => {
+            console.log(result);
+            this.activityNameAndCategory.push(result);
+            console.log(this.activityNameAndCategory);
+          })
+
         });
       });
+      console.log("hey hey");
+      console.log(typeof (this.journalentry))
+
     }
 
     this.moodService.getAllActivities().subscribe(result => {
