@@ -37,6 +37,7 @@ button:hover {
 
 .fa-trash-alt {
   font-size: 25px;
+  color: rgb(197, 197, 197);
 }
 
 .entryList {
@@ -46,10 +47,6 @@ button:hover {
   align-items: baseline;
   padding-bottom: 10px;
   font-size: 18px;
-}
-
-i {
-  font-size: 25px;
 }
 
 /* tablet */
