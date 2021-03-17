@@ -3,10 +3,10 @@ header {
   justify-content: space-between;
   padding-left: 5px;
   padding-right: 5px;
+  margin-bottom: 10px;
   flex-direction: row;
   position: fixed;
   top: 0px;
-  left: 0px;
   align-items: center;
   width: 100%;
   height: 3rem;
@@ -25,6 +25,7 @@ header {
 }
 
 .appName {
+  display: flex;
   color: white;
   font-size: 12pt;
   /* margin: 4px; */
@@ -41,5 +42,129 @@ button {
   color: white;
   font-family: "Ovo", serif;
   font-size: 25px;
-  text-decoration: underline 2px;
+}
+
+a:hover,
+button:hover {
+  color: rgba(241, 237, 252, 0.781);
+}
+
+.nav-bar {
+  display: none;
+}
+
+.link-icons {
+  display: none;
+}
+
+
+
+/* tablet */
+/* @media only screen and (min-width: 768px) {
+
+  .nav-bar {
+    display: none;
+  }
+
+  .link-icons {
+    top: 0px;
+    display: initial;
+    display: flex;
+    position: fixed;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 3rem;
+    color: white;
+    background: #3a6186;
+    background: -webkit-linear-gradient(
+      to right,
+      #89253e,
+      #3a6186
+    ); 
+    background: linear-gradient(
+      to right,
+      #89253e,
+      #3a6186
+    ); 
+  }
+
+  i {
+    font-size: 25px;    
+    margin: 10px;
+    color: white;
+  }
+
+  .appName {
+    display: flex;
+    color: white;
+    font-size: 12pt;
+    padding-left: 2px;
+  }
+
+  button {
+    cursor: pointer;
+    padding: 10px;
+    margin: 5px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-family: "Ovo", serif;
+    font-size: 15px;
+    text-decoration: none;
+  }
+} */
+
+
+/* computer */
+/* @media only screen and (min-width: 992px)  */
+@media only screen and (min-width: 768px) {
+  .signout-icon {
+    display: none;
+  }
+
+  .nav-bar {
+    display: initial;
+    display: block;
+  }
+
+  .appName {
+    display: flex;
+    color: white;
+    font-size: 12pt;
+    padding-left: 2px;
+  }
+
+  .links {
+    top: 0px;
+    display: initial;
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    align-items: center;
+    width: 100%;
+    height: 3rem;
+    color: white;
+    background: #3a6186;
+    background: -webkit-linear-gradient(to right, #89253e, #3a6186);
+    background: linear-gradient(to right, #89253e, #3a6186);
+  }
+
+  a {
+    margin: 10px;
+    color: white;
+    text-decoration: none;
+  }
+
+  button {
+    cursor: pointer;
+    padding: 10px;
+    margin: 5px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-family: "Ovo", serif;
+    font-size: 15px;
+    text-decoration: none;
+  }
 }

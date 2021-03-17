@@ -1,13 +1,13 @@
 .heading {
   display: flex;
   justify-content: center;
-  padding-top: 65px;
+  padding-top: 70px;
   padding-bottom: 5px;
   font-size: 30px;
 }
 
 form {
-  padding-top: 5px;
+  /* padding-top: 5px; */
   padding-bottom: 90px;
 }
 
@@ -21,43 +21,6 @@ input[type="radio"] {
   position: absolute;
   width: 1px;
 }
-
-.activityQuestion {
-  display: flex;
-  justify-content: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  font-size: 25px;
-}
-
-.writeAboutIt {
-  display: flex;
-  justify-content: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  font-size: 25px;
-}
-
-/* activity div code makes a center column...idk why */
-/* .activity div {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin: 5px;
-} */
-
-/* activity code below - wraps activities */
-#activity {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    align-items: center;
-    align-content: flex-start;
-}
-
-/* ^when you comment both out it puts it in one column */
-
 
 input[type=radio] {
     border: 0;
@@ -73,7 +36,6 @@ input[type=radio] {
 .moods {
   display: flex;
   justify-content: space-evenly;
-  padding: 10px 10px;
   width: 50%;
   border: none;
 }
@@ -81,7 +43,8 @@ input[type=radio] {
 .moods-container {
   display: flex;
   justify-content: center;
-  padding-top: 20px;
+  padding-top: 15px;
+  padding-bottom: 5px;
 }
 
 #moods label {
@@ -118,6 +81,42 @@ input[type="radio"].with-font:focus ~ label {
 input[type="radio"]:checked + label {
   color: blue !important;
 }
+
+.activityQuestion {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 23px;
+  font-size: 30px;
+}
+
+.writeAboutIt {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 25px;
+}
+
+/* activity div code makes a center column...idk why */
+/* .activity div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 5px;
+} */
+
+/* activity code below - wraps activities */
+#activity {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: flex-start;
+}
+
+/* ^when you comment both out it puts it in one column */
 
 #journal {
   /* padding-top: 30px;
@@ -157,3 +156,39 @@ button {
 button:hover {
   color: #a4afc7;
 }
+
+/* tablet */
+@media only screen and (min-width: 768px) {
+  .fa-plus {
+    font-size: large;
+  }
+
+  .entryList {
+    font-size: 25px;
+  }
+
+  .fa-edit,
+  .fa-trash-alt {
+    font-size: 25px;
+  }
+}
+
+/* computer */
+@media only screen and (min-width: 992px) {
+  .fa-plus {
+    font-size: larger;
+  }
+
+  .entryList {
+    font-size: 30px;
+  }
+
+  .fa-edit,
+  .fa-trash-alt {
+    font-size: 30px;
+  }
+}
+
+
+
+
