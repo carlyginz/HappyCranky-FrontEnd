@@ -113,8 +113,9 @@ export class EntryPageComponent implements OnInit {
         let emptyEntryDate = "";
         let emptyEntrytime = "";
         let emptyJournalentry = "";
-    
-        this.moodService.getUserEntries(emptyMood, emptyEntryDate, emptyEntrytime, emptyJournalentry, this.UserId).subscribe(result => {
+        let emptyUserId = "";
+        console.log(result);
+        this.moodService.getUserEntries(emptyMood, emptyEntryDate, emptyEntrytime, emptyJournalentry, emptyUserId).subscribe(result => {
           let newEntryIndex = result.length - 1;
           this.newEntryId = result[newEntryIndex].id;
 
@@ -124,7 +125,7 @@ export class EntryPageComponent implements OnInit {
           this.activityList.forEach(activity => {
             let newEntryActivity: EntryActivity = {
               entry_id: this.newEntryId,
-              activity_id: activity
+              activity_id: activity.id
             }
             console.log(newEntryActivity);
             this.moodService.addEntryActivities(newEntryActivity).subscribe(result => {
@@ -136,27 +137,27 @@ export class EntryPageComponent implements OnInit {
     });
   }
 
-  // updateEntry() {
-  //   this.auth.user$.subscribe(user => {
-  //     this.UserId = user.uid;
+  updateEntry() {
+    // this.auth.user$.subscribe(user => {
+    //   this.UserId = user.uid;
 
-  //     let entryObject = {
-  //       mood: this.mood,
-  //       entrydate: this.entrydate,
-  //       entrytime: this.entrytime,
-  //       journalentry: this.journalentry,
-  //       user_id: this.UserId,
-  //       id: this.entryToEdit.id
-  //     }
-  //     console.log(entryObject);
-  //     this.moodService.updateEntry(this.entryToEdit.id, entryObject).subscribe(result => {
-  //       console.log(entryObject);
-  //       console.log(result);
+    //   let entryObject = {
+    //     mood: this.mood,
+    //     entrydate: this.entrydate,
+    //     entrytime: this.entrytime,
+    //     journalentry: this.journalentry,
+    //     user_id: this.UserId,
+    //     id: this.entryToEdit.id
+    //   }
+    //   console.log(entryObject);
+    //   this.moodService.updateEntry(this.entryToEdit.id, entryObject).subscribe(result => {
+    //     console.log(entryObject);
+    //     console.log(result);
 
-  //       console.log(this.entryToEdit.id);
+    //     console.log(this.entryToEdit.id);
 
-  //     })
-  //   })
-  // }
+    //   })
+    // })
+  }
 }
 
