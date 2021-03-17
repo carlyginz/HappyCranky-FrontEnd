@@ -45,15 +45,15 @@ export class PastentriesComponent implements OnInit {
     this.moodService.clickedEntry = {};
   }
 
-  editEntry(entry: any) {
+  displayEntry(entry: any) {
     this.moodService.clickedEntry = entry;
-    this.router.navigate(['/entrypage']);
+    this.router.navigate(['/entrydisplay']);
     // console.log(this.moodService.clickedEntry);
     // this.moodService.getUserEntries(data).subscribe(entry => {
-      // this.setEntryID = data;
+    // this.setEntryID = data;
     //   this.router.navigate(['/entrypage']);
     // })
-}
+  }
 
   // setEntryID(entry: any) {
   //   console.log(entry);
@@ -79,7 +79,7 @@ export class PastentriesComponent implements OnInit {
     this.moodService.getAllEntryActivitiesPerEntryId(entry.id).subscribe(newList => {
       newList.forEach(element => {
         let newId = element.id;
-          console.log(newId);
+        console.log(newId);
         this.moodService.deleteEntryFromEA(newId).subscribe(() => {
           console.log(`I'm deleting EA Table id = ${newId}`);
         })

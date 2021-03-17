@@ -1,7 +1,7 @@
 main {
   display: flex;
   flex-direction: column;
-  color: black;
+  color: white;
   font-size: x-large;
   font-weight: 900;
   align-items: center;

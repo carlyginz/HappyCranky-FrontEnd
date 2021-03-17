@@ -1,0 +1,152 @@
+.heading {
+  display: flex;
+  justify-content: center;
+  padding-top: 65px;
+  padding-bottom: 5px;
+  font-size: 30px;
+}
+
+.face {
+  display: flex;
+  justify-content: center;
+}
+
+input[type="radio"] {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.activityQuestion {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 25px;
+}
+
+.writeAboutIt {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 25px;
+}
+
+form {
+  padding-top: 5px;
+  padding-bottom: 90px;
+}
+
+/* code below wraps activities */
+.activity {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: flex-start;
+}
+
+/* .activity div {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      margin: 5px;
+  } */
+
+input[type="radio"] {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+#moods label {
+  font-size: 50px;
+  padding: 5px;
+}
+
+#moods label:hover {
+  cursor: pointer;
+}
+
+input[type="radio"]:required ~ label {
+  color: darkgreen;
+}
+
+input[type="radio"]:checked + label {
+  color: blue !important;
+}
+/* input[type="radio"].with-font:focus ~ label:before,
+  input[type="radio"].with-font:focus ~ label {
+    color: green;
+  }
+  
+  input[type="radio"].sad ~ label:before {
+    font-family: FontAwesome;
+    font-weight: 700;
+    display: inline-block;
+    content: "\f5b4";
+    font-size: 4em;
+    color: #535353;
+    width: 1.5em;
+  } */
+
+.moods {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px 10px;
+  width: 50%;
+}
+
+.moods-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+#journal {
+  /* padding-top: 30px;
+    padding-bottom: 30px; */
+  height: 120px;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 25px;
+  display: flex;
+  /* position: relative; */
+  /* justify-content: center; */
+  text-align: flex-start;
+  background-color: #bfc0c2;
+}
+
+button {
+  cursor: pointer;
+  margin: auto;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  border-radius: 12px;
+  font-size: 20px;
+  height: 40px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  color: white;
+  background: linear-gradient(to right, #89253e, #3a6186);
+}
+
+input[type="radio"]:checked + label {
+  color: blue !important;
+}

@@ -1,3 +1,4 @@
+import { EntrydisplayComponent } from './entrydisplay/entrydisplay.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { EntryPageComponent } from './entrypage/entrypage.component';
 import { NgModule } from '@angular/core';
@@ -11,9 +12,9 @@ const routes: Routes = [
   { path: 'entrypage', component: EntryPageComponent },
   { path: 'homepage', component: HomepageComponent },
   { path: 'pastentries', component: PastentriesComponent },
+  { path: 'entrydisplay', component: EntrydisplayComponent },
   { path: 'stats', component: StatsComponent },
   { path: 'dashboard', component: DashboardComponent },
-
   { path: '**', component: HomepageComponent }
 ];
 
