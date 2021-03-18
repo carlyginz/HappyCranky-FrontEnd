@@ -133,10 +133,10 @@ export class EntryPageComponent implements OnInit {
               console.log(result);
             });
           });
+          this.router.navigate(['/pastentries']);
         })
       });
     });
-    this.router.navigate(['/dashboard']);
   }
 
   updateEntry() {
