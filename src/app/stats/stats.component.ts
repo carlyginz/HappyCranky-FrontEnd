@@ -144,21 +144,4 @@ export class StatsComponent implements OnInit {
     });
   }
 
-  getSelectedItem(item) {
-    console.log('selected items : ', item);
-    this.selctedUser = this.userDetails.filter((user) =>
-      user.displayName.includes(item)
-    );
-  }
-
-  getEntryPage() {
-    this.router.navigate(['/entrypage']);
-    this.moodService.clickedEntry = {};
-  }
-
-  getHomePage() {
-    this.router.navigate(['/homepage']);
-    this.moodService.clickedEntry = {};
-  }
-
 }

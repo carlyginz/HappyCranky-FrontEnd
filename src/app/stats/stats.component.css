@@ -14,6 +14,7 @@
 
 .happybutton,
 .sadbutton {
+  font-family: "Ovo", serif;
   font-size: large;
   padding: 10px;
   border: 1px gray;
@@ -34,16 +35,17 @@
 }
 
 .happybutton:hover {
-  background-color: #ffdce5;
+  background-color: #ffcdda;
   transition: 0.5s;
 }
 
 .sadbutton:hover {
-  background-color: #d4e6ff;
+  background-color: #bfdaff;
   transition: 0.5s;
 }
 
 .list {
+  color: black;
   display: flex;
   flex-direction: column;
 }
