@@ -1,5 +1,6 @@
 .dash-container {
   color: white;
+  height: 100%;
 }
 
 .greeting {
@@ -13,7 +14,7 @@
 .goToEntry {
   display: flex;
   justify-content: center;
-  padding-top: 80px;
+  padding-top: 20px;
   padding-bottom: 5px;
 }
 
@@ -72,4 +73,10 @@ button:hover {
   padding-top: 10px;
   padding-bottom: 10px;
 }
-/* @media only screen and (min-width: 768px) */
+
+
+@media only screen and (min-width: 768px) {
+  .goToEntry {
+    padding-top: 20px;
+  }
+}
