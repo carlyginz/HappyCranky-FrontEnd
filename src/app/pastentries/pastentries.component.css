@@ -14,13 +14,16 @@
 }
 
 button {
+  color: white;
+  font-size: 25px;
+  font-family: "Ovo", serif;
   border: none;
   background-color: transparent;
   cursor: pointer;
 }
 
 button:hover {
-  color: rgb(161, 177, 192);
+  color: rgb(200, 215, 230);
 }
 
 .fa-plus {
@@ -28,23 +31,18 @@ button:hover {
   border-radius: 100px;
   padding: 15px;
   background: #3a6186; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #89253e,
-    #3a6186
-  ); 
-  background: linear-gradient(
-    to right,
-    #89253e,
-    #3a6186
-  );
+  background: -webkit-linear-gradient(to right, #89253e, #3a6186);
+  background: linear-gradient(to right, #89253e, #3a6186);
 }
 
-.fa-edit,
 .fa-trash-alt {
-  font-size: 15px;
+  font-size: 25px;
+  color: rgb(197, 197, 197);
 }
 
+.fa-trash-alt:hover {
+  color: white;
+}
 .entryList {
   display: flex;
   flex-direction: row;
@@ -53,7 +51,6 @@ button:hover {
   padding-bottom: 10px;
   font-size: 18px;
 }
-
 
 /* tablet */
 @media only screen and (min-width: 768px) {
@@ -86,7 +83,3 @@ button:hover {
     font-size: 30px;
   }
 }
-
-
-
-
