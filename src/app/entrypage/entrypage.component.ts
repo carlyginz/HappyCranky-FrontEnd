@@ -117,10 +117,10 @@ export class EntryPageComponent implements OnInit {
         let emptyUserId = "";
         console.log(result);
         this.moodService.getUserEntries(emptyMood, emptyEntryDate, emptyEntrytime, emptyJournalentry, emptyUserId).subscribe(result => {
-          let newEntryIndex = result.length - 1;
-          this.newEntryId = result[newEntryIndex].id;
+          this.newEntryId = result[0].id;
+          // this.newEntryId = result[newEntryIndex].id;
 
-          console.log(newEntryIndex);
+          // console.log(newEntryId);
           console.log(this.newEntryId);
 
           this.activityList.forEach(activity => {

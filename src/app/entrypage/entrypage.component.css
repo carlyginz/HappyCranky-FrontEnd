@@ -56,30 +56,19 @@ input[type=radio] {
   cursor: pointer;
 }
 
-input[type="radio"]:required ~ label {
-  color: darkgreen;
+input[type="radio"] + label {
+  opacity: 0.5!important;
 }
 
 input[type="radio"]:checked + label {
-  color: blue !important;
+  opacity: 1!important;
+}
+input[type="radio"]:hover + label {
+  opacity: 1!important;
 }
 input[type="radio"].with-font:focus ~ label:before,
 input[type="radio"].with-font:focus ~ label {
   color: green;
-}
-
-/* input[type="radio"].sad ~ label:before {
-  font-family: FontAwesome;
-  font-weight: 700;
-  display: inline-block;
-  content: "\f5b4";
-  font-size: 4em;
-  color: #535353;
-  width: 1.5em;
-} */
-
-input[type="radio"]:checked + label {
-  color: blue !important;
 }
 
 .activityQuestion {
@@ -97,16 +86,6 @@ input[type="radio"]:checked + label {
   padding-bottom: 20px;
   font-size: 25px;
 }
-
-/* activity div code makes a center column...idk why */
-/* .activity div {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin: 5px;
-} */
-
-/* activity code below - wraps activities */
 #activity {
     display: flex;
     flex-direction: row;
@@ -115,8 +94,6 @@ input[type="radio"]:checked + label {
     align-items: center;
     align-content: flex-start;
 }
-
-/* ^when you comment both out it puts it in one column */
 
 #journal {
   /* padding-top: 30px;
