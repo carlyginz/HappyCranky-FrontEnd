@@ -66,7 +66,6 @@ export class StatsComponent implements OnInit {
         .getUserEntries(mood, entrydate, entrytime, journalentry, userID)
         .subscribe((result) => {
           this.userEntriesD = result;
-          // console.log(this.userEntriesD);
         });
     });
   }
@@ -89,7 +88,6 @@ export class StatsComponent implements OnInit {
         .getAllEntryActivitiesPerEntryId(element)
         .subscribe((result) => {
           if (result.length > 0) {
-            console.log(result);
             this.HappyActivitiesNamesandCategories = [];
             for (i = 0; i < result.length; i++) {
               newHEId = result[i].entry_id;
@@ -102,8 +100,6 @@ export class StatsComponent implements OnInit {
                     aCategory: newResult.category,
                   };
                   this.HappyActivitiesNamesandCategories.push(newHObject);
-                  console.log(newHObject);
-                  console.log(this.HappyActivitiesNamesandCategories);
                 });
             }
           }

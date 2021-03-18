@@ -39,7 +39,6 @@ export class PastentriesComponent implements OnInit {
     })
   }
 
-  //how to pass info to this page?
   goToEntryPage() {
     this.router.navigate(['/entrypage']);
     this.moodService.clickedEntry = {};
@@ -48,34 +47,13 @@ export class PastentriesComponent implements OnInit {
   displayEntry(entry: any) {
     this.moodService.clickedEntry = entry;
     this.router.navigate(['/entrydisplay']);
-    // console.log(this.moodService.clickedEntry);
-    // this.moodService.getUserEntries(data).subscribe(entry => {
-    // this.setEntryID = data;
-    //   this.router.navigate(['/entrypage']);
-    // })
   }
-
-  // setEntryID(entry: any) {
-  //   console.log(entry);
-  //   this.moodService.clickedEntry = entry.result.map((result: any) => {
-  //     console.log(result);
-  //     return {
-  //       id: result.id,
-  //       mood: result.mood,
-  //       journalentry: result.journalentry,
-  //       entrydate: result.entrydate,
-  //       entrytime: result.entrytime,
-  //       user_id: result.user_id
-  //     }
-  //   })
-  //   }
 
   deleteEntry(entry) {
     this.moodService.deleteEntry(entry.id).subscribe((entries: Entry[]) => {
       this.userEntries = entries;
       this.displayEntries();
     })
-    // if the ea table entry_id is equal to entries item.id, then get the ea table id and delete from ea table
     this.moodService.getAllEntryActivitiesPerEntryId(entry.id).subscribe(newList => {
       newList.forEach(element => {
         let newId = element.id;

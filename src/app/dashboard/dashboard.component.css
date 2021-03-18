@@ -15,7 +15,6 @@
   justify-content: center;
   padding-top: 80px;
   padding-bottom: 5px;
-  /* margin: 10px; */
 }
 
 .addNewEntry {
@@ -45,11 +44,7 @@ button:hover {
     #89253e,
     #3a6186
   ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #89253e,
-    #3a6186
-  );
+  background: linear-gradient(to right, #89253e, #3a6186);
 }
 
 .displayAverage {

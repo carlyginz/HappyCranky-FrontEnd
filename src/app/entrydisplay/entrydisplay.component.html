@@ -22,6 +22,7 @@
 <div *ngIf="activityNameAndCategory.length === 0" class="activityQuestion">
   You had no activities listed
 </div>
+
 <div *ngIf="activityNameAndCategory.length > 0">
   <div class="activityQuestion">You did these activities</div>
   <div class="didThis" *ngFor="let item of activityNameAndCategory">

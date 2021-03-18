@@ -22,30 +22,27 @@ export class EntrydisplayComponent implements OnInit {
   newEntryId: number = 0;
   entryToEdit: any = {}
   displayAll: any;
+  activityList = [];
+  activityNameAndCategory: any;
 
   get activityArray(): Activity[] {
     return this.moodService.activityArray;
   }
+
   get clickedEntry(): any {
     return this.moodService.clickedEntry;
   }
-  activityList = [];
-  activityNameAndCategory: any;
 
   ngOnInit(): void {
-
     this.getCurrentDate();
     this.getCurrentTime();
-
     this.entryToEdit = this.moodService.clickedEntry;
-
     if (this.entryToEdit.id !== undefined) {
       this.mood = this.entryToEdit.mood;
       this.entrydate = this.entryToEdit.entrydate;
       this.entrytime = this.entryToEdit.entrytime;
       this.journalentry = this.entryToEdit.journalentry;
       this.UserId = this.entryToEdit.UserId;
-
       this.moodService.getAllEntryActivitiesPerEntryId(this.entryToEdit.id).subscribe(result => {
         console.log(result);
         if (result) {
@@ -61,26 +58,9 @@ export class EntrydisplayComponent implements OnInit {
             this.activityNameAndCategory.push(result);
             console.log(this.activityNameAndCategory);
           })
-
         });
       });
-      console.log("hey hey");
-      console.log(typeof (this.journalentry))
-
     }
-
-    this.moodService.getAllActivities().subscribe(result => {
-      if (this.moodService.activityArray.length === 0) {
-        result.forEach((activity: Activity) => {
-          this.moodService.activityArray.push(activity);
-        });
-      }
-    })
-
-  }
-
-  displayHobbies() {
-    // return this.activityArray ? this.activityArray.categoy === "Hobbies" : undefined;
   }
 
   getCurrentDate() {
@@ -88,7 +68,6 @@ export class EntrydisplayComponent implements OnInit {
     let dd = String(currentDate.getDate()).padStart(2, '0');
     let mm = String(currentDate.getMonth() + 1).padStart(2, '0');
     let yyyy = currentDate.getFullYear();
-
     this.entrydate = currentDate.toString();
     this.entrydate = mm + '/' + dd + '/' + yyyy;
   }
@@ -97,63 +76,5 @@ export class EntrydisplayComponent implements OnInit {
     let currentTime = new Date().toLocaleTimeString();
     this.entrytime = currentTime.toString();
   }
-
-  // toggleActivityList(id, event) {
-  //   const checked = event.target.checked;
-
-  //   if (checked) {
-  //     this.activityList.push({ id });
-  //   } else {
-  //     const index = this.activityList.findIndex(list => list == id);
-  //     this.activityList.splice(index, 1);
-  //   }
-  //   console.log(this.activityList);
-  // }
-
-  // addNewEntry() {
-  //   this.auth.user$.subscribe(user => {
-
-  //     this.UserId = user.uid;
-
-  //     let newEntry: Entry = {
-  //       mood: this.mood,
-  //       entrydate: this.entrydate,
-  //       entrytime: this.entrytime,
-  //       journalentry: this.journalentry,
-  //       user_id: this.UserId
-  //     }
-
-  //     console.log(newEntry);
-
-  //     this.moodService.addNewEntry(newEntry).subscribe(result => {
-  //       let emptyMood = "";
-  //       let emptyEntryDate = "";
-  //       let emptyEntrytime = "";
-  //       let emptyJournalentry = "";
-  //       let emptyUserId = "";
-  //       console.log(result);
-  //       this.moodService.getUserEntries(emptyMood, emptyEntryDate, emptyEntrytime, emptyJournalentry, emptyUserId).subscribe(result => {
-  //         let newEntryIndex = result.length - 1;
-  //         this.newEntryId = result[newEntryIndex].id;
-
-  //         console.log(newEntryIndex);
-  //         console.log(this.newEntryId);
-
-  //         this.activityList.forEach(activity => {
-  //           let newEntryActivity: EntryActivity = {
-  //             entry_id: this.newEntryId,
-  //             activity_id: activity.id
-  //           }
-  //           console.log(newEntryActivity);
-  //           this.moodService.addEntryActivities(newEntryActivity).subscribe(result => {
-  //             console.log(result);
-  //           });
-  //         });
-  //       })
-  //     });
-  //   });
-  // }
-
-
 }
 
