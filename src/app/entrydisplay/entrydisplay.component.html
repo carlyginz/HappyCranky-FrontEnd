@@ -1,0 +1,40 @@
+<div class="heading">On {{ entrydate }}, at {{ entrytime }}</div>
+<p></p>
+<div class="face">
+  <div *ngIf="mood === 5">
+    <i style="color: #d8214b" class="far fa-laugh-beam fa-10x"></i>
+  </div>
+
+  <div *ngIf="mood === 4">
+    <i style="color: #f39481" class="far fa-smile fa-10x"></i>
+  </div>
+  <div *ngIf="mood === 3">
+    <i style="color: #86b8d3" class="far fa-meh fa-10x"></i>
+  </div>
+  <div *ngIf="mood === 2">
+    <i style="color: #33a0b9" class="far fa-frown fa-10x"></i>
+  </div>
+  <div *ngIf="mood === 1">
+    <i style="color: #336bb9" class="far fa-sad-tear fa-10x"></i>
+  </div>
+</div>
+
+<div *ngIf="activityNameAndCategory.length === 0" class="activityQuestion">
+  You had no activities listed
+</div>
+
+<div *ngIf="activityNameAndCategory.length > 0">
+  <div class="activityQuestion">You did these activities</div>
+  <div class="didThis" *ngFor="let item of activityNameAndCategory">
+    {{ item.name }}
+  </div>
+</div>
+
+<div class="writeAboutIt" *ngIf="journalentry === ''">
+  Nothing in your journal
+</div>
+
+<div *ngIf="journalentry !== ''">
+  <div class="writeAboutIt">Your Journal Entry</div>
+  <div style="text-align: center">{{ journalentry }}</div>
+</div>

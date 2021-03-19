@@ -1,0 +1,48 @@
+.heading {
+  display: flex;
+  justify-content: center;
+  padding-top: 65px;
+  padding-bottom: 5px;
+  font-size: 30px;
+}
+
+.face {
+  display: flex;
+  justify-content: center;
+}
+
+.activityQuestion {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 25px;
+}
+
+.didThis {
+  display: flex;
+  justify-content: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 18px;
+  color: rgb(226, 226, 226);
+}
+
+.writeAboutIt {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 25px;
+}
+
+#journal {
+  font-size: 15px;
+  height: 120px;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 25px;
+  display: flex;
+  text-align: flex-start;
+  background-color: #d8d8d8;
+}

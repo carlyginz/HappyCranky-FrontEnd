@@ -8,9 +8,10 @@
       <!-- <div>Hi {{ user.displayName }}!</div> -->
     </div>
     <ng-template #login>
-      <button class="button" (click)="auth.googleSignin()">
-        Login with Google
-      </button>
+    
+        <button class="google btn" (click)="auth.googleSignin()">
+        <i class="fab fa-google  fa-spin fa-3x"></i>  Google Sign In
+        </button>
     </ng-template>
   </main>
 </body>

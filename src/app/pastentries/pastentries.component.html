@@ -1,5 +1,4 @@
-<body>
-  <div class="heading">Past Entries</div>
+<div class="heading">Past Entries</div>
   <div class="goToEntry">
     <button (click)="goToEntryPage()">
       <i class="fas fa-plus fa-2x"></i>
@@ -7,9 +6,6 @@
   </div>
 
   <div class="entryList" *ngFor="let entry of userEntries">
-    <button (click)="editEntry(entry)">
-      <i class="far fa-edit fa-2x"></i>
-    </button>
     <div class="faces">
       <div *ngIf="entry.mood === 1">
         <i style="color: #336bb9" class="far fa-sad-tear"></i>
@@ -28,11 +24,12 @@
       </div>
     </div>
     <div class="dateAndTime">
-      {{ entry.entrydate }}
-      {{ entry.entrytime }}
+      <button (click)="displayEntry(entry)">
+        {{ entry.entrydate }}
+        {{ entry.entrytime }}
+      </button>
     </div>
     <button class="delete" (click)="deleteEntry(entry)">
-      <i class="far fa-trash-alt fa-2x"></i>
+      <i class="far fa-trash-alt fa-1x"></i>
     </button>
   </div>
-</body>

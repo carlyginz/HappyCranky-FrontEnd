@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { MoodService } from '../services/mood.service';
 import { AuthService } from '../services/auth.service';
 import { Component, OnInit } from '@angular/core';
@@ -12,8 +13,8 @@ import { EntryActivity } from '../models/entryactivity';
 })
 export class EntryPageComponent implements OnInit {
 
-  constructor(public auth: AuthService, private moodService: MoodService) { }
-  
+  constructor(public auth: AuthService, private moodService: MoodService, public router: Router) { }
+
   mood: number = 3;
   entrydate: string = "";
   entrytime: string = "";
@@ -58,7 +59,7 @@ export class EntryPageComponent implements OnInit {
         result.forEach((activity: Activity) => {
           this.moodService.activityArray.push(activity);
         });
-     }
+      }
     })
   }
 
@@ -71,7 +72,7 @@ export class EntryPageComponent implements OnInit {
     let dd = String(currentDate.getDate()).padStart(2, '0');
     let mm = String(currentDate.getMonth() + 1).padStart(2, '0');
     let yyyy = currentDate.getFullYear();
-  
+
     this.entrydate = currentDate.toString();
     this.entrydate = mm + '/' + dd + '/' + yyyy;
   }
@@ -83,10 +84,10 @@ export class EntryPageComponent implements OnInit {
 
   toggleActivityList(id, event) {
     const checked = event.target.checked;
-    
+
     if (checked) {
-      this.activityList.push({id});
-      } else {
+      this.activityList.push({ id });
+    } else {
       const index = this.activityList.findIndex(list => list == id);
       this.activityList.splice(index, 1);
     }
@@ -113,50 +114,52 @@ export class EntryPageComponent implements OnInit {
         let emptyEntryDate = "";
         let emptyEntrytime = "";
         let emptyJournalentry = "";
-    
-        this.moodService.getUserEntries(emptyMood, emptyEntryDate, emptyEntrytime, emptyJournalentry, this.UserId).subscribe(result => {
-          let newEntryIndex = result.length - 1;
-          this.newEntryId = result[newEntryIndex].id;
+        let emptyUserId = "";
+        console.log(result);
+        this.moodService.getUserEntries(emptyMood, emptyEntryDate, emptyEntrytime, emptyJournalentry, emptyUserId).subscribe(result => {
+          this.newEntryId = result[0].id;
+          // this.newEntryId = result[newEntryIndex].id;
 
-          console.log(newEntryIndex);
+          // console.log(newEntryId);
           console.log(this.newEntryId);
 
           this.activityList.forEach(activity => {
             let newEntryActivity: EntryActivity = {
               entry_id: this.newEntryId,
-              activity_id: activity
+              activity_id: activity.id
             }
             console.log(newEntryActivity);
             this.moodService.addEntryActivities(newEntryActivity).subscribe(result => {
               console.log(result);
-            });    
+            });
           });
+          this.router.navigate(['/pastentries']);
         })
-      });      
+      });
     });
   }
 
-  updateEntry() {
-    this.auth.user$.subscribe(user => {
-      this.UserId = user.uid;
+  // updateEntry() {
+  // this.auth.user$.subscribe(user => {
+  //   this.UserId = user.uid;
 
-      let entryObject: Entry = {
-        mood: this.mood,
-        entrydate: this.entrydate,
-        entrytime: this.entrytime,
-        journalentry: this.journalentry,
-        user_id: this.UserId
-      }
-      console.log(entryObject);
+  //   let entryObject = {
+  //     mood: this.mood,
+  //     entrydate: this.entrydate,
+  //     entrytime: this.entrytime,
+  //     journalentry: this.journalentry,
+  //     user_id: this.UserId,
+  //     id: this.entryToEdit.id
+  //   }
+  //   console.log(entryObject);
+  //   this.moodService.updateEntry(this.entryToEdit.id, entryObject).subscribe(result => {
+  //     console.log(entryObject);
+  //     console.log(result);
 
-      this.moodService.updateEntry(this.entryToEdit.id, entryObject).subscribe(result => {
-        
-        console.log(result);
+  //     console.log(this.entryToEdit.id);
 
-        console.log(this.entryToEdit.id);
-
-      })
-    })
-  }
+  //   })
+  // })
+  // }
 }
 

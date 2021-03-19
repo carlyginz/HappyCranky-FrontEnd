@@ -1,3 +1,17 @@
+
+.heading {
+  display: flex;
+  justify-content: center;
+  padding-top: 70px;
+  padding-bottom: 5px;
+  font-size: 30px;
+}
+
+form {
+  /* padding-top: 5px; */
+  padding-bottom: 90px;
+}
+
 input[type="radio"] {
   border: 0;
   clip: rect(0 0 0 0);
@@ -9,33 +23,6 @@ input[type="radio"] {
   width: 1px;
 }
 
-h1,
-h2 {
-  display: flex;
-  justify-content: center;
-}
-
-h2 {
-  top: 50px;
-}
-
-/* .activity {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    align-items: center;
-    align-content: flex-start;
-}
-
-.activity div {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin: 5px;
-}
-
-
 input[type=radio] {
     border: 0;
     clip: rect(0 0 0 0);
@@ -45,67 +32,141 @@ input[type=radio] {
     padding: 0;
     position: absolute;
     width: 1px;
-} */
-
-/* #moods label {
-  font-size: 50px;
-  padding: 5px;
-} */
-
-/* #moods label:hover {
-  cursor: pointer;
-} */
-
-input[type="radio"]:required ~ label {
-  color: darkgreen;
-}
-
-input[type="radio"]:checked + label {
-  color: blue !important;
-}
-input[type=radio].with-font:focus ~ label:before,
-input[type=radio].with-font:focus ~ label
-{                
-    color: green;
-}
-
-input[type=radio].sad ~ label:before {
-    font-family: FontAwesome;
-    font-weight: 700;
-    display: inline-block;
-    content: "\f5b4";
-    font-size: 4em;
-    color: #535353;
-    width: 1.5em;
 }
 
 .moods {
   display: flex;
   justify-content: space-evenly;
-  padding: 10px 10px;
   width: 50%;
+  border: none;
 }
 
 .moods-container {
   display: flex;
   justify-content: center;
+  padding-top: 15px;
+  padding-bottom: 5px;
+}
+
+#moods label {
+  font-size: 50px;
+  padding: 5px;
+}
+
+#moods label:hover {
+  cursor: pointer;
+}
+
+input[type="radio"] + label {
+  opacity: 0.5!important;
+}
+
+input[type="radio"]:checked + label {
+  opacity: 1!important;
+}
+input[type="radio"]:hover + label {
+  opacity: 1!important;
+}
+input[type="radio"].with-font:focus ~ label:before,
+input[type="radio"].with-font:focus ~ label {
+  color: green;
+}
+
+.activityQuestion {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 23px;
+  font-size: 30px;
+}
+
+.writeAboutIt {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 25px;
+}
+#activity {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: flex-start;
+}
+
+#journal {
+  /* padding-top: 30px;
+  padding-bottom: 30px; */
+  height: 120px;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 25px;
+  display: flex;
+  /* position: relative; */
+  /* justify-content: center; */
+  text-align: flex-start;
+  background-color: #a4afc7;
 }
 
 button {
   cursor: pointer;
+  margin: auto;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   display: flex;
   border-radius: 12px;
   font-size: 20px;
-  height: 50px;
-  margin-top: 10px;
+  height: 40px;
   text-align: center;
   align-items: center;
   justify-content: center;
-  width: 200px;
+  width: 150px;
   color: white;
-  background: linear-gradient(to right, #89253e, #3a6186);
+  background: linear-gradient(
+    to right,
+     #89253e,
+     #3a6186);
 }
 
-input[type=radio]:checked+label  {
-    color: blue!important;
+button:hover {
+  color: #a4afc7;
 }
+
+/* tablet */
+@media only screen and (min-width: 768px) {
+  .fa-plus {
+    font-size: large;
+  }
+
+  .entryList {
+    font-size: 25px;
+  }
+
+  .fa-edit,
+  .fa-trash-alt {
+    font-size: 25px;
+  }
+}
+
+/* computer */
+@media only screen and (min-width: 992px) {
+  .fa-plus {
+    font-size: larger;
+  }
+
+  .entryList {
+    font-size: 30px;
+  }
+
+  .fa-edit,
+  .fa-trash-alt {
+    font-size: 30px;
+  }
+}
+
+
+
+

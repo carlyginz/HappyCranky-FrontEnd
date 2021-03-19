@@ -12,16 +12,15 @@ import { Entry } from '../models/entry.model';
   providedIn: 'root',
 })
 export class MoodService {
-  activityArray: Activity[] = [];  
+  activityArray: Activity[] = [];
   clickedEntry: any = {};
 
   headers = new Headers();
 
-  constructor(private http: HttpClient, private auth: AuthService) {}
+  constructor(private http: HttpClient, private auth: AuthService) { }
 
   apiURL: string = `https://happy-cranky.herokuapp.com/entries`;
 
-  //get entries by any parameter
   getUserEntries(
     moodVar: string,
     entryDate: string,
@@ -60,10 +59,10 @@ export class MoodService {
     return this.http.post<Entry[]>(this.apiURL, newEntry);
   }
 
-  updateEntry(entryID: number, entryObject: any): Observable<Entry[]> {       
-    return this.http.put<Entry[]>(this.apiURL + `/${entryID}`, 
-    JSON.stringify(entryObject));
-  }
+  // updateEntry(entryID: number, entryObject: any): Observable<any[]> {       
+  //   return this.http.put<any[]>(`http://localhost:3000/entries` + `/${entryID}`, 
+  //   JSON.stringify(entryObject));
+  // }
 
   getAllEntryActivitiesPerEntryId(entryId: string): Observable<any> {
     return this.http.get<any[]>(
@@ -97,10 +96,10 @@ export class MoodService {
 
   getActivitiesByCategory(category: string): Observable<Activity[]> {
     return this.http.get<Activity[]>('https://happy-cranky.herokuapp.com/activities',
-    {
-      params: { category: category}
-    }
-  );
+      {
+        params: { category: category }
+      }
+    );
   }
 
   getAllActivities(): Observable<Activity[]> {

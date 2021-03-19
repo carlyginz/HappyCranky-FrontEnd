@@ -32,8 +32,7 @@ export class StatsComponent implements OnInit {
   SadActivitiesNamesandCategories: EidAname[] = [];
   AllActivities: Activity[];
   ActivitySelected: Number;
-  // EntryActivitySelected: EntryActivity[];
- 
+  noActivitiesObject: EidAname = { aName: "None", aCategory: "None" };
 
   get clickedEntry(): any {
     return this.moodService.clickedEntry;
@@ -55,28 +54,7 @@ export class StatsComponent implements OnInit {
   ngOnInit(): void {
     this.displayEntries();
 
-    this.moodService.getAllActivities().subscribe((data) => {
-      this.AllActivities = data;
-    });
-  }
-
-  onActivitySelected(userId: any): void {
-    this.moodService.getEntriesOnlyByUserId(this.userId).subscribe((data) => {
-      this.userEntries = data;
-    });
-  }
-    
-  // onEntryActivitySelected(entryId: any): void {
-  //     this.moodService.getAllEntryActivitiesPerEntryId(this.entryId).subscribe((data) => {
-  //       this.userEntryAct= data;
-  //     });
-  // }
-
-//   ActivityNameAndCategory(id: any): void {
-//     this.moodService.getActivityNameAndCategory(this.id).subscribe((data) => {
-//       this.userAct = data;
-//     });
-// }
+      }
 
 
 
@@ -94,7 +72,6 @@ export class StatsComponent implements OnInit {
         .getUserEntries(mood, entrydate, entrytime, journalentry, userID)
         .subscribe((result) => {
           this.userEntriesD = result;
-          // console.log(this.userEntriesD);
         });
     });
   }
@@ -109,34 +86,36 @@ export class StatsComponent implements OnInit {
         this.happyDays.push(element.id);
       }
     });
-    let newHEId;
-    let newHAId;
-    let newHObject: EidAname;
-    this.happyDays.forEach((element) => {
-      this.moodService
-        .getAllEntryActivitiesPerEntryId(element)
-        .subscribe((result) => {
-          if (result.length > 0) {
-            console.log(result);
-            this.HappyActivitiesNamesandCategories = [];
-            for (i = 0; i < result.length; i++) {
-              newHEId = result[i].entry_id;
-              newHAId = result[i].activity_id;
-              this.moodService
-                .getActivityNameAndCategory(newHAId)
-                .subscribe((newResult: any) => {
-                  newHObject = {
-                    aName: newResult.name,
-                    aCategory: newResult.category,
-                  };
-                  this.HappyActivitiesNamesandCategories.push(newHObject);
-                  console.log(newHObject);
-                  console.log(this.HappyActivitiesNamesandCategories);
-                });
+    if (this.happyDays.length === 0) {
+      this.HappyActivitiesNamesandCategories.push(this.noActivitiesObject);
+    } else {
+
+      let newHEId;
+      let newHAId;
+      let newHObject: EidAname;
+      this.happyDays.forEach((element) => {
+        this.moodService
+          .getAllEntryActivitiesPerEntryId(element)
+          .subscribe((result) => {
+            if (result.length > 0) {
+              this.HappyActivitiesNamesandCategories = [];
+              for (i = 0; i < result.length; i++) {
+                newHEId = result[i].entry_id;
+                newHAId = result[i].activity_id;
+                this.moodService
+                  .getActivityNameAndCategory(newHAId)
+                  .subscribe((newResult: any) => {
+                    newHObject = {
+                      aName: newResult.name,
+                      aCategory: newResult.category,
+                    };
+                    this.HappyActivitiesNamesandCategories.push(newHObject);
+                  });
+              }
             }
-          }
-        });
-    });
+          });
+      });
+    }
   }
 
   sadDaysDidThis() {
@@ -149,53 +128,38 @@ export class StatsComponent implements OnInit {
         this.sadDays.push(element.id);
       }
     });
-    let newSEId;
-    let newSAId;
-    let newSObject: EidAname;
-    this.sadDays.forEach((element) => {
-      this.moodService
-        .getAllEntryActivitiesPerEntryId(element)
-        .subscribe((result) => {
-          if (result.length > 0) {
-            this.SadActivitiesNamesandCategories = [];
-            for (i = 0; i < result.length; i++) {
-              newSEId = result[i].entry_id;
-              newSAId = result[i].activity_id;
-              this.moodService
-                .getActivityNameAndCategory(newSAId)
-                .subscribe((newResult: any) => {
-                  newSObject = {
-                    aName: newResult.name,
-                    aCategory: newResult.category,
-                  };
-                  this.SadActivitiesNamesandCategories.push(newSObject);
-                });
+    if (this.sadDays.length === 0) {
+      this.SadActivitiesNamesandCategories.push(this.noActivitiesObject);
+    } else {
+      let newSEId;
+      let newSAId;
+      let newSObject: EidAname;
+      this.sadDays.forEach((element) => {
+        this.moodService
+          .getAllEntryActivitiesPerEntryId(element)
+          .subscribe((result) => {
+            if (result.length > 0) {
+              this.SadActivitiesNamesandCategories = [];
+              for (i = 0; i < result.length; i++) {
+                newSEId = result[i].entry_id;
+                newSAId = result[i].activity_id;
+                this.moodService
+                  .getActivityNameAndCategory(newSAId)
+                  .subscribe((newResult: any) => {
+                    newSObject = {
+                      aName: newResult.name,
+                      aCategory: newResult.category,
+                    };
+                    this.SadActivitiesNamesandCategories.push(newSObject);
+                  });
+              }
             }
-          }
-        });
-    });
+          });
+      });
+    }
   }
-
-  getSelectedItem(item) {
-    console.log('selected items : ', item);
-    this.selctedUser = this.userDetails.filter((user) =>
-      user.displayName.includes(item)
-    );
-  }
-
-  getEntryPage() {
-    this.router.navigate(['/entrypage']);
-    this.moodService.clickedEntry = {};
-  }
-
-  getHomePage() {
-    this.router.navigate(['/homepage']);
-    this.moodService.clickedEntry = {};
-  }
-
 }
 
-  // getAllUserActivities:(userId: string) => {
-  //   return this.Activity.filter(activity => activity.name === name);
+ 
   
 

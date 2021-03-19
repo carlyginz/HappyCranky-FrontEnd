@@ -1,48 +1,5 @@
 <div class="stat-container"></div>
-<div class="heading">Happy-Cranky Stats</div>
-
-<label>Filter by Activity:</label>
-<select
-  [(ngModel)]="ActivitySelected"
-  (ngModelChange)="onActivitySelected($event)"
->
-  <option *ngFor="let activity of AllActivities" [value]="activity.id">
-    {{ activity.name }}
-
-    </option>
-
-    <!-- <div *ngFor="let entry of EntryActivitySelected" >
-      {{ entry.entry_id }}, {{ entry.activity_id }}
-    </div> -->
-
-    
-</select>
-
-
-
-
-<ul>
-  <tr *ngFor="let entry of userEntries">
-    <ol>
-      Entry Date:
-      {{
-        entry.entrydate
-      }}
-    </ol>
-    <ol>
-      Entry Time:
-      {{
-        entry.entrytime
-      }}
-    </ol>
-    <ol>
-      Mood:
-      {{
-        entry.mood
-      }}
-    </ol>
-  </tr>
-</ul>
+<div class="heading">Stats</div>
 
 
 <p></p>
@@ -60,18 +17,11 @@
   <div class="happyDays" *ngFor="let each of HappyActivitiesNamesandCategories">
     <div>Category: {{ each.aCategory }} - Activity: {{ each.aName }}</div>
   </div>
+
   <div class="sadDays" *ngFor="let each of SadActivitiesNamesandCategories">
     <div>Category: {{ each.aCategory }} - Activity: {{ each.aName }}</div>
   </div>
 
-  <p></p>  
-  <div class="filter" *ngFor="let entry of userEntries">
-    Entry Date: {{ entry.entrydate }}
-    <p></p>  
-    Entry Time: {{ entry.entrytime }}
-    <p></p>  
-    Mood: {{ entry.mood }}
-    <hr />
-    <p></p>  
-  </div>
+  
+  
 </div>
