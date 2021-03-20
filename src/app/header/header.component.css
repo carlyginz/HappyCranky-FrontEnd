@@ -57,8 +57,6 @@ button:hover {
   display: none;
 }
 
-
-
 /* tablet */
 /* @media only screen and (min-width: 768px) {
 
@@ -115,7 +113,6 @@ button:hover {
   }
 } */
 
-
 /* computer */
 /* @media only screen and (min-width: 1200px)  */
 @media only screen and (min-width: 768px) {
@@ -132,14 +129,14 @@ button:hover {
     display: flex;
     color: white;
     font-size: 12pt;
-    padding-left: 2px;
+    padding-left: 5px;
   }
 
   .links {
     top: 0px;
     display: initial;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     position: fixed;
     align-items: center;
     width: 100%;
@@ -148,6 +145,12 @@ button:hover {
     background: #3a6186;
     background: -webkit-linear-gradient(to right, #89253e, #3a6186);
     background: linear-gradient(to right, #89253e, #3a6186);
+  }
+
+  .linkies {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
 
   a {

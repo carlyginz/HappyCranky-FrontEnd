@@ -21,17 +21,20 @@
 
 <div class="nav-bar">
   <div class="links">
-    <div class="dash">
-      <a routerLink="/dashboard">home</a>
-    </div>
-    <div class="past">
-      <a routerLink="/pastentries">past entries</a>
-    </div>
-    <div class="stats">
-      <a routerLink="/stats">stats</a>
-    </div>
-    <div class="signout">
-      <button (click)="auth.signOut()">sign out</button>
+    <div class="appName">HappyCranky</div>
+    <div class="linkies">
+      <div class="dash">
+        <a routerLink="/dashboard">home</a>
+      </div>
+      <div class="past">
+        <a routerLink="/pastentries">past entries</a>
+      </div>
+      <div class="stats">
+        <a routerLink="/stats">stats</a>
+      </div>
+      <div class="signout">
+        <button (click)="auth.signOut()">sign out</button>
+      </div>
     </div>
   </div>
 </div>
