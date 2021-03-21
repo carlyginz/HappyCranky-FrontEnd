@@ -45,8 +45,24 @@ button:hover {
   color: rgba(241, 237, 252, 0.781);
 }
 
-.nav-bar {
+.dash, .past, .stats {
   display: none;
+}
+
+.nav-bar {
+  margin-right: 25px;
+}
+
+button {
+  cursor: pointer;
+  padding: 10px;
+  margin: 5px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-family: "Ovo", serif;
+  font-size: 15px;
+  text-decoration: none;
 }
 
 /* .link-icons {
@@ -118,9 +134,8 @@ button:hover {
   .signout-icon {
     display: none;
   }
-  .nav-bar {
+  .dash, .past, .stats {
     display: block;
-    margin-right: 25px;
   }
 
   .links {
@@ -144,15 +159,4 @@ button:hover {
     text-decoration: none;
   }
 
-  button {
-    cursor: pointer;
-    padding: 10px;
-    margin: 5px;
-    background-color: transparent;
-    border: none;
-    color: white;
-    font-family: "Ovo", serif;
-    font-size: 15px;
-    text-decoration: none;
-  }
 }
