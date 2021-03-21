@@ -1,15 +1,20 @@
-
-.heading {
+.wrapper {
   display: flex;
   justify-content: center;
-  padding-top: 70px;
-  padding-bottom: 5px;
-  font-size: 30px;
+  align-items: center;  
+}
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  flex-direction: column;
+  margin: 0px 25px;
+  max-width: 700px;
 }
 
-form {
-  /* padding-top: 5px; */
-  padding-bottom: 90px;
+h2 {
+  text-align: center;
+  font-size: 30px;
 }
 
 input[type="radio"] {
@@ -21,17 +26,6 @@ input[type="radio"] {
   padding: 0;
   position: absolute;
   width: 1px;
-}
-
-input[type=radio] {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
 }
 
 .moods {
@@ -67,26 +61,7 @@ input[type="radio"]:checked + label {
 input[type="radio"]:hover + label {
   opacity: 1!important;
 }
-input[type="radio"].with-font:focus ~ label:before,
-input[type="radio"].with-font:focus ~ label {
-  color: green;
-}
 
-.activityQuestion {
-  display: flex;
-  justify-content: center;
-  padding-top: 10px;
-  padding-bottom: 23px;
-  font-size: 30px;
-}
-
-.writeAboutIt {
-  display: flex;
-  justify-content: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  font-size: 25px;
-}
 #activity {
     display: flex;
     flex-direction: row;
@@ -96,34 +71,57 @@ input[type="radio"].with-font:focus ~ label {
     align-content: flex-start;
 }
 
-#journal {
-  /* padding-top: 30px;
-  padding-bottom: 30px; */
-  height: 120px;
-  width: 80%;
-  margin: auto;
-  margin-bottom: 25px;
+#activity div {
   display: flex;
-  /* position: relative; */
-  /* justify-content: center; */
-  text-align: flex-start;
+  justify-content: flex-start;
+  flex-basis: 32%;
+  padding: 3px;
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 900;
+}
+
+.social {
+  color: #336bb9;
+}
+.hobbies {
+  color: #33a0b9;
+}
+.phyfeelings {
+  color: #86b8d3;
+}
+.habits {
+  color: #f39481;
+}
+.fitness {
+  color: #d8214b;
+}
+.emotions {
+  color: #fff;
+}
+
+
+.key {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.key li {
+  margin: 20px;
+}
+
+#journal {
+  width: 100%;
   background-color: #a4afc7;
 }
 
 button {
-  cursor: pointer;
-  margin: auto;
-  margin-bottom: 20px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  display: flex;
-  border-radius: 12px;
+  margin-top: 30px;
+  padding: 20px;
+  border: none;
   font-size: 20px;
-  height: 40px;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  width: 150px;
   color: white;
   background: linear-gradient(
     to right,
@@ -132,41 +130,18 @@ button {
 }
 
 button:hover {
-  color: #a4afc7;
+  cursor: pointer;
+  opacity: 0.7;
 }
 
 /* tablet */
 @media only screen and (min-width: 768px) {
-  .fa-plus {
-    font-size: large;
-  }
 
-  .entryList {
-    font-size: 25px;
-  }
 
-  .fa-edit,
-  .fa-trash-alt {
-    font-size: 25px;
-  }
 }
 
-/* computer */
+/* desktop */
 @media only screen and (min-width: 992px) {
-  .fa-plus {
-    font-size: larger;
-  }
 
-  .entryList {
-    font-size: 30px;
-  }
 
-  .fa-edit,
-  .fa-trash-alt {
-    font-size: 30px;
-  }
 }
-
-
-
-

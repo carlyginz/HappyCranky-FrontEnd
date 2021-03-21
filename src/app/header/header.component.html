@@ -1,7 +1,25 @@
 <header>
-  <div class="appName">Happy App</div>
+  <h1 class="appName">HappyCranky</h1>
+  <div class="nav-bar">
+    <div class="links">
+      <div class="linkies">
+        <div class="dash">
+          <a routerLink="/dashboard">Home</a>
+        </div>
+        <div class="past">
+          <a routerLink="/pastentries">Past Entries</a>
+        </div>
+        <div class="stats">
+          <a routerLink="/stats">Stats</a>
+        </div>
+        <div class="signout">
+          <button (click)="auth.signOut()">Sign Out</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <div class="link-icons">
+  <!-- <div class="link-icons">
     <div class="dash">
       <a routerLink="/dashboard"><i class="fas fa-home"></i></a>
     </div>
@@ -16,25 +34,5 @@
         <i class="fas fa-door-open"></i>
       </button>
     </div>
-  </div>
+  </div> -->
 </header>
-
-<div class="nav-bar">
-  <div class="links">
-    <div class="appName">HappyCranky</div>
-    <div class="linkies">
-      <div class="dash">
-        <a routerLink="/dashboard">home</a>
-      </div>
-      <div class="past">
-        <a routerLink="/pastentries">past entries</a>
-      </div>
-      <div class="stats">
-        <a routerLink="/stats">stats</a>
-      </div>
-      <div class="signout">
-        <button (click)="auth.signOut()">sign out</button>
-      </div>
-    </div>
-  </div>
-</div>

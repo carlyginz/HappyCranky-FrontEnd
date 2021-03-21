@@ -1,15 +1,12 @@
 header {
-  display: flex;
-  justify-content: space-between;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin-bottom: 10px;
-  flex-direction: row;
   position: fixed;
   top: 0px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
   align-items: center;
+  padding: 8px;
   width: 100%;
-  height: 3rem;
   color: white;
   background: #3a6186; /* fallback for old browsers */
   background: -webkit-linear-gradient(
@@ -22,15 +19,14 @@ header {
     #89253e,
     #3a6186
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  z-index: 100;
 }
 
 .appName {
   display: flex;
   color: white;
   font-size: 12pt;
-  /* margin: 4px; */
-  padding-left: 2px;
-  /* align-items: center; */
+  margin-left: 20px;
 }
 
 button {
@@ -53,9 +49,9 @@ button:hover {
   display: none;
 }
 
-.link-icons {
+/* .link-icons {
   display: none;
-}
+} */
 
 /* tablet */
 /* @media only screen and (min-width: 768px) {
@@ -116,35 +112,24 @@ button:hover {
 /* computer */
 /* @media only screen and (min-width: 1200px)  */
 @media only screen and (min-width: 768px) {
+  .nav-bar, .links, .appName {
+    z-index: 1000;
+  }
   .signout-icon {
     display: none;
   }
-
   .nav-bar {
-    display: initial;
     display: block;
-  }
-
-  .appName {
-    display: flex;
-    color: white;
-    font-size: 12pt;
-    padding-left: 5px;
+    margin-right: 25px;
   }
 
   .links {
-    top: 0px;
-    display: initial;
     display: flex;
     justify-content: space-between;
-    position: fixed;
     align-items: center;
     width: 100%;
     height: 3rem;
     color: white;
-    background: #3a6186;
-    background: -webkit-linear-gradient(to right, #89253e, #3a6186);
-    background: linear-gradient(to right, #89253e, #3a6186);
   }
 
   .linkies {

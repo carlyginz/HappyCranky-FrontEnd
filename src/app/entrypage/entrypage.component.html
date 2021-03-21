@@ -1,6 +1,6 @@
-<div class="heading">How are you feeling today?</div>
-
+<div class="wrapper">
 <form>
+  <h2>How are you feeling today?</h2>
   <div class="moods-container">
     <fieldset id="moods" name="moods" class="moods">
       <input name="mood" id="sad" class="sad" type="radio" [(ngModel)]="mood" [value]="1" required><label for="sad"><i style="color: #336bb9" class="far fa-sad-tear"></i></label>
@@ -11,11 +11,26 @@
     </fieldset>
   </div>
 
-  <div class="activityQuestion">What did you do?</div>
+  <h2>What did you do?</h2>
+
+  <ul class="key">
+    <li class="social">Social</li>
+    <li class="hobbies">Hobbies</li>
+    <li class="phyfeelings">Physical Feelings</li>
+    <li class="habits">Habits</li>
+    <li class="fitness">Fitness</li>
+    <li class="emotions">Emotions</li>
+    </ul>   
 
   <fieldset id="activity">
     <div *ngFor="let activity of activityArray; let i = index">
-      <label for="{{ activity.id }}">
+      <label [ngClass]="activity.category === 'Social' ? 'social' : '' || 
+      activity.category === 'Hobbies' ? 'hobbies' : '' ||
+      activity.category === 'Health' ? 'phyfeelings' : '' ||
+      activity.category === 'Habits' ? 'habits' : '' ||
+      activity.category === 'Fitness' ? 'fitness' : '' ||
+      activity.category === 'Feeling' ? 'emotions' : ''
+      " for="{{ activity.id }}">
         <input
           [checked]="activityList.includes(activity.id)"
           (change)="toggleActivityList(activity.id, $event)"
@@ -29,11 +44,12 @@
     </div>
   </fieldset>
 
-  <div class="writeAboutIt">Wanna write about it?</div>
+  <h2>Wanna write about it?</h2>
 
-  <textarea id="journal" name="journal" [(ngModel)]="journalentry"> </textarea>
+  <textarea Rows="10" id="journal" name="journal" [(ngModel)]="journalentry"> </textarea>
   <button *ngIf="entryToEdit.id" (click)="updateEntry()">Update Entry</button>
   <button *ngIf="entryToEdit.id === undefined" (click)="addNewEntry()">
     Submit Entry
   </button>
 </form>
+</div>

@@ -2,15 +2,19 @@
 html {
   margin: 0;
   padding: 0;
+  background-color: rgb(61, 61, 73);
 }
 
 body {
   font-family: "Ovo", serif;
-  margin: 0px 0px 100px 0px;
+  margin: 100px 0px 100px 0px;
   padding: 0px;
   width: 100%;
-  /* background-color: rgb(241, 241, 253); */
-  background-color: rgb(61, 61, 73);
   color: white;
-  height: 100vh;
+  min-height: 100vh;
+  clear: both;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
+  /* background-color: rgb(241, 241, 253); */
 }
