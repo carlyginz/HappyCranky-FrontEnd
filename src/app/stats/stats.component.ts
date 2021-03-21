@@ -33,13 +33,11 @@ export class StatsComponent implements OnInit {
   AllActivities: Activity[];
   ActivitySelected: Number;
   noActivitiesObject: EidAname = { aName: "None", aCategory: "None" };
+  noactivity = "";
 
   get clickedEntry(): any {
     return this.moodService.clickedEntry;
   }
-
-  
-  
 
   constructor(
     private moodService: MoodService,
@@ -48,16 +46,9 @@ export class StatsComponent implements OnInit {
     private auth: AuthService
   ) { }
 
-  
-
-
   ngOnInit(): void {
     this.displayEntries();
-
-      }
-
-
-
+  }
   
 
   displayEntries() {
@@ -87,7 +78,9 @@ export class StatsComponent implements OnInit {
       }
     });
     if (this.happyDays.length === 0) {
-      this.HappyActivitiesNamesandCategories.push(this.noActivitiesObject);
+      this.noactivity = "You have no happy days to report";
+
+      // this.HappyActivitiesNamesandCategories.push(this.noActivitiesObject);
     } else {
 
       let newHEId;
@@ -120,6 +113,7 @@ export class StatsComponent implements OnInit {
 
   sadDaysDidThis() {
     this.HappyActivitiesNamesandCategories = [];
+
     let i = 0;
     this.sadDays = [];
     this.sadActivitiesIds = [];
@@ -129,7 +123,8 @@ export class StatsComponent implements OnInit {
       }
     });
     if (this.sadDays.length === 0) {
-      this.SadActivitiesNamesandCategories.push(this.noActivitiesObject);
+      this.noactivity = "You have no sad days to report";
+      // this.SadActivitiesNamesandCategories.push(this.noActivitiesObject);
     } else {
       let newSEId;
       let newSAId;
@@ -157,6 +152,8 @@ export class StatsComponent implements OnInit {
           });
       });
     }
+    console.log(this.noactivity);
+
   }
 }
 

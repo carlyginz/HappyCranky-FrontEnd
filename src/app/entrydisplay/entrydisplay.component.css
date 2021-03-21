@@ -1,9 +1,11 @@
-.heading {
-  display: flex;
-  justify-content: center;
-  padding-top: 65px;
-  padding-bottom: 5px;
+h1 {
+  text-align: center;
+  padding: 15px 0px;
   font-size: 30px;
+}
+
+h2 {
+  text-align: center;
 }
 
 .face {
@@ -11,13 +13,13 @@
   justify-content: center;
 }
 
-.activityQuestion {
+/* .activityQuestion {
   display: flex;
   justify-content: center;
   padding-top: 20px;
   padding-bottom: 20px;
   font-size: 25px;
-}
+} */
 
 .didThis {
   display: flex;
@@ -28,21 +30,10 @@
   color: rgb(226, 226, 226);
 }
 
-.writeAboutIt {
+/* .writeAboutIt {
   display: flex;
   justify-content: center;
   padding-top: 20px;
   padding-bottom: 20px;
   font-size: 25px;
-}
-
-#journal {
-  font-size: 15px;
-  height: 120px;
-  width: 80%;
-  margin: auto;
-  margin-bottom: 25px;
-  display: flex;
-  text-align: flex-start;
-  background-color: #d8d8d8;
-}
+} */

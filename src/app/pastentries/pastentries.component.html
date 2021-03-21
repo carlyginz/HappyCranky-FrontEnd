@@ -1,10 +1,9 @@
-<div class="heading">Past Entries</div>
   <div class="goToEntry">
     <button (click)="goToEntryPage()">
       <i class="fas fa-plus fa-2x"></i>
     </button>
   </div>
-
+<h3>Your Past Entries</h3>
   <div class="entryList" *ngFor="let entry of userEntries">
     <div class="faces">
       <div *ngIf="entry.mood === 1">

@@ -1,6 +1,5 @@
 <div class="stat-container"></div>
-<div class="heading">Stats</div>
-
+<h1>Stats</h1>
 
 <p></p>
 <div class="happysadbuttons">
@@ -17,11 +16,23 @@
   <div class="happyDays" *ngFor="let each of HappyActivitiesNamesandCategories">
     <div>Category: {{ each.aCategory }} - Activity: {{ each.aName }}</div>
   </div>
-
   <div class="sadDays" *ngFor="let each of SadActivitiesNamesandCategories">
     <div>Category: {{ each.aCategory }} - Activity: {{ each.aName }}</div>
   </div>
+  <div>
+    {{noactivity}}
+  </div>
 
-  
-  
 </div>
+
+<!-- <div class="list">
+  <div class="happyDays" *ngFor="let each of HappyActivitiesNamesandCategories">
+    <div *ngif="each.aCategory !== None">Category: {{ each.aCategory }} - Activity: {{ each.aName }}</div>
+    <div *ngif="each.aCategory === None">You have no happy days to display.</div>
+  </div>
+  <div class="sadDays" *ngFor="let each of SadActivitiesNamesandCategories">
+    <div *ngif="each.aCategory !== None">Category: {{ each.aCategory }} - Activity: {{ each.aName }}</div>
+    <div *ngif="each.aCategory === None">You have no sad days to display.</div>
+  </div>
+</div> -->
+

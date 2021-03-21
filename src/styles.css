@@ -7,11 +7,9 @@ html {
 
 body {
   font-family: "Ovo", serif;
-  margin: 60px 0px 90px 0px;
+  margin: 80px 0px 90px 0px;
   padding: 0px;
-  width: 100%;
   color: white;
-  min-height: 100vh;
   clear: both;
   /* background-color: rgb(241, 241, 253); */
 }
@@ -20,14 +18,10 @@ body {
 /* tablet */
 @media only screen and (min-width: 768px) {
   body {
-    /* margin: 50px 0px 50px 0px; */
+    margin: 0px;
   }
 }
 
 /* desktop */
 @media only screen and (min-width: 992px) {
-
-  body {
-    margin: 100px 0px 100px 0px;
-  }
 }
