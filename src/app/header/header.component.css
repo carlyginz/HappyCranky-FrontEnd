@@ -25,7 +25,7 @@ header {
 .appName {
   display: flex;
   color: white;
-  font-size: 12pt;
+  font-size: 18px;
   margin-left: 20px;
 }
 
