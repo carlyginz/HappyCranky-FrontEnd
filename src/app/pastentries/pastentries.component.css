@@ -1,3 +1,11 @@
+.wrapper {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 25px;
+}
+
 h3 {
   text-align: center;
   padding-bottom: 10px;
@@ -17,12 +25,27 @@ h3 {
   border: none;
   background-color: transparent;
 }
-.entryList button {
+.entryList {
+  width: 100%;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin-bottom: 12px;
+  max-width: 550px;
+}
+.entryList i {
+  font-size: 30px;
+}
+button {
   color: white;
-  font-size: 25px;
   font-family: "Ovo", serif;
   border: none;
   background-color: transparent;
+}
+.dateAndTime button {
+  font-size: 22px;
 }
 
 button:hover {
@@ -32,8 +55,8 @@ button:hover {
 
 .fa-plus {
   color: white;
-  border-radius: 50%;
-  padding: 20px;
+  border-radius: 100%;
+  padding: 15px 17px;
   background: #3a6186; /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #89253e, #3a6186);
   background: linear-gradient(to right, #89253e, #3a6186);
@@ -49,24 +72,16 @@ button:hover {
 .fa-trash-alt:hover {
   color: white;
 }
-.entryList {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: baseline;
-  padding-bottom: 10px;
-  font-size: 18px;
-}
 
 /* tablet */
 @media only screen and (min-width: 768px) {
-  .fa-plus {
-    font-size: large;
+  .entryList i {
+    font-size: 32px;
   }
-
-  .entryList {
+    
+  .dateAndTime button {
     font-size: 25px;
-  }
+  }  
 
   .fa-edit,
   .fa-trash-alt {
@@ -76,13 +91,14 @@ button:hover {
 
 /* computer */
 @media only screen and (min-width: 992px) {
-  .fa-plus {
-    font-size: larger;
-  }
 
-  .entryList {
-    font-size: 30px;
+  .entryList i {
+    font-size: 35px;
   }
+  
+  .dateAndTime button {
+    font-size: 30px;
+  }  
 
   .fa-edit,
   .fa-trash-alt {

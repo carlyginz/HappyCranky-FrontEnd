@@ -1,26 +1,17 @@
+<div class="wrapper">
   <div class="goToEntry">
     <button (click)="goToEntryPage()">
       <i class="fas fa-plus fa-2x"></i>
     </button>
   </div>
-<h3>Your Past Entries</h3>
+  <h3>Your Past Entries</h3>
   <div class="entryList" *ngFor="let entry of userEntries">
-    <div class="faces">
-      <div *ngIf="entry.mood === 1">
-        <i style="color: #336bb9" class="far fa-sad-tear"></i>
-      </div>
-      <div *ngIf="entry.mood === 2">
-        <i style="color: #33a0b9" class="far fa-frown"></i>
-      </div>
-      <div *ngIf="entry.mood === 3">
-        <i style="color: #86b8d3" class="far fa-meh"></i>
-      </div>
-      <div *ngIf="entry.mood === 4">
-        <i style="color: #f39481" class="far fa-smile"></i>
-      </div>
-      <div *ngIf="entry.mood === 5">
-        <i style="color: #d8214b" class="far fa-laugh-beam"></i>
-      </div>
+    <div>
+        <i *ngIf="entry.mood === 1" style="color: #336bb9" class="far fa-sad-tear"></i>
+        <i *ngIf="entry.mood === 2" style="color: #33a0b9" class="far fa-frown"></i>
+        <i *ngIf="entry.mood === 3" style="color: #86b8d3" class="far fa-meh"></i>
+        <i *ngIf="entry.mood === 4" style="color: #f39481" class="far fa-smile"></i>
+        <i *ngIf="entry.mood === 5" style="color: #d8214b" class="far fa-laugh-beam"></i>
     </div>
     <div class="dateAndTime">
       <button (click)="displayEntry(entry)">
@@ -32,3 +23,4 @@
       <i class="far fa-trash-alt fa-1x"></i>
     </button>
   </div>
+</div>
