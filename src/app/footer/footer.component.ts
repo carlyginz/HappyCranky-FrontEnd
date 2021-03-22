@@ -10,10 +10,18 @@ export class FooterComponent implements OnInit {
 
   constructor(public auth: AuthService) { }
 
-  id: any;
+  get usersignedin() {
+    return this.auth.usersignedin;
+  }
+
+  UserId = "";
+
   ngOnInit(): void {
     this.auth.user$.subscribe(user => {
-      this.id = user.uid;
+      this.UserId = user.uid;
+      if (this.UserId !== null) {
+        this.auth.usersignedin = true;
+      }
     })
   }
 }
