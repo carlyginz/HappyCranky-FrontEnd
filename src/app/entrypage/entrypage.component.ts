@@ -47,7 +47,6 @@ export class EntryPageComponent implements OnInit {
       this.UserId = this.entryToEdit.UserId;
 
       this.moodService.getAllEntryActivitiesPerEntryId(this.entryToEdit.id).subscribe(result => {
-        console.log(result);
         result.forEach(element => {
           this.activityList.push(element.activity_id);
         });
@@ -61,10 +60,6 @@ export class EntryPageComponent implements OnInit {
         });
       }
     })
-  }
-
-  displayHobbies() {
-    // return this.activityArray ? this.activityArray.categoy === "Hobbies" : undefined;
   }
 
   getCurrentDate() {
@@ -91,7 +86,6 @@ export class EntryPageComponent implements OnInit {
       const index = this.activityList.findIndex(list => list == id);
       this.activityList.splice(index, 1);
     }
-    console.log(this.activityList);
   }
 
   addNewEntry() {
@@ -107,30 +101,22 @@ export class EntryPageComponent implements OnInit {
         user_id: this.UserId
       }
 
-      console.log(newEntry);
-
       this.moodService.addNewEntry(newEntry).subscribe(result => {
         let emptyMood = "";
         let emptyEntryDate = "";
         let emptyEntrytime = "";
         let emptyJournalentry = "";
         let emptyUserId = "";
-        console.log(result);
+
         this.moodService.getUserEntries(emptyMood, emptyEntryDate, emptyEntrytime, emptyJournalentry, emptyUserId).subscribe(result => {
           this.newEntryId = result[0].id;
-          // this.newEntryId = result[newEntryIndex].id;
-
-          // console.log(newEntryId);
-          console.log(this.newEntryId);
 
           this.activityList.forEach(activity => {
             let newEntryActivity: EntryActivity = {
               entry_id: this.newEntryId,
               activity_id: activity.id
             }
-            console.log(newEntryActivity);
             this.moodService.addEntryActivities(newEntryActivity).subscribe(result => {
-              console.log(result);
             });
           });
           this.router.navigate(['/pastentries']);

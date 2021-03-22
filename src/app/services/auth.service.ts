@@ -15,6 +15,7 @@ import { User } from '../models/user.model';
 })
 export class AuthService {
   user$: Observable<User>;
+  usersignedin;
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -36,10 +37,12 @@ export class AuthService {
     const provider = new firebase.auth.GoogleAuthProvider();
     const credential = await this.afAuth.signInWithPopup(provider);
     this.router.navigate(["/dashboard"]);
+    this.usersignedin = true;
     return this.updateUserData(credential.user);
   }
 
   async signOut() {
+    this.usersignedin = false;
     await this.afAuth.signOut();
     return this.router.navigate(['/homepage']);
   }

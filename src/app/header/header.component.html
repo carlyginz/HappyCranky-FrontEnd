@@ -2,7 +2,7 @@
   <h1 class="appName">HappyCranky</h1>
   <div class="nav-bar">
     <div class="links">
-      <div class="linkies">
+      <div *ngIf="usersignedin === true" class="linkies">
         <div class="dash">
           <a routerLink="/dashboard">Home</a>
         </div>

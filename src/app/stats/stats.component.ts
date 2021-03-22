@@ -74,6 +74,7 @@ export class StatsComponent implements OnInit {
     this.happyActivitiesIds = [];
     this.userEntriesD.forEach((element) => {
       if (element.mood === 5 || element.mood === 4) {
+        this.noactivity = "";
         this.happyDays.push(element.id);
       }
     });
@@ -119,6 +120,7 @@ export class StatsComponent implements OnInit {
     this.sadActivitiesIds = [];
     this.userEntriesD.forEach((element) => {
       if (element.mood === 1 || element.mood === 2) {
+        this.noactivity = "";
         this.sadDays.push(element.id);
       }
     });
@@ -152,8 +154,6 @@ export class StatsComponent implements OnInit {
           });
       });
     }
-    console.log(this.noactivity);
-
   }
 }
 

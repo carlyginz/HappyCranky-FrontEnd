@@ -20,7 +20,7 @@
     <li class="habits">Habits</li>
     <li class="fitness">Fitness</li>
     <li class="emotions">Emotions</li>
-    </ul>   
+  </ul>   
 
   <fieldset id="activity">
     <div *ngFor="let activity of activityArray; let i = index">
@@ -47,7 +47,7 @@
   <h2>Write down your thoughts. <br><small>[optional]</small></h2>
 
   <textarea Rows="10" id="journal" name="journal" [(ngModel)]="journalentry"> </textarea>
-  <button *ngIf="entryToEdit.id" (click)="updateEntry()">Update Entry</button>
+  <!-- <button *ngIf="entryToEdit.id" (click)="updateEntry()">Update Entry</button> -->
   <button *ngIf="entryToEdit.id === undefined" (click)="addNewEntry()">
     Submit Entry
   </button>
