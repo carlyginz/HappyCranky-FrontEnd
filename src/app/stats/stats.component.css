@@ -4,6 +4,11 @@ h1 {
   font-size: 35px;
 }
 
+h4 {
+  color: #fff;
+  text-align: center;
+}
+
 .happysadbuttons {
   display: flex;
   flex-direction: row;
