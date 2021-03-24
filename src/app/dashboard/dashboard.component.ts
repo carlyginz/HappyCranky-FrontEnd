@@ -30,13 +30,13 @@ export class DashboardComponent implements OnInit {
       let userID: string = this.id;
       this.moodService.getUserEntries(mood, entrydate, entrytime, journalentry, userID).subscribe(result => {
         this.userEntries = result;
-        console.log(this.userEntries);
+        // console.log(this.userEntries);
         this.total = 0;
         this.userEntries.forEach(element => {
           this.total += element.mood;
         });
         this.average = (this.total) / (this.userEntries.length);
-        console.log(this.average);
+        // console.log(this.average);
         this.displayAverage = Math.round(this.average * 10) / 10;
       })
     })

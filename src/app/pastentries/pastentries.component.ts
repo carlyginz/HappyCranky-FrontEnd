@@ -22,8 +22,6 @@ export class PastentriesComponent implements OnInit {
 
   ngOnInit(): void {
     this.displayEntries();
-    console.log(this.userEntries);
-    console.log("this has run")
   }
 
   displayEntries() {
@@ -38,9 +36,7 @@ export class PastentriesComponent implements OnInit {
       let userID: string = this.id;
       this.moodService.getUserEntries(mood, entrydate, entrytime, journalentry, userID).subscribe(result => {
         this.userEntries = result;
-        console.log(this.userEntries);
       })
-      console.log(this.userEntries);
     })
   }
 
@@ -62,9 +58,9 @@ export class PastentriesComponent implements OnInit {
     this.moodService.getAllEntryActivitiesPerEntryId(entry.id).subscribe(newList => {
       newList.forEach(element => {
         let newId = element.id;
-        console.log(newId);
+        // console.log(newId);
         this.moodService.deleteEntryFromEA(newId).subscribe(() => {
-          console.log(`I'm deleting EA Table id = ${newId}`);
+          // console.log(`I'm deleting EA Table id = ${newId}`);
         })
       });
     })

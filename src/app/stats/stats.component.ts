@@ -103,7 +103,6 @@ export class StatsComponent implements OnInit {
                   
                   if (foundActivity) {
                     foundActivity.amount = foundActivity.amount + 1;
-                    console.log(foundActivity.amount);
                   } else {
                     let activityObject = {
                       id: fullActivity.id,
