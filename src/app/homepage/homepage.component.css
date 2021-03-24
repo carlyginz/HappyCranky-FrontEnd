@@ -10,13 +10,23 @@
 button {
   background-color: white;
   font-weight: 800;
-  padding: 10px;
+  padding: 15px 25px;
   border-radius: 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: #3d3d49;
+}
+
+button i {
+  padding-right: 10px;
+  margin: 10px 0px;
 }
 
 button:hover {
   background-color: rgb(236, 230, 255);
   transition: 0.5s;
+  cursor: pointer;
 }
 
 .fa-google {
