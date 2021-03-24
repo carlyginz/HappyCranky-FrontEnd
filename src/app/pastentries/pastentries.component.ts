@@ -22,13 +22,17 @@ export class PastentriesComponent implements OnInit {
 
   ngOnInit(): void {
     this.displayEntries();
+    console.log(this.userEntries);
+    console.log("this has run")
   }
 
   displayEntries() {
+    this.userEntries = [];
     let mood: any = "";
     let entrydate: string = "";
     let entrytime: string = "";
     let journalentry: string = "";
+    
     this.auth.user$.subscribe(user => {
       this.id = user.uid;
       let userID: string = this.id;
@@ -36,6 +40,7 @@ export class PastentriesComponent implements OnInit {
         this.userEntries = result;
         console.log(this.userEntries);
       })
+      console.log(this.userEntries);
     })
   }
 

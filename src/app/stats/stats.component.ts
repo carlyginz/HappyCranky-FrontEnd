@@ -1,12 +1,12 @@
-import { EidAname } from './../models/eid-aname';
+// import { EidAname } from './../models/eid-aname';
 import { Activity } from './../models/activity';
 import { Component, OnInit } from '@angular/core';
 import { MoodService } from '../services/mood.service';
-import { Router, ActivatedRoute } from '@angular/router';
+// import { Router, ActivatedRoute } from '@angular/router';
 import { Entry } from '../models/entry.model';
 import { AuthService } from './../services/auth.service';
-import { ThisReceiver } from '@angular/compiler';
-import { EntryActivity } from '../models/entryactivity';
+// import { ThisReceiver } from '@angular/compiler';
+// import { EntryActivity } from '../models/entryactivity';
 
 @Component({
   selector: 'app-stats',
@@ -28,12 +28,16 @@ export class StatsComponent implements OnInit {
   sadDays = [];
   happyActivitiesIds = [];
   sadActivitiesIds = [];
-  HappyActivitiesNamesandCategories: EidAname[] = [];
-  SadActivitiesNamesandCategories: EidAname[] = [];
+  HappyActivitiesNamesandCategories = [];
+  SadActivitiesNamesandCategories = [];
   AllActivities: Activity[];
   ActivitySelected: Number;
-  noActivitiesObject: EidAname = { aName: "None", aCategory: "None" };
+  // noActivitiesObject: EidAname = { aName: "None", aCategory: "None" };
   noactivity = "";
+  hsheading = "";
+  hBtnStatus = false;
+  sBtnStatus = false;
+  loopFinished = false;
 
   get clickedEntry(): any {
     return this.moodService.clickedEntry;
@@ -41,8 +45,8 @@ export class StatsComponent implements OnInit {
 
   constructor(
     private moodService: MoodService,
-    private router: Router,
-    private route: ActivatedRoute,
+    // private router: Router,
+    // private route: ActivatedRoute,
     private auth: AuthService
   ) { }
 
@@ -68,8 +72,12 @@ export class StatsComponent implements OnInit {
   }
 
   happyDaysDidThis() {
+    this.hBtnStatus = true;
+    this.sBtnStatus = false;
+    this.loopFinished = false;
     this.SadActivitiesNamesandCategories = [];
-    let i = 0;
+    this.hsheading = "You did these activities most on your happy days";
+    // let i = 0;
     this.happyDays = [];
     this.happyActivitiesIds = [];
     this.userEntriesD.forEach((element) => {
@@ -80,42 +88,64 @@ export class StatsComponent implements OnInit {
     });
     if (this.happyDays.length === 0) {
       this.noactivity = "You have no happy days to report";
-
       // this.HappyActivitiesNamesandCategories.push(this.noActivitiesObject);
     } else {
-
-      let newHEId;
-      let newHAId;
-      let newHObject: EidAname;
+      this.HappyActivitiesNamesandCategories = [];
+      // let newHEId;
+      // let newHAId;
+      // let newHObject: EidAname;
       this.happyDays.forEach((element) => {
-        this.moodService
-          .getAllEntryActivitiesPerEntryId(element)
-          .subscribe((result) => {
-            if (result.length > 0) {
-              this.HappyActivitiesNamesandCategories = [];
-              for (i = 0; i < result.length; i++) {
-                newHEId = result[i].entry_id;
-                newHAId = result[i].activity_id;
-                this.moodService
-                  .getActivityNameAndCategory(newHAId)
-                  .subscribe((newResult: any) => {
-                    newHObject = {
-                      aName: newResult.name,
-                      aCategory: newResult.category,
-                    };
-                    this.HappyActivitiesNamesandCategories.push(newHObject);
-                  });
-              }
-            }
-          });
+        this.moodService.getAllEntryActivitiesPerEntryId(element).subscribe((result) => {
+              result.forEach((EAResult, index) => {
+                this.moodService.getActivityNameAndCategory(EAResult.activity_id).subscribe((fullActivity: any) => {
+
+                  let foundActivity = this.HappyActivitiesNamesandCategories.find(activity => activity.id === fullActivity.id)
+                  
+                  if (foundActivity) {
+                    foundActivity.amount = foundActivity.amount + 1;
+                    console.log(foundActivity.amount);
+                  } else {
+                    let activityObject = {
+                      id: fullActivity.id,
+                      name: fullActivity.name,
+                      category: fullActivity.category,
+                      amount: 1
+                    }
+                    this.HappyActivitiesNamesandCategories.push(activityObject);
+                  }
+                  if (index === result.length -1) {
+                    this.HappyActivitiesNamesandCategories.sort((a, b) => {
+                      return b.amount - a.amount;
+                    });   
+                    this.loopFinished = true;  
+                  }
+                })
+              });
+              //   for (i = 0; i < result.length; i++) {
+              //   newHEId = result[i].entry_id;
+              //   newHAId = result[i].activity_id;
+              //   this.moodService
+              //     .getActivityNameAndCategory(newHAId)
+              //     .subscribe((newResult: any) => {
+              //       newHObject = {
+              //         aName: newResult.name,
+              //         aCategory: newResult.category,
+              //       };
+              //       this.HappyActivitiesNamesandCategories.push(newHObject);
+              //   });
+              // }
+        });
       });
-    }
+    }    
   }
 
   sadDaysDidThis() {
+    this.sBtnStatus = true;
+    this.hBtnStatus = false;
+    this.loopFinished = false;
     this.HappyActivitiesNamesandCategories = [];
-
-    let i = 0;
+    this.hsheading = "You did these activities most on your sad days";
+    // let i = 0;
     this.sadDays = [];
     this.sadActivitiesIds = [];
     this.userEntriesD.forEach((element) => {
@@ -128,33 +158,54 @@ export class StatsComponent implements OnInit {
       this.noactivity = "You have no sad days to report";
       // this.SadActivitiesNamesandCategories.push(this.noActivitiesObject);
     } else {
-      let newSEId;
-      let newSAId;
-      let newSObject: EidAname;
+      this.SadActivitiesNamesandCategories = [];
+      // let newSEId;
+      // let newSAId;
+      // let newSObject: EidAname;
+
       this.sadDays.forEach((element) => {
-        this.moodService
-          .getAllEntryActivitiesPerEntryId(element)
-          .subscribe((result) => {
-            if (result.length > 0) {
-              this.SadActivitiesNamesandCategories = [];
-              for (i = 0; i < result.length; i++) {
-                newSEId = result[i].entry_id;
-                newSAId = result[i].activity_id;
-                this.moodService
-                  .getActivityNameAndCategory(newSAId)
-                  .subscribe((newResult: any) => {
-                    newSObject = {
-                      aName: newResult.name,
-                      aCategory: newResult.category,
-                    };
-                    this.SadActivitiesNamesandCategories.push(newSObject);
-                  });
+        this.moodService.getAllEntryActivitiesPerEntryId(element).subscribe((result) => {
+          result.forEach((EAResult, index) => {
+            this.moodService.getActivityNameAndCategory(EAResult.activity_id).subscribe((fullActivity: any) => {
+
+              let foundActivity = this.SadActivitiesNamesandCategories.find(activity => activity.id === fullActivity.id)
+              
+              if (foundActivity) {
+                foundActivity.amount = foundActivity.amount + 1;
+              } else {
+                let activityObject = {
+                  id: fullActivity.id,
+                  name: fullActivity.name,
+                  category: fullActivity.category,
+                  amount: 1
+                }
+                this.SadActivitiesNamesandCategories.push(activityObject);
               }
-            }
+              if (index === result.length -1) {
+                this.SadActivitiesNamesandCategories.sort((a, b) => {
+                  return b.amount - a.amount;
+                });   
+                this.loopFinished = true;
+              }
+            })
           });
-      });
-    }
-  }
+          // for (i = 0; i < result.length; i++) {
+              //   newSEId = result[i].entry_id;
+              //   newSAId = result[i].activity_id;
+              //   this.moodService
+              //     .getActivityNameAndCategory(newSAId)
+              //     .subscribe((newResult: any) => {
+              //       newSObject = {
+              //         aName: newResult.name,
+              //         aCategory: newResult.category,
+              //       };
+              //       this.SadActivitiesNamesandCategories.push(newSObject);
+              //     });
+              // }
+            });
+          });
+        }    
+      }    
 }
 
  

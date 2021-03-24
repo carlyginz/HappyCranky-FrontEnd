@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { MoodService } from '../services/mood.service';
 import { AuthService } from '../services/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { Entry } from '../models/entry.model';
 import { Activity } from '../models/activity';
 import { EntryActivity } from '../models/entryactivity';
@@ -13,7 +13,7 @@ import { EntryActivity } from '../models/entryactivity';
 })
 export class EntryPageComponent implements OnInit {
 
-  constructor(public auth: AuthService, private moodService: MoodService, public router: Router) { }
+  constructor(public auth: AuthService, private moodService: MoodService, public router: Router, private ngZone:NgZone) { }
 
   mood: number = 3;
   entrydate: string = "";
@@ -22,6 +22,7 @@ export class EntryPageComponent implements OnInit {
   UserId: string = "";
   newEntryId: number = 0;
   entryToEdit: any = {}
+  newEntry: Entry;
   // exsistingEntryId: number = this.item.id;
 
   get activityArray(): Activity[] {
@@ -92,16 +93,22 @@ export class EntryPageComponent implements OnInit {
     this.auth.user$.subscribe(user => {
 
       this.UserId = user.uid;
+      console.log(this.newEntry);
 
-      let newEntry: Entry = {
+      this.newEntry = {
         mood: this.mood,
         entrydate: this.entrydate,
         entrytime: this.entrytime,
         journalentry: this.journalentry,
         user_id: this.UserId
       }
+      console.log(this.newEntry);
 
-      this.moodService.addNewEntry(newEntry).subscribe(result => {
+      this.moodService.addNewEntry(this.newEntry).subscribe(result => {
+        console.log(this.newEntry);
+        console.log(result);
+      })
+        
         let emptyMood = "";
         let emptyEntryDate = "";
         let emptyEntrytime = "";
@@ -119,9 +126,10 @@ export class EntryPageComponent implements OnInit {
             this.moodService.addEntryActivities(newEntryActivity).subscribe(result => {
             });
           });
-          this.router.navigate(['/pastentries']);
         })
-      });
+        this.ngZone.run(() => {
+          this.router.navigate(['/pastentries']);
+        })    
     });
   }
 

@@ -4,7 +4,7 @@ h1 {
   font-size: 35px;
 }
 
-h4 {
+h4, h3, h1, h2 {
   color: #fff;
   text-align: center;
 }
@@ -12,20 +12,29 @@ h4 {
 .happysadbuttons {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .happybutton,
 .sadbutton {
   font-family: "Ovo", serif;
   font-size: large;
-  padding: 10px;
-  border: 1px gray;
+  padding: 20px 30px;
   border-radius: 10px;
+  cursor: pointer;
+}
+
+.h-active {
+  background-color: #ffcdda!important;
+}
+
+.s-active {
+  background-color: #bfdaff!important;
 }
 
 .happybutton {
   background-color: #fdebef;
+  margin-right: 15px;
 }
 
 .sadbutton {
@@ -57,9 +66,30 @@ h4 {
 .sadDays {
   padding: 10px;
   margin-bottom: 0px;
-  border-bottom: 1px solid gray;
   display: flex;
   justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid gray;
+}
+
+.happyDays div,
+.sadDays div {
+  padding: 10px;
+  color: #3d3d49;
+
+}
+
+.name {
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.category {
+  font-size: 16px;
+}
+
+.amount {
+  font-size: 35px;
 }
 
 .happyDays {
