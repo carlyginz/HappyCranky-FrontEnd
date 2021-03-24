@@ -55,8 +55,8 @@ export class MoodService {
     return this.http.delete<Entry[]>(this.apiURL + `/${itemId}`);
   }
 
-  addNewEntry(newEntry: Entry): Observable<Entry[]> {
-    return this.http.post<Entry[]>(this.apiURL, newEntry);
+  addNewEntry(newEntry: Entry): Observable<any[]> {
+    return this.http.post<any[]>(this.apiURL, newEntry);
   }
 
   // updateEntry(entryID: number, entryObject: any): Observable<any[]> {       

@@ -93,7 +93,6 @@ export class EntryPageComponent implements OnInit {
     this.auth.user$.subscribe(user => {
 
       this.UserId = user.uid;
-      console.log(this.newEntry);
 
       this.newEntry = {
         mood: this.mood,
@@ -102,13 +101,13 @@ export class EntryPageComponent implements OnInit {
         journalentry: this.journalentry,
         user_id: this.UserId
       }
+
       console.log(this.newEntry);
 
       this.moodService.addNewEntry(this.newEntry).subscribe(result => {
-        console.log(this.newEntry);
         console.log(result);
       })
-        
+
         let emptyMood = "";
         let emptyEntryDate = "";
         let emptyEntrytime = "";
@@ -117,12 +116,14 @@ export class EntryPageComponent implements OnInit {
 
         this.moodService.getUserEntries(emptyMood, emptyEntryDate, emptyEntrytime, emptyJournalentry, emptyUserId).subscribe(result => {
           this.newEntryId = result[0].id;
-
+          console.log(this.newEntryId);
+  
           this.activityList.forEach(activity => {
             let newEntryActivity: EntryActivity = {
               entry_id: this.newEntryId,
               activity_id: activity.id
             }
+            console.log(newEntryActivity);
             this.moodService.addEntryActivities(newEntryActivity).subscribe(result => {
             });
           });

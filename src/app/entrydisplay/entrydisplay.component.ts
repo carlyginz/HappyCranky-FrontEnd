@@ -23,7 +23,7 @@ export class EntrydisplayComponent implements OnInit {
   entryToEdit: any = {}
   displayAll: any;
   activityList = [];
-  activityNameAndCategory: any;
+  activityNameAndCategory: any[] = [];
 
   get activityArray(): Activity[] {
     return this.moodService.activityArray;
@@ -34,9 +34,9 @@ export class EntrydisplayComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getCurrentDate();
-    this.getCurrentTime();
     this.entryToEdit = this.moodService.clickedEntry;
+    console.log(this.entryToEdit);
+    console.log(this.entryToEdit.id);
     if (this.entryToEdit.id !== undefined) {
       this.mood = this.entryToEdit.mood;
       this.entrydate = this.entryToEdit.entrydate;
@@ -63,18 +63,5 @@ export class EntrydisplayComponent implements OnInit {
     }
   }
 
-  getCurrentDate() {
-    let currentDate = new Date();
-    let dd = String(currentDate.getDate()).padStart(2, '0');
-    let mm = String(currentDate.getMonth() + 1).padStart(2, '0');
-    let yyyy = currentDate.getFullYear();
-    this.entrydate = currentDate.toString();
-    this.entrydate = mm + '/' + dd + '/' + yyyy;
-  }
-
-  getCurrentTime() {
-    let currentTime = new Date().toLocaleTimeString();
-    this.entrytime = currentTime.toString();
-  }
 }
 
