@@ -106,7 +106,6 @@ export class EntryPageComponent implements OnInit {
 
       this.moodService.addNewEntry(this.newEntry).subscribe(result => {
         console.log(result);
-      })
 
         let emptyMood = "";
         let emptyEntryDate = "";
@@ -117,7 +116,7 @@ export class EntryPageComponent implements OnInit {
         this.moodService.getUserEntries(emptyMood, emptyEntryDate, emptyEntrytime, emptyJournalentry, emptyUserId).subscribe(result => {
           this.newEntryId = result[0].id;
           console.log(this.newEntryId);
-  
+          
           this.activityList.forEach(activity => {
             let newEntryActivity: EntryActivity = {
               entry_id: this.newEntryId,
@@ -127,10 +126,12 @@ export class EntryPageComponent implements OnInit {
             this.moodService.addEntryActivities(newEntryActivity).subscribe(result => {
             });
           });
-        })
-        this.ngZone.run(() => {
           this.router.navigate(['/pastentries']);
-        })    
+        })
+        // this.ngZone.run(() => {
+        //   this.router.navigate(['/pastentries']);
+        // })    
+      })
     });
   }
 
