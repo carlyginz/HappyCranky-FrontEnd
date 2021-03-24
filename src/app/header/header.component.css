@@ -29,9 +29,13 @@ header {
   text-decoration: none;
 }
 
+/* h1:hover {
+  color: #3a6186;
+} */
+
 a:hover,
 button:hover {
-  color: rgba(241, 237, 252, 0.781);
+  color: #8d5866;
 }
 
 .dash, .past, .stats {
@@ -52,7 +56,7 @@ a {
 }
 
 .nav-bar {
-  margin-right: 25px;
+  margin-right: 10px;
   font-size: 18px;
 }
 
@@ -68,65 +72,6 @@ button {
   text-decoration: none;
 }
 
-/* .link-icons {
-  display: none;
-} */
-
-/* tablet */
-/* @media only screen and (min-width: 768px) {
-
-  .nav-bar {
-    display: none;
-  }
-
-  .link-icons {
-    top: 0px;
-    display: initial;
-    display: flex;
-    position: fixed;
-    justify-content: flex-end;
-    align-items: center;
-    width: 100%;
-    height: 3rem;
-    color: white;
-    background: #3a6186;
-    background: -webkit-linear-gradient(
-      to right,
-      #89253e,
-      #3a6186
-    ); 
-    background: linear-gradient(
-      to right,
-      #89253e,
-      #3a6186
-    ); 
-  }
-
-  i {
-    font-size: 25px;    
-    margin: 10px;
-    color: white;
-  }
-
-  .appName {
-    display: flex;
-    color: white;
-    font-size: 12pt;
-    padding-left: 2px;
-  }
-
-  button {
-    cursor: pointer;
-    padding: 10px;
-    margin: 5px;
-    background-color: transparent;
-    border: none;
-    color: white;
-    font-family: "Ovo", serif;
-    font-size: 15px;
-    text-decoration: none;
-  }
-} */
 
 /* computer */
 /* @media only screen and (min-width: 1200px)  */
@@ -139,6 +84,7 @@ button {
   } */
   .dash, .past, .stats {
     display: block;
+    margin: 12px;
   }
 
   .links {

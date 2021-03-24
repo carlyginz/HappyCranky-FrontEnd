@@ -1,11 +1,27 @@
 .dash-container {
   color: white;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+.dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* top: 15%; */
+  /* margin-top: 10px; */
+  position: absolute;  
+  transform: translateY(37%);
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
 }
 
 h1 {
   text-align: center;
-  padding: 15px 0px;
+  padding: 5px 0px;
   font-size: 40px;
 }
 
@@ -49,6 +65,7 @@ button:hover {
   display: flex;
   justify-content: center;
   padding-bottom: 15px;
+  padding-top: 15px;
   font-size: 20px;
 }
 
@@ -75,4 +92,37 @@ button:hover {
   .goToEntry {
     padding-top: 20px;
   }
+
+
+  .dash-container {
+    color: white;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+  }
+  
+  .dashboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* top: 30%; */
+    transform: translateY(40%);
+    /* transform: translateX(50%); */
+    position: absolute;  
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    /* flex-basis: 24%;
+    line-height: 50px;   */
+  }
+
 }
+
+  /* @media only screen and (min-height: 1020px) {
+    
+    .dash-container {
+      color: blue;
+    }
+
+  } */
