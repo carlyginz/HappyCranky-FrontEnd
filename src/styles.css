@@ -18,7 +18,7 @@ body {
 /* tablet */
 @media only screen and (min-width: 768px) {
   body {
-    margin: 85px 0px 50px 0px;
+    margin: 100px 0px 50px 0px;
   }
 }
 

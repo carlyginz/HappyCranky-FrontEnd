@@ -1,13 +1,10 @@
 <header>
-  <h1 class="appName">HappyCranky</h1>
+  <h1 class="appName"><a routerLink="/dashboard">HappyCranky</a></h1>
   <div class="nav-bar">
     <div class="links">
       <div *ngIf="usersignedin === true" class="linkies">
-        <div class="dash">
-          <a routerLink="/dashboard">Home</a>
-        </div>
         <div class="past">
-          <a routerLink="/pastentries">Past Entries</a>
+          <a routerLink="/pastentries">Your Entries</a>
         </div>
         <div class="stats">
           <a routerLink="/stats">Stats</a>
