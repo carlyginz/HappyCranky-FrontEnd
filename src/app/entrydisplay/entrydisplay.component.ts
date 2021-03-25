@@ -35,6 +35,7 @@ export class EntrydisplayComponent implements OnInit {
 
   ngOnInit(): void {
     this.entryToEdit = this.moodService.clickedEntry;
+    console.log(this.entryToEdit);
     if (this.entryToEdit.id !== undefined) {
       this.mood = this.entryToEdit.mood;
       this.entrydate = this.entryToEdit.entrydate;
