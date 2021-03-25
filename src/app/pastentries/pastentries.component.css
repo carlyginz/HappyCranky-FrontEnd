@@ -6,9 +6,9 @@
   margin: 0px 25px;
 }
 
-h3 {
+h1 {
   text-align: center;
-  padding-bottom: 10px;
+  margin-bottom: 0px;
 }
 
 .goToEntry {
@@ -24,6 +24,7 @@ h3 {
   font-family: "Ovo", serif;
   border: none;
   background-color: transparent;
+  margin-bottom: 20px;
 }
 .entryList {
   width: 100%;
