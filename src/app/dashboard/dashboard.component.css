@@ -44,10 +44,6 @@ button {
   cursor: pointer;
 }
 
-button:hover {
-  color: rgba(241, 237, 252, 0.781);
-}
-
 .fa-plus {
   color: white;
   border-radius: 100px;
@@ -59,6 +55,15 @@ button:hover {
     #3a6186
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #89253e, #3a6186);
+}
+
+.fa-plus:hover {
+  background: -webkit-linear-gradient(
+    to right,
+    #3a6186,
+    #89253e
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #3a6186, #89253e);
 }
 
 .displayAverage {
@@ -119,10 +124,49 @@ button:hover {
 
 }
 
-  /* @media only screen and (min-height: 1020px) {
+  @media only screen and (min-height: 1020px) {
     
-    .dash-container {
-      color: blue;
+    
+    /* .dash-container{
+      min-height: 150px;
+    }  */
+    
+    .dashboard {
+      font-size: 4vw;
+      transform: translateY(42%);
     }
 
-  } */
+    .displayAverage {
+      font-size: 4vw;
+      margin-top: 15px;
+    }
+    
+    .phrase {
+      font-size: 4vw;
+      margin: 20px;
+    }  
+
+    /* .avgMoodDiv {
+      font-size: 3vw;
+    } */
+
+    h1 {
+      font-size: 7vw;
+    }
+
+    button {
+      font-size: 4vw;
+    }
+
+    .addNewEntry {
+      font-size: 4vw;
+      margin: 20px;
+    } 
+
+    .goToEntry {
+      margin-top: 20px;
+    }
+    
+
+
+  }

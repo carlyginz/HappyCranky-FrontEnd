@@ -29,9 +29,9 @@ header {
   text-decoration: none;
 }
 
-/* h1:hover {
+.appName a:hover {
   color: #3a6186;
-} */
+}
 
 a:hover,
 button:hover {
